@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <name>747-200-crew</name>
+  <layout>vbox</layout>
+
+  <text>
+    <label>747-200 crew</label>
+  </text>
+
+  <hrule><dummy/></hrule>
+
+  <group>
+    <layout>vbox</layout>
+    <halign>center</halign>
+
+    <text>
+      <label>Cargo doors</label>
+    </text>
+
+    <checkbox>
+      <halign>left</halign>
+      <label>Forward</label>
+      <property>/controls/doors/cargo/forward/position-norm</property>
+      <binding>
+       <command>nasal</command>
+       <script>globals.Boeing747.doorsystem.cargoforwardexport();</script>
+      </binding>
+    </checkbox>
+
+    <checkbox>
+      <halign>left</halign>
+      <label>Aft</label>
+      <property>/controls/doors/cargo/aft/position-norm</property>
+      <binding>
+       <command>nasal</command>
+       <script>globals.Boeing747.doorsystem.cargoaftexport();</script>
+      </binding>
+    </checkbox>
+
+    <checkbox>
+      <halign>left</halign>
+      <label>Bulk</label>
+      <property>/controls/doors/cargo/bulk/position-norm</property>
+      <binding>
+       <command>nasal</command>
+       <script>globals.Boeing747.doorsystem.cargobulkexport();</script>
+      </binding>
+    </checkbox>
+
+    <text>
+      <label></label>
+    </text>
+
+    <text>
+      <label>Views</label>
+    </text>
+
+    <checkbox>
+      <halign>left</halign>
+      <label>Cargo forward (floating)</label>
+      <property>/systems/seat/cargo-forward</property>
+      <binding>
+       <command>nasal</command>
+       <script>globals.Boeing747.seatsystem.viewexport("cargo-forward");</script>
+      </binding>
+      <binding>
+       <command>dialog-update</command>
+      </binding>
+    </checkbox>
+
+    <checkbox>
+      <halign>left</halign>
+      <label>Gear well (floating)</label>
+      <property>/systems/seat/gear-well</property>
+      <binding>
+       <command>nasal</command>
+       <script>globals.Boeing747.seatsystem.viewexport("gear-well");</script>
+      </binding>
+      <binding>
+       <command>dialog-update</command>
+      </binding>
+    </checkbox>
+
+    <checkbox>
+      <halign>left</halign>
+      <label>Cargo aft (floating)</label>
+      <property>/systems/seat/cargo-aft</property>
+      <binding>
+       <command>nasal</command>
+       <script>globals.Boeing747.seatsystem.viewexport("cargo-aft");</script>
+      </binding>
+      <binding>
+       <command>dialog-update</command>
+      </binding>
+    </checkbox>
+  </group>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+    <layout>hbox</layout>
+    <empty><stretch>true</stretch></empty>
+
+    <button>
+      <legend>Close</legend>
+      <default>true</default>
+      <key>Esc</key>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <empty><stretch>true</stretch></empty>
+  </group>
+</PropertyList>

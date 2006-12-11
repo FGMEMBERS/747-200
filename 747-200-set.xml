@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+ <sim include="Nasal/747-200-sim.xml">
+  <description>Boeing 747-200</description>
+  <status>beta</status>
+  <aircraft-version>0.9</aircraft-version>
+
+  <flight-model>jsb</flight-model>
+  <aero>747-200</aero>
+
+  <startup>
+   <splash-texture>Aircraft/747-200/747-200-splash.rgb</splash-texture>
+  </startup>
+
+  <systems>
+   <path>Aircraft/747-200/Systems/747-200-systems.xml</path>
+   <autopilot>
+     <path>Aircraft/747-200/Systems/747-200-autopilot.xml</path>
+   </autopilot>
+  </systems> 
+
+  <instrumentation>
+   <path>Aircraft/747-200/Systems/747-200-instrumentation.xml</path>
+  </instrumentation>
+  
+  <sound>
+   <path>Aircraft/747-200/Sounds/747-200-sound.xml</path>
+   <volume>
+     <gear type="double">0.4</gear>
+   </volume>
+  </sound>
+
+  <panel>
+   <path>Aircraft/747-200/Panels/747-200-2D-captain.xml</path>
+   <visibility>true</visibility>
+  </panel>
+  <panel_2>
+   <path>Aircraft/747-200/Panels/747-200-2D-center.xml</path>
+  </panel_2>
+
+  <hud>
+   <path>Huds/Custom/default.xml</path>
+   <visibility>false</visibility>
+   <enable3d>false</enable3d>
+  </hud>
+  
+  <model>
+   <path>Aircraft/747-200/Models/boeing747-200.xml</path>
+  </model>
+
+  <presets include="Nasal/747-200-fuel.xml">
+
+<!-- max fuel load : add in preferences.xml, or remove the comment
+   <fuel>1</fuel>
+-->
+  </presets>
+
+  <chase-distance-m type="double" archive="y">-90.0</chase-distance-m>
+
+  <help include="help.xml"/>
+
+ </sim>
+
+ <consumables>
+  <fuel include="Systems/747-200-init-fuel.xml"/>                  <!-- required by nasal -->
+ </consumables>
+
+ <nasal>
+  <Boeing747>
+   <file>Aircraft/747-200/Nasal/747-200-constants.nas</file>
+   <file>Aircraft/747-200/Nasal/747-200-override.nas</file>
+   <file>Aircraft/747-200/Nasal/747-200-instrument.nas</file>
+   <file>Aircraft/747-200/Nasal/747-200-fuel.nas</file>
+   <file>Aircraft/747-200/Nasal/747-200-autopilot.nas</file>
+   <file>Aircraft/747-200/Nasal/747-200-crew.nas</file>
+   <file>Aircraft/747-200/Nasal/747-200.nas</file>
+  </Boeing747>
+ </nasal>
+
+ <input>
+  <keyboard include="Nasal/747-200-keyboard.xml">
+  </keyboard>
+ </input>
+
+ <surface-positions include="Systems/747-200-init-surface.xml"/>
+
+
+<!-- ============= -->
+<!-- customization -->
+<!-- ============= -->
+
+ <controls include="Systems/747-200-init-controls.xml">
+
+<!-- autopilot -->
+
+  <autoflight>
+   <dial-altitude-ft>10000</dial-altitude-ft>
+   <dial-heading-deg>283</dial-heading-deg>
+   <dial-speed-kt>200</dial-speed-kt>                         <!-- flaps 20 deg -->
+  </autoflight>
+ </controls>
+
+ <systems include="Systems/747-200-init-systems.xml">
+ </systems>
+
+ <instrumentation include="Systems/747-200-init-instrumentation.xml">
+
+<!-- ADF 2 (not available by GUI dialog) -->
+
+  <adf n="1">
+   <frequencies>
+    <selected-khz>403</selected-khz>                          <!-- Woodhill near CYYZ -->
+    <standby-khz>228</standby-khz>                            <!-- Omiya near RJAA -->
+   </frequencies>
+  </adf>
+
+<!-- decision altitude -->
+
+  <radio-altimeter n="0">
+   <decision-ft>218</decision-ft> <!-- offset : 218 = 200 ft -->
+  </radio-altimeter>
+
+ </instrumentation>
+
+ <engines>
+  <engine n="0">
+    <running>true</running>
+  </engine>
+  <engine n="1">
+    <running>true</running>
+  </engine>
+  <engine n="2">
+    <running>true</running>
+  </engine>
+  <engine n="3">
+    <running>true</running>
+  </engine>
+ </engines>
+
+<!-- autopilot -->
+
+ <autopilot>
+  <settings>
+   <heading-bug-deg>273</heading-bug-deg>
+  </settings>
+ </autopilot>
+
+</PropertyList>
