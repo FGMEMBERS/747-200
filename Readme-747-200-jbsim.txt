@@ -17,6 +17,7 @@ Ceiling : 45100 ft (C).
 - climb   : flaps retraction scheduled with autothrottle (D2).
 - cruise  : 0.84 mach.
 - descent : start at 225 NM.
+- approach: 160 kt (landing load), 150 kt (empty tank), flaps 20.
 - final   : - 160 kt (landing load), 150 kt (empty tank), flaps 30.
             - arm spoilers.
 - landing : - 154 kt (landing load), 140 kt (empty tank) (D1).
@@ -30,14 +31,11 @@ If your preferences.xml doesn't have 6 views, update Nasal/747-200-views.xml.
 Fuel load
 ---------
 - default is maximum landing weight, 630000 lb.
-- for alternate load, press "ctrl-M f".
-- for maximum takeoff weight, 833000 lb, set /sim/presets/fuel to 1 in preferences.xml
-  (see 747-200-set.xml).
-- for other configurations, see Nasal/747-200-fuel.xml.
+- for alternate load, press "ctrl-M f" (saved on exit by userarchive).
 
 Known compatibility
 -------------------
-- 0.9.11 (CVS) : nasal loads menu (ctrl-M), and Systems/747-200-instrumentation.xml.
+- 0.9.11 : nasal loads menus, and Systems/747-200-instrumentation.xml.
 - 0.9.10 : JSBSim 2.0 FDM.
 - 0.9.9  : object nasal.
 
@@ -115,7 +113,6 @@ JSBSim
 TO DO
 =====
 - 3D cockpit.
-- /sim/presets/fuel as userarchive, saved in autosave.xml.
 
 TO DO JSBSim
 ------------
@@ -128,13 +125,17 @@ Known problems
 
 Known problems autopilot
 ------------------------
-- autoland may touch outside of runway : discrepancy during approach between
-  /autopilot/internal/nav1-track-error-deg and /instrumentation/nav[0]/heading-needle-deflection,
-  only solved in the last 700 ft.
-- autoland may not land smoothly : KSFO 27R is OK; EGLL 27R, KJFK 22L, RJAA 34L are not OK.
 - close waypoint may not pop for the next one, to avoid a strong bank.
 - heading hold is a little slow to converge.
 - beyond 15 NM, nav hold makes wide rolls.
+
+Known problems autoland
+-----------------------
+- nav must be accurate until 0 ft AGL : KSFO 28R, RJAA 34L are correct;
+  but EGLL 27R, KJFK 22L are wrong : to land at these airports,
+  set /controls/autoflight/real-nav to false, by "ctrl-M c".
+- glide slope must be accurate until 200 ft AGL : real should be 100 ft,
+  but nose tends to dive to catch the slope (simplistic autopilot or wrong glide slope ?).
 
 
 References
@@ -160,4 +161,4 @@ References
     747 Classics.
 
 
-10 December 2006.
+16 December 2006.

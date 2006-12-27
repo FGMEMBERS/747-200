@@ -118,6 +118,8 @@ Tanks.menu = func {
    for( i=0; i < size(me.fillings); i=i+1 ) {
         if( me.fillings[i].getChild("comment").getValue() == value ) {
             me.load( i );
+            # for user archive
+            setprop("/sim/presets/fuel",i);
             break;
         }
    }

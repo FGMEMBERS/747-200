@@ -1,10 +1,21 @@
 <?xml version="1.0"?>
+
+<!-- 747-200.
+-->
+
+<!-- Version           CVS date                   Milestone
+     ==========================================================================================
+     1.0               December 2006              Aircraft, FDM, 2D panel.
+     ==========================================================================================
+-->
+
+
 <PropertyList>
 
  <sim include="Nasal/747-200-sim.xml">
   <description>Boeing 747-200</description>
-  <status>beta</status>
-  <aircraft-version>0.9</aircraft-version>
+  <status>early-production</status>
+  <aircraft-version>1.0</aircraft-version>
 
   <flight-model>jsb</flight-model>
   <aero>747-200</aero>
@@ -26,9 +37,6 @@
   
   <sound>
    <path>Aircraft/747-200/Sounds/747-200-sound.xml</path>
-   <volume>
-     <gear type="double">0.4</gear>
-   </volume>
   </sound>
 
   <panel>
@@ -51,9 +59,9 @@
 
   <presets include="Nasal/747-200-fuel.xml">
 
-<!-- max fuel load : add in preferences.xml, or remove the comment
-   <fuel>1</fuel>
--->
+<!-- fuel load saved on exit -->
+
+   <fuel type="int" userarchive="y">0</fuel>
   </presets>
 
   <chase-distance-m type="double" archive="y">-90.0</chase-distance-m>
@@ -98,6 +106,7 @@
    <dial-altitude-ft>10000</dial-altitude-ft>
    <dial-heading-deg>283</dial-heading-deg>
    <dial-speed-kt>200</dial-speed-kt>                         <!-- flaps 20 deg -->
+   <real-nav type="bool">true</real-nav>                      <!-- nav is accurate until ground -->
   </autoflight>
  </controls>
 
@@ -110,7 +119,7 @@
 
   <adf n="1">
    <frequencies>
-    <selected-khz>403</selected-khz>                          <!-- Woodhill near CYYZ -->
+    <selected-khz>380</selected-khz>                          <!-- Vagey near KMSP -->
     <standby-khz>228</standby-khz>                            <!-- Omiya near RJAA -->
    </frequencies>
   </adf>

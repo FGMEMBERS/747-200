@@ -16,6 +16,7 @@ Autopilot.new = func {
            autothrottlesystem : nil,
 
            ap : nil,
+           attitude : nil,
            autoflight : nil,
            locks : nil,
            settings : nil,
@@ -31,30 +32,31 @@ Autopilot.new = func {
            EMPTYLB : 376170.0,                            # empty weight
 
            TOUCHDEG : 3.0,                                # landing pitch
-           FLAREDEG : 3.0,                                # avoids rebound by landing pitch
+           FLAREDEG : 0.0,                                # avoids rebound by landing pitch
 
            AUTOLANDFEET : 1500.0,
-           FLAREFEET : 500.0,                             # avoids rebound by landing pitch
-# instead of 250 ft, becomes pitch goes down to catch the glide slope
-           PITCHFEET : 350.0,                             # leaves glide slope
-           NAVFEET : 100.0,                               # leaves nav
+# - instead of 100 ft, as catching glide makes nose down
+# (bug in glide slope, or more sophisticated autopilot is required ?);
+           GLIDEFEET : 200.0,                             # leaves glide slope
+# - nav is supposed accurate until 0 ft.
+# - bypass possible nav errors (example : KJFK 22L, EGLL 27R).
+           NAVFEET : 200.0,                               # leaves nav
 # a responsive vertical-speed-with-throttle reduces the rebound by ground effect
-           GROUNDFEET : 20.0,                             # rebound by ground effect
+           GROUNDFEET : 20.0,                             # altimeter altitude
 
            CRUISEKT : 450.0,
            TRANSITIONKT : 250.0,
            VREFFULLKT : 154.0,
            VREFEMPTYKT : 120.0,
 
-           FLAREFPM : -750.0,                             # structural limit
-           TOUCHFPM : -400.0,                             # reduces load on nose gear
+           TOUCHFPM : -750.0,                             # structural limit
+
+           landheadingdeg : 0.0,                          # touch down without nav
 
            ROLLDEG : 2.0,                                 # roll to swap to next waypoint
            WPTNM : 3.0,                                   # distance to swap to next waypoint
            COEFVOR : 0.0,
-           COEFWPT : 0.0,
-
-           landheadingdeg : 0.0
+           COEFWPT : 0.0
          };
 
    obj.init();
@@ -64,6 +66,7 @@ Autopilot.new = func {
 
 Autopilot.init = func {
    me.ap = props.globals.getNode("/controls/autoflight").getChildren("autopilot");
+   me.attitude = props.globals.getNode("/orientation");
    me.autoflight = props.globals.getNode("/controls/autoflight");
    me.locks = props.globals.getNode("/autopilot/locks");
    me.settings = props.globals.getNode("/autopilot/settings");
@@ -140,7 +143,7 @@ Autopilot.waypointroll = func {
             stepnm = stepnm * 2.0;
 
             # switches to heading hold
-            rolldeg =  getprop("/orientation/roll-deg");
+            rolldeg =  me.attitude.getChild("roll-deg").getValue();
             if( distance < stepnm or rolldeg < - me.ROLLDEG or rolldeg > me.ROLLDEG ) {
                 if( me.is_lock_true() ) {
                     me.holdmagnetic();
@@ -235,20 +238,20 @@ Autopilot.targetwind = func {
 }
 
 # reduces the rebound caused by ground effect
-Autopilot.targetdescent = func( aglft ) {
+Autopilot.targetpitch = func( aglft ) {
    # counter the rebound of ground effect
-   if( aglft > me.PITCHFEET ) {
-       targetfpm = me.FLAREFPM;
+   if( aglft > me.GLIDEFEET ) {
+       targetdeg = me.FLAREDEG;
    }
    elsif( aglft < me.GROUNDFEET ) {
-       targetfpm = me.TOUCHFPM;
+       targetdeg = me.TOUCHDEG;
    }
    else {
-       coef = ( aglft - me.GROUNDFEET ) / ( me.PITCHFEET - me.GROUNDFEET );
-       targetfpm = me.TOUCHFPM + coef * ( me.FLAREFPM - me.TOUCHFPM );
+       coef = ( aglft - me.GROUNDFEET ) / ( me.GLIDEFEET - me.GROUNDFEET );
+       targetdeg = me.TOUCHDEG + coef * ( me.FLAREDEG - me.TOUCHDEG );
    }
    
-   me.settings.getChild("vertical-speed-fpm").setValue(targetfpm);
+   me.holdpitch(targetdeg);
 }
 
 # cannot make a settimer on a member function
@@ -312,7 +315,7 @@ Autopilot.autoland = func {
                if( aglft < Constantaero.AGLTOUCHFT ) {
 
                    # gently reduce pitch
-                   if( getprop("/orientation/pitch-deg") > 1.0 ) {
+                   if( me.attitude.getChild("pitch-deg").getValue() > 1.0 ) {
                        rates = me.TOUCHSEC;
 
                        # 1 deg / s
@@ -346,34 +349,25 @@ Autopilot.autoland = func {
 
                # systematic forcing of speed modes
                else {
-                   if( aglft < me.FLAREFEET ) {
+                   if( aglft < me.GLIDEFEET ) {
                        rates = me.FLARESEC;
 
                        # landing pitch (flare) : removes the rebound at touch down of vertical-speed-hold.
-                       if( aglft < me.PITCHFEET ) {
-                           me.holdpitch(me.TOUCHDEG);
+                       me.targetpitch( aglft );
 
-                           # possible nav (real ?) errors below 100 ft (example KJFK 22L, EGLL 27R);
-                           # heading hold avoids roll outside the runway.
+                       # heading hold avoids roll outside the runway.
+                       if( !me.autoflight.getChild("real-nav").getValue() ) {
                            if( aglft < me.NAVFEET ) {
                                if( !me.is_lock_magnetic() ) {
                                    me.landheadingdeg = getprop("/orientation/heading-magnetic-deg");
                                }
                                me.holdheading( me.landheadingdeg );
                            }
-
-                           # pilot must activate autothrottle
-                           me.targetdescent( aglft );
-                           me.autothrottlesystem.atenable("vertical-speed-with-throttle");
                        }
 
-                       # cannot go back, when rebound
-                       elsif( !me.autothrottlesystem.is_vertical() ) {
-                           me.holdpitch(me.FLAREDEG);
-
-                           # pilot must activate autothrottle
-                           me.autothrottlesystem.atenable("gs1-with-throttle");
-                       }
+                       # pilot must activate autothrottle
+                       me.settings.getChild("vertical-speed-fpm").setValue( me.TOUCHFPM );
+                       me.autothrottlesystem.atenable("vertical-speed-with-throttle");
 
                    }
 
@@ -386,6 +380,11 @@ Autopilot.autoland = func {
 
                        # pilot must activate autothrottle
                        me.autothrottlesystem.atsend();
+                   }
+
+                   # records attitude at flare
+                   else {
+                       me.FLAREDEG = me.attitude.getChild("pitch-deg").getValue();
                    }
                } 
            }
@@ -738,7 +737,7 @@ Autopilot.apengageexport = func {
        }
 
        # approach has priority
-       if( me.is_ils() or me.is_land_armed() ) {
+       if( me.is_ils() or me.is_autoland() ) {
            headingmode = "nav1-hold";
            altitudemode = "gs1-hold";
        }

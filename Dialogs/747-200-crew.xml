@@ -101,6 +101,28 @@
   </text>
 
   <group>
+    <layout>vbox</layout>
+
+    <text>
+      <label>Autoland</label>
+    </text>
+
+    <checkbox>
+      <halign>left</halign>
+      <label>Real nav (accurate until 0 ft AGL)</label>
+      <property>/controls/autoflight/real-nav</property>
+      <binding>
+       <command>property-toggle</command>
+       <property>/controls/autoflight/real-nav</property>
+      </binding>
+    </checkbox>
+  </group>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
     <layout>hbox</layout>
     <empty><stretch>true</stretch></empty>
 

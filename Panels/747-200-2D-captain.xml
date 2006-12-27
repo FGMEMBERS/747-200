@@ -262,7 +262,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <x>190</x>
    <y>70</y>
    <w>130</w>
-   <h>130</h>
+   <h>195</h>
   </instrument>
 
   <instrument include="Instruments/747-hsi.xml">
@@ -270,7 +270,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <x>370</x>
    <y>70</y>
    <w>150</w>
-   <h>150</h>
+   <h>225</h>
   </instrument>
 
   <instrument include="Instruments/747-vsi.xml">
