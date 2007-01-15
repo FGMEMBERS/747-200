@@ -124,7 +124,7 @@
     <command>property-adjust</command>
     <property alias="../../../../params/frq-ctrl"/>
     <step>-1</step>
-    <min>110</min>
+    <min>100</min>
     <max>130</max>
     <wrap>130</wrap>
    </binding>
@@ -141,9 +141,9 @@
     <command>property-adjust</command>
     <property alias="../../../../params/frq-ctrl"/>
     <step>1</step>
-    <min>110</min>
+    <min>100</min>
     <max>130</max>
-    <wrap>110</wrap>
+    <wrap>100</wrap>
    </binding>
   </action>
 
@@ -158,7 +158,7 @@
     <command>property-adjust</command>
     <property alias="../../../../params/frq-ctrl"/>
     <step>-0.01</step>
-    <min>110</min>
+    <min>100</min>
     <max>130</max>
     <wrap>130</wrap>
    </binding>
@@ -175,12 +175,14 @@
     <command>property-adjust</command>
     <property alias="../../../../params/frq-ctrl"/>
     <step>0.01</step>
-    <min>110</min>
+    <min>100</min>
     <max>130</max>
-    <wrap>110</wrap>
+    <wrap>100</wrap>
    </binding>
   </action>
 
  </actions>
 
 </PropertyList>
+
+
