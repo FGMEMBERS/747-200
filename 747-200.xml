@@ -6,8 +6,8 @@
 
     <fileheader>
         <author> </author>
-        <filecreationdate> 11 July 2006 </filecreationdate>
-        <version> 1.0 </version>
+        <filecreationdate> 25 January 2006 </filecreationdate>
+        <version> 1.01 </version>
         <description> 747-200 with JT9D-7R4G2 </description>
         <note>maximum takeoff weight 833,000 lb.</note>
         <note>extended range fuel 54,388 US gal (364,400 lb).</note>
@@ -492,7 +492,10 @@
             <contents unit="LBS"> 10412 </contents>
         </tank>
     </propulsion>
+
     <flight_control name="747-200">
+     <property>fcs/LE-flap-cmd-norm</property>
+
      <channel name="Pitch">
 
         <summer name="Pitch Trim Sum">
