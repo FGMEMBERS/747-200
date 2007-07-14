@@ -72,7 +72,7 @@
   <object-name>GearNose</object-name>
   <condition>
    <greater-than>
-    <property>/gear/gear[1]/position-norm</property>
+    <property>gear/gear[1]/position-norm</property>
     <value>0.0</value>
    </greater-than>
   </condition>
@@ -81,7 +81,7 @@
  <animation>
   <type>rotate</type>
   <object-name>GearNose</object-name>
-  <property>/gear/gear[0]/position-norm</property>
+  <property>gear/gear[0]/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -112,12 +112,12 @@
   <type>rotate</type>
   <condition>
    <less-than>
-    <property>/position/altitude-agl-ft</property>        <!-- weight sensor -->
+    <property>position/altitude-agl-ft</property>        <!-- weight sensor -->
     <value>30.0</value>
    </less-than>
   </condition>
   <object-name>GearNoseWheels</object-name>
-  <property>/gear/gear[0]/steering-norm</property>
+  <property>gear/gear[0]/steering-norm</property>
   <factor>-70</factor>
   <center>
    <x-m>-16.58</x-m>
@@ -134,7 +134,7 @@
  <animation>
   <type>translate</type>
   <object-name>GearNoseWheels</object-name>
-  <property>/gear/gear[0]/compression-norm</property>
+  <property>gear/gear[0]/compression-norm</property>
   <factor>0.3</factor>
   <axis>
    <x>0</x>
@@ -303,10 +303,10 @@
   <condition>
    <or>
     <greater-than>
-     <property>/gear/gear[1]/position-norm</property>
+     <property>gear/gear[1]/position-norm</property>
      <value>0.0</value>
     </greater-than>
-    <property>/systems/seat/gear-well</property>
+    <property>systems/seat/gear-well</property>
    </or>
   </condition>
  </animation>
@@ -318,10 +318,10 @@
   <condition>
    <or>
     <greater-than>
-     <property>/gear/gear[1]/position-norm</property>
+     <property>gear/gear[1]/position-norm</property>
      <value>0.7</value>
     </greater-than>
-    <property>/systems/seat/gear-well</property>
+    <property>systems/seat/gear-well</property>
    </or>
   </condition>
  </animation>
@@ -332,10 +332,10 @@
   <condition>
    <or>
     <greater-than>
-     <property>/gear/gear[1]/position-norm</property>
+     <property>gear/gear[1]/position-norm</property>
      <value>0.9</value>
     </greater-than>
-    <property>/systems/seat/gear-well</property>
+    <property>systems/seat/gear-well</property>
    </or>
   </condition>
  </animation>
@@ -477,7 +477,7 @@
  <animation>
   <type>translate</type>
   <object-name>GearWLPiston</object-name>
-  <property>/gear/gear[1]/position-norm</property>
+  <property>gear/gear[1]/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -510,7 +510,7 @@
  <animation>
   <type>translate</type>
   <object-name>GearWingLeftWheels</object-name>
-  <property>/gear/gear[1]/position-norm</property>
+  <property>gear/gear[1]/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -541,7 +541,7 @@
  <animation>
   <type>translate</type>
   <object-name>GearWingLeftWheels</object-name>
-  <property>/gear/gear[1]/position-norm</property>
+  <property>gear/gear[1]/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -572,7 +572,7 @@
  <animation>
   <type>rotate</type>
   <object-name>GearWingLeftWheels</object-name>
-  <property>/gear/gear[1]/position-norm</property>
+  <property>gear/gear[1]/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -608,7 +608,7 @@
  <animation>
   <type>rotate</type>
   <object-name>GearWingLeft</object-name>
-  <property>/gear/gear[1]/position-norm</property>
+  <property>gear/gear[1]/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -638,7 +638,7 @@
  <animation>
   <type>translate</type>
   <object-name>GearWingLeftWheels</object-name>
-  <property>/gear/gear[1]/compression-norm</property>
+  <property>gear/gear[1]/compression-norm</property>
   <factor>0.6</factor>
   <axis>
    <x>0</x>
@@ -675,10 +675,10 @@
   <condition>
    <or>
     <greater-than>
-     <property>/gear/gear[2]/position-norm</property>
+     <property>gear/gear[2]/position-norm</property>
      <value>0.0</value>
     </greater-than>
-    <property>/systems/seat/gear-well</property>
+    <property>systems/seat/gear-well</property>
    </or>
   </condition>
  </animation>
@@ -686,7 +686,7 @@
  <animation>
   <type>rotate</type>
   <object-name>GearBodyLeft</object-name>
-  <property>/gear/gear[2]/position-norm</property>
+  <property>gear/gear[2]/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -722,7 +722,7 @@
  <animation>
   <type>rotate</type>
   <object-name>GearBodyLeft</object-name>
-  <property>/gear/gear[2]/position-norm</property>
+  <property>gear/gear[2]/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -758,7 +758,7 @@
  <animation>
   <type>translate</type>
   <object-name>GearBodyLeft</object-name>
-  <property>/gear/gear[2]/position-norm</property>
+  <property>gear/gear[2]/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -916,12 +916,12 @@
   <type>rotate</type>
   <condition>
    <less-than>
-    <property>/position/altitude-agl-ft</property>        <!-- weight sensor -->
+    <property>position/altitude-agl-ft</property>        <!-- weight sensor -->
     <value>30.0</value>
    </less-than>
   </condition>
   <object-name>GearBodyLeftWheels</object-name>
-  <property>/gear/gear[2]/steering-norm</property>
+  <property>gear/gear[2]/steering-norm</property>
   <factor>-13</factor>
   <center>
    <x-m>10.853</x-m>
@@ -938,7 +938,7 @@
  <animation>
   <type>translate</type>
   <object-name>GearBodyLeftWheels</object-name>
-  <property>/gear/gear[2]/compression-norm</property>
+  <property>gear/gear[2]/compression-norm</property>
   <factor>0.6</factor>
   <axis>
    <x>0</x>
@@ -975,10 +975,10 @@
   <condition>
    <or>
     <greater-than>
-     <property>/gear/gear[3]/position-norm</property>
+     <property>gear/gear[3]/position-norm</property>
      <value>0.0</value>
     </greater-than>
-    <property>/systems/seat/gear-well</property>
+    <property>systems/seat/gear-well</property>
    </or>
   </condition>
  </animation>
@@ -986,7 +986,7 @@
  <animation>
   <type>rotate</type>
   <object-name>GearBodyRight</object-name>
-  <property>/gear/gear[3]/position-norm</property>
+  <property>gear/gear[3]/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -1022,7 +1022,7 @@
  <animation>
   <type>rotate</type>
   <object-name>GearBodyRight</object-name>
-  <property>/gear/gear[3]/position-norm</property>
+  <property>gear/gear[3]/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -1058,7 +1058,7 @@
  <animation>
   <type>translate</type>
   <object-name>GearBodyRight</object-name>
-  <property>/gear/gear[3]/position-norm</property>
+  <property>gear/gear[3]/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -1216,12 +1216,12 @@
   <type>rotate</type>
   <condition>
    <less-than>
-    <property>/position/altitude-agl-ft</property>        <!-- weight sensor -->
+    <property>position/altitude-agl-ft</property>        <!-- weight sensor -->
     <value>30.0</value>
    </less-than>
   </condition>
   <object-name>GearBodyRightWheels</object-name>
-  <property>/gear/gear[3]/steering-norm</property>
+  <property>gear/gear[3]/steering-norm</property>
   <factor>-13</factor>
   <center>
    <x-m>10.853</x-m>
@@ -1238,7 +1238,7 @@
  <animation>
   <type>translate</type>
   <object-name>GearBodyRight</object-name>
-  <property>/gear/gear[3]/compression-norm</property>
+  <property>gear/gear[3]/compression-norm</property>
   <factor>0.6</factor>
   <axis>
    <x>0</x>
@@ -1282,10 +1282,10 @@
   <condition>
    <or>
     <greater-than>
-     <property>/gear/gear[4]/position-norm</property>
+     <property>gear/gear[4]/position-norm</property>
      <value>0.0</value>
     </greater-than>
-    <property>/systems/seat/gear-well</property>
+    <property>systems/seat/gear-well</property>
    </or>
   </condition>
  </animation>
@@ -1297,10 +1297,10 @@
   <condition>
    <or>
     <greater-than>
-     <property>/gear/gear[4]/position-norm</property>
+     <property>gear/gear[4]/position-norm</property>
      <value>0.7</value>
     </greater-than>
-    <property>/systems/seat/gear-well</property>
+    <property>systems/seat/gear-well</property>
    </or>
   </condition>
  </animation>
@@ -1311,10 +1311,10 @@
   <condition>
    <or>
     <greater-than>
-     <property>/gear/gear[4]/position-norm</property>
+     <property>gear/gear[4]/position-norm</property>
      <value>0.9</value>
     </greater-than>
-    <property>/systems/seat/gear-well</property>
+    <property>systems/seat/gear-well</property>
    </or>
   </condition>
  </animation>
@@ -1456,7 +1456,7 @@
  <animation>
   <type>translate</type>
   <object-name>GearWRPiston</object-name>
-  <property>/gear/gear[4]/position-norm</property>
+  <property>gear/gear[4]/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -1489,7 +1489,7 @@
  <animation>
   <type>translate</type>
   <object-name>GearWingRightWheels</object-name>
-  <property>/gear/gear[4]/position-norm</property>
+  <property>gear/gear[4]/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -1520,7 +1520,7 @@
  <animation>
   <type>translate</type>
   <object-name>GearWingRightWheels</object-name>
-  <property>/gear/gear[4]/position-norm</property>
+  <property>gear/gear[4]/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -1551,7 +1551,7 @@
  <animation>
   <type>rotate</type>
   <object-name>GearWingRightWheels</object-name>
-  <property>/gear/gear[4]/position-norm</property>
+  <property>gear/gear[4]/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -1587,7 +1587,7 @@
  <animation>
   <type>rotate</type>
   <object-name>GearWingRight</object-name>
-  <property>/gear/gear[4]/position-norm</property>
+  <property>gear/gear[4]/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -1617,7 +1617,7 @@
  <animation>
   <type>translate</type>
   <object-name>GearWingRightWheels</object-name>
-  <property>/gear/gear[4]/compression-norm</property>
+  <property>gear/gear[4]/compression-norm</property>
   <factor>0.6</factor>
   <axis>
    <x>0</x>
@@ -1631,7 +1631,7 @@
  <animation>
   <type>rotate</type>
   <object-name>AileronLeftOuter</object-name>
-  <property>/surface-positions/left-aileron-pos-norm</property>
+  <property>surface-positions/left-aileron-pos-norm</property>
   <factor>-30</factor> <!-- check -->
   <axis>
    <x1-m>18.28</x1-m>
@@ -1646,7 +1646,7 @@
  <animation>
   <type>rotate</type>
   <object-name>AileronLeftInner</object-name>
-  <property>/surface-positions/left-aileron-pos-norm</property>
+  <property>surface-positions/left-aileron-pos-norm</property>
   <factor>-30</factor> <!-- check -->
   <axis>
    <x1-m>12.64</x1-m>
@@ -1663,7 +1663,7 @@
  <animation>
   <type>rotate</type>
   <object-name>AileronRightOuter</object-name>
-  <property>/surface-positions/left-aileron-pos-norm</property>
+  <property>surface-positions/left-aileron-pos-norm</property>
   <factor>30</factor> <!-- check -->
   <axis>
    <x1-m>22.51</x1-m>
@@ -1678,7 +1678,7 @@
  <animation>
   <type>rotate</type>
   <object-name>AileronRightInner</object-name>
-  <property>/surface-positions/left-aileron-pos-norm</property>
+  <property>surface-positions/left-aileron-pos-norm</property>
   <factor>30</factor> <!-- check -->
   <axis>
    <x1-m>12.64</x1-m>
@@ -1696,7 +1696,7 @@
   <type>rotate</type>
   <object-name>ElevatorLeftInner</object-name>
   <object-name>ElevatorLeftOuter</object-name>
-  <property>/surface-positions/elevator-pos-norm</property>
+  <property>surface-positions/elevator-pos-norm</property>
   <factor>25</factor> <!-- check -->
   <axis>
    <x1-m>44.80</x1-m>
@@ -1712,7 +1712,7 @@
   <type>rotate</type>
   <object-name>ElevatorRightInner</object-name>
   <object-name>ElevatorRightOuter</object-name>
-  <property>/surface-positions/elevator-pos-norm</property>
+  <property>surface-positions/elevator-pos-norm</property>
   <factor>25</factor>
   <axis>
    <x1-m>40.71</x1-m>
@@ -1730,7 +1730,7 @@
   <type>rotate</type>
   <object-name>RudderTop</object-name>
   <object-name>RudderBottom</object-name>
-  <property>/surface-positions/rudder-pos-norm</property>
+  <property>surface-positions/rudder-pos-norm</property>
   <factor>25</factor>
   <axis>
    <x1-m>38.61</x1-m>
@@ -1747,7 +1747,7 @@
  <animation>
   <type>rotate</type>
   <object-name>LEFlapLeftInner</object-name>
-  <property>/surface-positions/LE-flap-pos-norm</property>
+  <property>surface-positions/LE-flap-pos-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -1775,7 +1775,7 @@
  <animation>
   <type>rotate</type>
   <object-name>LEFlapLeftMiddle</object-name>
-  <property>/surface-positions/LE-flap-pos-norm</property>
+  <property>surface-positions/LE-flap-pos-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -1803,7 +1803,7 @@
  <animation>
   <type>rotate</type>
   <object-name>LEFlapLeftOuter</object-name>
-  <property>/surface-positions/LE-flap-pos-norm</property>
+  <property>surface-positions/LE-flap-pos-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -1833,7 +1833,7 @@
  <animation>
   <type>rotate</type>
   <object-name>LEFlapRightInner</object-name>
-  <property>/surface-positions/LE-flap-pos-norm</property>
+  <property>surface-positions/LE-flap-pos-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -1861,7 +1861,7 @@
  <animation>
   <type>rotate</type>
   <object-name>LEFlapRightMiddle</object-name>
-  <property>/surface-positions/LE-flap-pos-norm</property>
+  <property>surface-positions/LE-flap-pos-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -1889,7 +1889,7 @@
  <animation>
   <type>rotate</type>
   <object-name>LEFlapRightOuter</object-name>
-  <property>/surface-positions/LE-flap-pos-norm</property>
+  <property>surface-positions/LE-flap-pos-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -1921,7 +1921,7 @@
   <object-name>FlapLeftInner.1</object-name>
   <condition>
    <greater-than>
-    <property>/surface-positions/flap-pos-norm</property>
+    <property>surface-positions/flap-pos-norm</property>
     <value>0.01</value>
    </greater-than>
   </condition>
@@ -1930,7 +1930,7 @@
  <animation>
   <type>rotate</type>
   <object-name>HousingLeftInner</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>30</factor> <!-- check -->
   <center>
    <x-m>8.70</x-m>
@@ -1947,7 +1947,7 @@
  <animation>
   <type>rotate</type>
   <object-name>HousingLeftInner2</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>35</factor> <!-- check -->
   <center>
    <x-m>10.05</x-m>
@@ -1965,7 +1965,7 @@
   <type>rotate</type>
   <object-name>FlapLeftInner.3a</object-name>
   <object-name>FlapLeftInner.3b</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>45</factor> <!-- check -->
   <center>
    <x-m>9.50</x-m>
@@ -1983,7 +1983,7 @@
   <type>rotate</type>
   <object-name>FlapLeftInner.2a</object-name>
   <object-name>FlapLeftInner.2b</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>43</factor> <!-- check -->
   <center>
    <x-m>9.50</x-m>
@@ -2000,7 +2000,7 @@
  <animation>
   <type>rotate</type>
   <object-name>FlapLeftInner.1</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>20</factor> <!-- check -->
   <center>
    <x-m>8.50</x-m>
@@ -2017,7 +2017,7 @@
  <animation>
   <type>translate</type>
   <object-name>FlapLeftInner.1</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>0.1</factor>
   <axis>
    <x>0</x>
@@ -2033,7 +2033,7 @@
   <object-name>FlapLeftOuter.1</object-name>
   <condition>
    <greater-than>
-    <property>/surface-positions/flap-pos-norm</property>
+    <property>surface-positions/flap-pos-norm</property>
     <value>0.01</value>
    </greater-than>
   </condition>
@@ -2042,7 +2042,7 @@
  <animation>
   <type>rotate</type>
   <object-name>HousingLeftOuter</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>35</factor> <!-- check -->
   <center>
    <x-m>12.94</x-m>
@@ -2059,7 +2059,7 @@
  <animation>
   <type>rotate</type>
   <object-name>HousingLeftOuter2</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>25</factor> <!-- check -->
   <center>
    <x-m>14.71</x-m>
@@ -2077,7 +2077,7 @@
   <type>rotate</type>
   <object-name>FlapLeftOuter.3a</object-name>
   <object-name>FlapLeftOuter.3b</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>42</factor> <!-- check -->
   <center>
    <x-m>14.60</x-m>
@@ -2095,7 +2095,7 @@
   <type>rotate</type>
   <object-name>FlapLeftOuter.2a</object-name>
   <object-name>FlapLeftOuter.2b</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>37</factor> <!-- check -->
   <center>
    <x-m>14.60</x-m>
@@ -2112,7 +2112,7 @@
  <animation>
   <type>rotate</type>
   <object-name>FlapLeftOuter.1</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>30</factor> <!-- check -->
   <center>
    <x-m>14.60</x-m>
@@ -2133,7 +2133,7 @@
   <object-name>FlapRightInner.1</object-name>
   <condition>
    <greater-than>
-    <property>/surface-positions/flap-pos-norm</property>
+    <property>surface-positions/flap-pos-norm</property>
     <value>0.01</value>
    </greater-than>
   </condition>
@@ -2142,7 +2142,7 @@
  <animation>
   <type>rotate</type>
   <object-name>HousingRightInner</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>25</factor> <!-- check -->
   <center>
    <x-m>8.70</x-m>
@@ -2159,7 +2159,7 @@
  <animation>
   <type>rotate</type>
   <object-name>HousingRightInner2</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>30</factor> <!-- check -->
   <center>
    <x-m>10.05</x-m>
@@ -2177,7 +2177,7 @@
   <type>rotate</type>
   <object-name>FlapRightInner.3a</object-name>
   <object-name>FlapRightInner.3b</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>45</factor> <!-- check -->
   <center>
    <x-m>9.50</x-m>
@@ -2195,7 +2195,7 @@
   <type>rotate</type>
   <object-name>FlapRightInner.2a</object-name>
   <object-name>FlapRightInner.2b</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>43</factor> <!-- check -->
   <center>
    <x-m>9.50</x-m>
@@ -2212,7 +2212,7 @@
  <animation>
   <type>rotate</type>
   <object-name>FlapRightInner.1</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>20</factor> <!-- check -->
   <center>
    <x-m>8.50</x-m>
@@ -2229,7 +2229,7 @@
  <animation>
   <type>translate</type>
   <object-name>FlapRightInner.1</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>0.1</factor>
   <axis>
    <x>0</x>
@@ -2245,7 +2245,7 @@
   <object-name>FlapRightOuter.1</object-name>
   <condition>
    <greater-than>
-    <property>/surface-positions/flap-pos-norm</property>
+    <property>surface-positions/flap-pos-norm</property>
     <value>0.01</value>
    </greater-than>
   </condition>
@@ -2254,7 +2254,7 @@
  <animation>
   <type>rotate</type>
   <object-name>HousingRightOuter</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>35</factor> <!-- check -->
   <center>
    <x-m>12.94</x-m>
@@ -2271,7 +2271,7 @@
  <animation>
   <type>rotate</type>
   <object-name>HousingRightOuter2</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>25</factor> <!-- check -->
   <center>
    <x-m>14.71</x-m>
@@ -2289,7 +2289,7 @@
   <type>rotate</type>
   <object-name>FlapRightOuter.3a</object-name>
   <object-name>FlapRightOuter.3b</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>42</factor> <!-- check -->
   <center>
    <x-m>14.60</x-m>
@@ -2308,7 +2308,7 @@
   <type>rotate</type>
   <object-name>FlapRightOuter.2a</object-name>
   <object-name>FlapRightOuter.2b</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>37</factor> <!-- check -->
   <center>
    <x-m>14.60</x-m>
@@ -2325,7 +2325,7 @@
  <animation>
   <type>rotate</type>
   <object-name>FlapRightOuter.1</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>30</factor> <!-- check -->
   <center>
    <x-m>14.60</x-m>
@@ -2345,7 +2345,7 @@
   <type>rotate</type>
   <object-name>SpoilerRInner1</object-name>
   <object-name>SpoilerRInner2</object-name>
-  <property>/surface-positions/spoilers-pos-norm</property>
+  <property>surface-positions/spoilers-pos-norm</property>
   <factor>-35</factor>
   <axis>
    <x1-m>9.84</x1-m>
@@ -2363,7 +2363,7 @@
   <object-name>SpoilerROuter2</object-name>
   <object-name>SpoilerROuter3</object-name>
   <object-name>SpoilerROuter4</object-name>
-  <property>/surface-positions/spoilers-pos-norm</property>
+  <property>surface-positions/spoilers-pos-norm</property>
   <factor>-35</factor>
   <axis>
    <x1-m>12.48</x1-m>
@@ -2379,7 +2379,7 @@
   <type>rotate</type>
   <object-name>SpoilerLInner1</object-name>
   <object-name>SpoilerLInner2</object-name>
-  <property>/surface-positions/spoilers-pos-norm</property>
+  <property>surface-positions/spoilers-pos-norm</property>
   <factor>35</factor>
   <axis>
    <x1-m>9.84</x1-m>
@@ -2397,7 +2397,7 @@
   <object-name>SpoilerLOuter2</object-name>
   <object-name>SpoilerLOuter3</object-name>
   <object-name>SpoilerLOuter4</object-name>
-  <property>/surface-positions/spoilers-pos-norm</property>
+  <property>surface-positions/spoilers-pos-norm</property>
   <factor>35</factor>
   <axis>
    <x1-m>12.48</x1-m>
@@ -2415,7 +2415,7 @@
   <type>spin</type>
   <object-name>EngineFan.1</object-name>
   <factor>67</factor>
-  <property>/engines/engine[0]/n1</property>
+  <property>engines/engine[0]/n1</property>
   <center>
    <x-m>8.21</x-m>
    <y-m>-21.40</y-m>
@@ -2432,7 +2432,7 @@
   <type>spin</type>
   <object-name>EngineFan.2</object-name>
   <factor>67</factor>
-  <property>/engines/engine[1]/n1</property>
+  <property>engines/engine[1]/n1</property>
   <center>
    <x-m>8.21</x-m>
    <y-m>-12.14</y-m>
@@ -2449,7 +2449,7 @@
   <type>spin</type>
   <object-name>EngineFan.3</object-name>
   <factor>67</factor>
-  <property>/engines/engine[2]/n1</property>
+  <property>engines/engine[2]/n1</property>
   <center>
    <x-m>8.21</x-m>
    <y-m>12.04</y-m>
@@ -2466,7 +2466,7 @@
   <type>spin</type>
   <object-name>EngineFan.4</object-name>
   <factor>67</factor>
-  <property>/engines/engine[3]/n1</property>
+  <property>engines/engine[3]/n1</property>
   <center>
    <x-m>8.21</x-m>
    <y-m>21.35</y-m>
@@ -2484,7 +2484,7 @@
  <animation>
   <type>rotate</type>
   <object-name>ForwardCargoDoor</object-name>
-  <property>/controls/doors/cargo/forward/position-norm</property>
+  <property>controls/doors/cargo/forward/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -2512,7 +2512,7 @@
  <animation>
   <type>rotate</type>
   <object-name>AftCargoDoor</object-name>
-  <property>/controls/doors/cargo/aft/position-norm</property>
+  <property>controls/doors/cargo/aft/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
@@ -2540,7 +2540,7 @@
  <animation>
   <type>rotate</type>
   <object-name>BulkCargoDoor</object-name>
-  <property>/controls/doors/cargo/bulk/position-norm</property>
+  <property>controls/doors/cargo/bulk/position-norm</property>
   <interpolation>
     <entry>
      <ind>0.0</ind>
