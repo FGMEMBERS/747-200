@@ -11,8 +11,6 @@
 
 <PropertyList>
 
-   <tanks>
-
  <!-- Normal landing with 630000 lb (center emptied first).  -->
 
     <filling n="0">
@@ -69,7 +67,5 @@
     </filling>
 
 <!-- other -->
-
-   </tanks>
 
 </PropertyList>

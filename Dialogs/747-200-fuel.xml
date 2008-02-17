@@ -21,12 +21,12 @@
   <group>
     <layout>hbox</layout>
     <text>
-      <label>Tanks filling</label>
+      <label>Tanks filling  ~</label>
       <halign>left</halign>
     </text>
     <combo>
       <pref-width>200</pref-width>
-      <property>/sim/presets/tanks/dialog</property>
+      <property>/systems/fuel/tanks/dialog</property>
       <value>max landing</value>
       <value>max takeoff</value>
       <value>min fuel</value>

@@ -1,11 +1,7 @@
 <?xml version="1.0"?>
 
-<!-- Cargo door opened :
-
--->
-
 <PropertyList>
- <name>Fault cargo door</name>
+ <name>Cargo door opened</name>
  <w-base>104</w-base>
  <h-base>26</h-base>
 
@@ -22,20 +18,9 @@
     <condition>
      <or>
       <not include="747-cond-voltage-inst.xml"/>
-      <and>
-       <equals>
-        <property>/controls/doors/cargo/forward/position-norm</property>
-        <value>0.0</value>
-       </equals>
-       <equals>
-        <property>/controls/doors/cargo/aft/position-norm</property>
-        <value>0.0</value>
-       </equals>
-       <equals>
-        <property>/controls/doors/cargo/bulk/position-norm</property>
-        <value>0.0</value>
-       </equals>
-      </and>
+      <not>
+       <property>/systems/warning/amber/cargo-doors</property>
+      </not>
      </or>
     </condition>
 

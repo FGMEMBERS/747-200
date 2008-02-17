@@ -11,14 +11,9 @@
 Fuel = {};
 
 Fuel.new = func {
-   obj = { parents : [Fuel],
+   var obj = { parents : [Fuel],
 
-           tanksystem : Tanks.new(),
-
-           SPEEDUPSEC : 2,             # refresh rate
-
-           CLIMBFTPMIN : 2000,         # average climb rate
-           MAXSTEPFT : 0.0
+           tanksystem : Tanks.new()
          };
 
    obj.init();
@@ -27,43 +22,11 @@ Fuel.new = func {
 };
 
 Fuel.init = func {
-   climbftpsec = me.CLIMBFTPMIN / constant.MINUTETOSECOND;
-   me.MAXSTEPFT = climbftpsec * me.SPEEDUPSEC;
-
    me.tanksystem.presetfuel();
 }
 
 Fuel.menuexport = func {
    me.tanksystem.menu();
-}
-
-# speed up consumption
-Fuel.schedule = func {
-   altitudeft = getprop("/position/altitude-ft");
-   speedup = getprop("/sim/speed-up");
-   if( speedup > 1 ) {
-       # accelerate day time
-       node = props.globals.getNode("/sim/time/warp");
-       multiplier = speedup - 1;
-       offsetsec = me.SPEEDUPSEC * multiplier;
-       warp = node.getValue() + offsetsec; 
-       node.setValue(warp);
-
-       # safety
-       lastft = getprop("/position/speed-up-ft");
-       if( lastft != nil ) {
-           stepft = me.MAXSTEPFT * speedup;
-           maxft = lastft + stepft;
-           minft = lastft - stepft;
-
-           # too fast
-           if( altitudeft > maxft or altitudeft < minft ) {
-               setprop("/sim/speed-up",1);
-           }
-       }
-   }
-
-   setprop("/position/speed-up-ft",altitudeft);
 }
 
 
@@ -77,7 +40,7 @@ Tanks = {};
 
 Tanks.new = func {
 # tank contents, to be initialised from XML
-   obj = { parents : [Tanks], 
+   var obj = { parents : [Tanks], 
 
            pumpsystem : Pump.new(),
 
@@ -97,7 +60,7 @@ Tanks.new = func {
 
 Tanks.init = func {
     me.tanks = props.globals.getNode("/consumables/fuel").getChildren("tank");
-    me.fillings = props.globals.getNode("/sim/presets/tanks").getChildren("filling");
+    me.fillings = props.globals.getNode("/systems/fuel/tanks").getChildren("filling");
 
     me.nb_tanks = size(me.tanks);
 
@@ -106,7 +69,9 @@ Tanks.init = func {
 
 # fuel initialization
 Tanks.initcontent = func {
-   for( i=0; i < me.nb_tanks; i=i+1 ) {
+   var densityppg = 0.0;
+
+   for( var i=0; i < me.nb_tanks; i=i+1 ) {
         densityppg = me.tanks[i].getChild("density-ppg").getValue();
         me.CONTENTLB[me.TANKNAME[i]] = me.tanks[i].getChild("capacity-gal_us").getValue() * densityppg;
    }
@@ -114,12 +79,15 @@ Tanks.initcontent = func {
 
 # change by dialog
 Tanks.menu = func {
-   value = getprop("/sim/presets/tanks/dialog");
-   for( i=0; i < size(me.fillings); i=i+1 ) {
+   var value = 0.0;
+
+   value = getprop("/systems/fuel/tanks/dialog");
+   for( var i=0; i < size(me.fillings); i=i+1 ) {
         if( me.fillings[i].getChild("comment").getValue() == value ) {
             me.load( i );
+
             # for aircraft-data
-            setprop("/sim/presets/fuel",i);
+            setprop("/systems/fuel/presets",i);
             break;
         }
    }
@@ -127,11 +95,11 @@ Tanks.menu = func {
 
 # fuel configuration
 Tanks.presetfuel = func {
-   # saved on exit, restored at launch
-   aircraft.data.add("/sim/presets/fuel");
+   var fuel = 0;
+   var dialog = "";
 
    # default is 0
-   fuel = getprop("/sim/presets/fuel");
+   fuel = getprop("/systems/fuel/presets");
    if( fuel == nil ) {
        fuel = 0;
    }
@@ -141,18 +109,22 @@ Tanks.presetfuel = func {
    } 
 
    # copy to dialog
-   dialog = getprop("/sim/presets/tanks/dialog");
+   dialog = getprop("/systems/fuel/tanks/dialog");
    if( dialog == "" or dialog == nil ) {
        value = me.fillings[fuel].getChild("comment").getValue();
-       setprop("/sim/presets/tanks/dialog", value);
+       setprop("/systems/fuel/tanks/dialog", value);
    }
 
    me.load( fuel );
 }
 
 Tanks.load = func( fuel ) {
+   var presets = nil;
+   var child = nil;
+   var level = 0.0;
+
    presets = me.fillings[fuel].getChildren("tank");
-   for( i=0; i < size(presets); i=i+1 ) {
+   for( var i=0; i < size(presets); i=i+1 ) {
         child = presets[i].getChild("level-gal_us");
         if( child != nil ) {
             level = child.getValue();
@@ -180,7 +152,7 @@ Tanks.transfertanks = func( dest, sour, pumplb ) {
 Pump = {};
 
 Pump.new = func {
-   obj = { parents : [Pump],
+   var obj = { parents : [Pump],
 
            tanks : nil 
          };
@@ -195,6 +167,8 @@ Pump.init = func {
 }
 
 Pump.getlevel = func( index ) {
+   var tankgalus = 0.0;
+
    tankgalus = me.tanks[index].getChild("level-gal_us").getValue();
 
    return tankgalus;
@@ -205,10 +179,18 @@ Pump.setlevel = func( index, levelgalus ) {
 }
 
 Pump.transfertanks = func( idest, contentdestlb, isour, pumplb ) {
+   var tankdestlb = 0.0;
+   var tankdestgalus = 0.0;
+   var maxdestlb = 0.0;
+   var tanksourlb = 0.0;
+   var tanksourgalus = 0.0;
+   var maxsourlb = 0.0;
+
    tankdestlb = me.tanks[idest].getChild("level-gal_us").getValue() * constant.GALUSTOLB;
    maxdestlb = contentdestlb - tankdestlb;
    tanksourlb = me.tanks[isour].getChild("level-gal_us").getValue() * constant.GALUSTOLB;
    maxsourlb = tanksourlb - 0;
+
    # can fill destination
    if( maxdestlb > 0 ) {
        # can with source

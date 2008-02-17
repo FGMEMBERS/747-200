@@ -6,6 +6,8 @@
 <!-- Version           CVS date                   Milestone
      ==========================================================================================
      1.0               December 2006              Aircraft, FDM, 2D panel.
+     1.1               February 2008              3D cockpit, with seats, yokes, levers,
+                                                  and a few warning lights.
      ==========================================================================================
 -->
 
@@ -15,7 +17,7 @@
  <sim include="Nasal/747-200-sim.xml">
   <description>Boeing 747-200</description>
   <status>early-production</status>
-  <aircraft-version>1.0</aircraft-version>
+  <aircraft-version>1.1</aircraft-version>
 
   <flight-model>jsb</flight-model>
   <aero>747-200</aero>
@@ -41,7 +43,7 @@
 
   <panel>
    <path>Aircraft/747-200/Panels/747-200-2D-captain.xml</path>
-   <visibility>true</visibility>
+   <visibility>false</visibility>
   </panel>
   <panel_2>
    <path>Aircraft/747-200/Panels/747-200-2D-center.xml</path>
@@ -56,11 +58,6 @@
   <model>
    <path>Aircraft/747-200/Models/boeing747-200.xml</path>
   </model>
-
-  <presets include="Nasal/747-200-fuel.xml">
-
-   <fuel type="int">0</fuel>                                      <!-- saved in aircraft-data -->
-  </presets>
 
   <chase-distance-m type="double" archive="y">-90.0</chase-distance-m>
 
@@ -79,6 +76,8 @@
    <file>Aircraft/747-200/Nasal/747-200-instrument.nas</file>
    <file>Aircraft/747-200/Nasal/747-200-fuel.nas</file>
    <file>Aircraft/747-200/Nasal/747-200-autopilot.nas</file>
+   <file>Aircraft/747-200/Nasal/747-200-interface.nas</file>
+   <file>Aircraft/747-200/Nasal/747-200-warning.nas</file>
    <file>Aircraft/747-200/Nasal/747-200-crew.nas</file>
    <file>Aircraft/747-200/Nasal/747-200.nas</file>
   </Boeing747>

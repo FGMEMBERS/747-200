@@ -2,6 +2,9 @@
 
 <!-- Alarm on terrain :
 
+     - excessive rate of descent below 2500 ft.
+     - excessive closure rate with ground.
+     - gear not locked below 500 ft.
 -->
 
 <PropertyList>
@@ -22,7 +25,9 @@
     <condition>
      <or>
       <not include="747-cond-voltage-inst.xml"/>
-      <not include="747-cond-pull-up.xml"/>
+      <not>
+       <property>/systems/warning/red/pull-up</property>
+      </not>
      </or>
     </condition>
 

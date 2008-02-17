@@ -11,7 +11,7 @@
 ConstantAero = {};
 
 ConstantAero.new = func {
-   obj = { parents : [ConstantAero],
+   var obj = { parents : [ConstantAero],
 
 # AGL altitude when on ground : radio altimeter is above gear
 # (Z height of center of gravity minus Z height of main landing gear)
@@ -32,7 +32,7 @@ ConstantAero.new = func {
 Constant = {};
 
 Constant.new = func {
-   obj = { parents : [Constant],
+   var obj = { parents : [Constant],
 
 # angles
            DEG360 : 360,

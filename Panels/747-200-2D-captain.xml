@@ -73,8 +73,8 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>HSI source</name>
    <x>220</x>
    <y>435</y>
-   <w>36</w>
-   <h>54</h>
+   <w>44</w>
+   <h>58</h>
   </instrument>
 
   <instrument include="Instruments/747-at-speed-kt.xml">
@@ -247,12 +247,12 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <h>130</h>
   </instrument>
 
-  <instrument include="Instruments/747-radio-alt.xml">
-   <name>Radio altimeter</name>
-   <x>730</x>
-   <y>230</y>
-   <w>170</w>
-   <h>170</h>
+  <instrument include="Instruments/747-tcas.xml">
+   <name>Vertical speed</name>
+   <x>700</x>
+   <y>235</y>
+   <w>125</w>
+   <h>125</h>
   </instrument>
 
 <!-- 3rd line -->
@@ -273,12 +273,12 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <h>225</h>
   </instrument>
 
-  <instrument include="Instruments/747-vsi.xml">
-   <name>Vertical speed</name>
-   <x>545</x>
-   <y>85</y>
-   <w>125</w>
-   <h>125</h>
+  <instrument include="Instruments/747-radio-alt.xml">
+   <name>Radio altimeter</name>
+   <x>570</x>
+   <y>75</y>
+   <w>170</w>
+   <h>170</h>
   </instrument>
 
   <instrument include="Instruments/747-adf.xml">

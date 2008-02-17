@@ -391,6 +391,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>Engine 1 throttle quadrant</name>
    <params>
     <engine-throttle-select>/controls/engines/engine[0]/throttle</engine-throttle-select>
+    <engine-throttle-manual>/controls/engines/engine[0]/throttle-manual</engine-throttle-manual>
    </params>
    <x>860</x>
    <y>380</y>
@@ -402,6 +403,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>Engine 2 throttle quadrant</name>
    <params>
     <engine-throttle-select>/controls/engines/engine[1]/throttle</engine-throttle-select>
+    <engine-throttle-manual>/controls/engines/engine[1]/throttle-manual</engine-throttle-manual>
    </params>
    <x>890</x>
    <y>380</y>
@@ -413,6 +415,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>Engine 3 throttle quadrant</name>
    <params>
     <engine-throttle-select>/controls/engines/engine[2]/throttle</engine-throttle-select>
+    <engine-throttle-manual>/controls/engines/engine[2]/throttle-manual</engine-throttle-manual>
    </params>
    <x>920</x>
    <y>380</y>
@@ -424,6 +427,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>Engine 4 throttle quadrant</name>
    <params>
     <engine-throttle-select>/controls/engines/engine[3]/throttle</engine-throttle-select>
+    <engine-throttle-manual>/controls/engines/engine[3]/throttle-manual</engine-throttle-manual>
    </params>
    <x>950</x>
    <y>380</y>

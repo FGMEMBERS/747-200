@@ -28,6 +28,15 @@
     </binding>
    </key>
 
+   <key n="5">
+    <name>Ctrl-E</name>
+    <desc>Toggle engineer view.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Boeing747.seatsystem.viewexport("engineer");</script>
+    </binding>
+   </key>
+
    <key n="7">
     <name>Ctrl-G</name>
     <desc>Toggle autopilot glide slope lock.</desc>
@@ -54,16 +63,30 @@
     </binding>
    </key>
 
-   <key n="13">
-    <name>Ctrl-M</name>
+   <key n="9">
+    <name>Ctrl-I</name>
     <desc>Menu</desc>
     <binding>
-<!--
+     <command>dialog-show</command>
+     <dialog-name>747-200-menu</dialog-name>
+    </binding>
+   </key>
+
+   <key n="10">
+    <name>Ctrl-J</name>
+    <desc>Toggle copilot view.</desc>
+    <binding>
      <command>nasal</command>
-     <script>globals.Boeing747.menusystem.toggle();</script>
--->
-       <command>dialog-show</command>
-       <dialog-name>747-200-menu</dialog-name>
+     <script>globals.Boeing747.seatsystem.viewexport("copilot");</script>
+    </binding>
+   </key>
+
+   <key n="11">
+    <name>Ctrl-K</name>
+    <desc>Toggle observer view.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Boeing747.seatsystem.viewexport("observer");</script>
     </binding>
    </key>
 
@@ -223,8 +246,10 @@
      <command>nasal</command>
      <script>
        if( !globals.Boeing747.seatsystem.movelengthexport(-0.01) ) {
-           # default
-           controls.incElevator(0.05, -100);
+           if( !globals.Boeing747.autopilotsystem.adjustexport(1.0) ) {
+               # default
+               controls.incElevator(0.05, -100);
+           }
        }
      </script>
     </binding>
@@ -253,8 +278,10 @@
      <command>nasal</command>
      <script>
        if( !globals.Boeing747.seatsystem.movelengthexport(0.01) ) {
-           # default
-           controls.incElevator(-0.05, 100);
+           if( !globals.Boeing747.autopilotsystem.adjustexport(-1.0) ) {
+               # default
+               controls.incElevator(-0.05, 100);
+           }
        }
      </script>
     </binding>
@@ -298,10 +325,12 @@
      <command>nasal</command>
      <script>
        if( !globals.Boeing747.seatsystem.movelengthexport(-0.1) ) {
-           # default
-           trim = getprop("/controls/flight/elevator-trim");
-           trim = trim + 0.001;
-           setprop("/controls/flight/elevator-trim",trim);
+           if( !globals.Boeing747.autopilotsystem.adjustexport(0.1) ) {
+               # default
+               trim = getprop("/controls/flight/elevator-trim");
+               trim = trim + 0.001;
+               setprop("/controls/flight/elevator-trim",trim);
+           }
        }
      </script>
     </binding>
@@ -315,10 +344,12 @@
      <command>nasal</command>
      <script>
        if( !globals.Boeing747.seatsystem.movelengthexport(0.1) ) {
-           # default
-           trim = getprop("/controls/flight/elevator-trim");
-           trim = trim - 0.001;
-           setprop("/controls/flight/elevator-trim",trim);
+           if( !globals.Boeing747.autopilotsystem.adjustexport(-0.1) ) {
+               # default
+               trim = getprop("/controls/flight/elevator-trim");
+               trim = trim - 0.001;
+               setprop("/controls/flight/elevator-trim",trim);
+           }
        }
      </script>
     </binding>

@@ -31,8 +31,7 @@ properties' values.
  <h-base>80</h-base>
 
  <params>
-  <spoilers-select>/controls/flight/spoilers</spoilers-select>
-  <spoilers-flight>/controls/flight/spoilers-flight</spoilers-flight>
+  <spoilers-lever>/controls/flight/spoilers-lever</spoilers-lever>
  </params>
 
  <layers>
@@ -65,28 +64,12 @@ properties' values.
    <h>30</h>
    <transformations>
     <transformation>
-     <type>x-shift</type>
-     <offset>0</offset>
-    </transformation>
-    <transformation>
-     <condition>
-      <property alias="../../../../../../params/spoilers-flight"/>
-     </condition>
      <type>y-shift</type>
-     <offset>20</offset>
-    </transformation>
-    <transformation>
-     <condition>
-      <not>
-       <property alias="../../../../../../../params/spoilers-flight"/>
-      </not>
-     </condition>
-     <type>y-shift</type>
-     <property alias="../../../../../params/spoilers-select"/>
+     <property alias="../../../../../params/spoilers-lever"/>
      <min>0.0</min>
      <max>1.0</max>
-     <scale>-30</scale>
-     <offset>10</offset>
+     <scale>-40</scale>
+     <offset>20</offset>
     </transformation>
    </transformations>
   </layer>

@@ -15,20 +15,27 @@
      The solution is to hard code the movement point :
      - sets the gear height and CG, and VRP to nose tip, inside the FDM.
      - shifts the model at nose tip.
+
+
+     Known problem :
+     =============
+     - if rotation with seat, the engineer view must match the seat axis.
 -->
 
 <PropertyList>
 
   <virtual-cockpit archive="y">true</virtual-cockpit>
 
+  <!-- pilot seat in cockpit. -->
+
   <view>
    <internal archive="y">true</internal>
    <config>
      <!-- x/y/z == right/up/back -->
-     <x-offset-m archive="y">-0.38</x-offset-m>
-     <y-offset-m archive="y">3.05</y-offset-m>
-     <z-offset-m archive="y">6.14</z-offset-m>
-     <pitch-offset-deg archive="y">-13.0</pitch-offset-deg>
+     <x-offset-m archive="y">-0.465</x-offset-m>
+     <y-offset-m archive="y">3.19</y-offset-m>
+     <z-offset-m archive="y">5.38</z-offset-m>
+     <pitch-offset-deg archive="y">-16.0</pitch-offset-deg>         <!-- looks at instruments -->
    </config>
   </view>
 
@@ -53,8 +60,102 @@
    </config>
   </view>
 
+  <view n="6">
+   <config>
+     <target-z-offset-m archive="y">24.3</target-z-offset-m>
+   </config>
+  </view>
+
   <view n="100">                                          <!-- MANDATORY view number -->
+    <name>Copilot View</name>
+    <enabled type="bool">false</enabled>
+    <type>lookfrom</type>
+    <internal archive="y">true</internal>
+    <config>
+      <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+      <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+      <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+      <default-pitch-deg type="double">0</default-pitch-deg>
+      <default-heading-deg type="double">0</default-heading-deg>
+      <front-direction-deg type="double">0</front-direction-deg>
+      <front-left-direction-deg type="double">45</front-left-direction-deg>
+      <left-direction-deg type="double">90</left-direction-deg>
+      <back-left-direction-deg type="double">135</back-left-direction-deg>
+      <back-direction-deg type="double">180</back-direction-deg>
+      <back-right-direction-deg type="double">225</back-right-direction-deg>
+      <right-direction-deg type="double">270</right-direction-deg>
+      <front-right-direction-deg type="double">315</front-right-direction-deg>
+      <!-- x/y/z == right/up/back -->
+      <x-offset-m archive="y">0.465</x-offset-m>   <!-- symmetry with captain -->
+      <y-offset-m archive="y">3.19</y-offset-m>
+      <z-offset-m archive="y">5.38</z-offset-m>
+      <pitch-offset-deg archive="y">2.0</pitch-offset-deg> <!-- look the horizon -->
+      <heading-offset-deg type="double">286</heading-offset-deg> <!-- inside its windows -->
+    </config>
+  </view>
+
+  <view>
+    <name>Engineer View</name>
+    <enabled type="bool">false</enabled>
+    <type>lookfrom</type>
+    <internal type="bool">true</internal>
+    <config>
+      <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+      <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+      <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+      <default-pitch-deg type="double">0</default-pitch-deg>
+      <default-heading-deg type="double">0</default-heading-deg>
+      <front-direction-deg type="double">0</front-direction-deg>
+      <front-left-direction-deg type="double">45</front-left-direction-deg>
+      <left-direction-deg type="double">90</left-direction-deg>
+      <back-left-direction-deg type="double">135</back-left-direction-deg>
+      <back-direction-deg type="double">180</back-direction-deg>
+      <back-right-direction-deg type="double">225</back-right-direction-deg>
+      <right-direction-deg type="double">270</right-direction-deg>
+      <front-right-direction-deg type="double">315</front-right-direction-deg>
+      <!-- x/y/z == right/up/back -->
+      <x-offset-m archive="y">-0.004</x-offset-m>        <!-- the seat rotation axis ! -->
+      <y-offset-m archive="y">3.19</y-offset-m>          <!-- like pilot -->
+      <z-offset-m archive="y">6.7</z-offset-m>
+      <pitch-offset-deg archive="y">-19.0</pitch-offset-deg>         <!-- looks at fuel -->
+      <heading-offset-deg type="double">270</heading-offset-deg>
+    </config>
+  </view>
+
+  <view>
+    <name>Observer View</name>
+    <enabled type="bool">false</enabled>
+    <type>lookfrom</type>
+    <internal type="bool">true</internal>
+    <config>
+      <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+      <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+      <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+      <default-pitch-deg type="double">0</default-pitch-deg>
+      <default-heading-deg type="double">0</default-heading-deg>
+      <front-direction-deg type="double">0</front-direction-deg>
+      <front-left-direction-deg type="double">45</front-left-direction-deg>
+      <left-direction-deg type="double">90</left-direction-deg>
+      <back-left-direction-deg type="double">135</back-left-direction-deg>
+      <back-direction-deg type="double">180</back-direction-deg>
+      <back-right-direction-deg type="double">225</back-right-direction-deg>
+      <right-direction-deg type="double">270</right-direction-deg>
+      <front-right-direction-deg type="double">315</front-right-direction-deg>
+      <!-- x/y/z == right/up/back -->
+      <x-offset-m archive="y">-1.04</x-offset-m>
+      <y-offset-m archive="y">3.19</y-offset-m>          <!-- like engineer -->
+      <z-offset-m archive="y">6.97</z-offset-m>
+      <pitch-offset-deg archive="y">-5</pitch-offset-deg>
+      <heading-offset-deg type="double">327</heading-offset-deg>
+    </config>
+  </view>
+
+  <view>
     <name>Gear Well View</name>
+    <enabled type="bool">false</enabled>
     <type>lookfrom</type>
     <internal type="bool">true</internal>
     <config>
@@ -83,6 +184,7 @@
 
   <view>
     <name>Cargo Forward View</name>
+    <enabled type="bool">false</enabled>
     <type>lookfrom</type>
     <internal type="bool">true</internal>
     <config>
@@ -110,6 +212,7 @@
 
   <view>
     <name>Cargo Aft View</name>
+    <enabled type="bool">false</enabled>
     <type>lookfrom</type>
     <internal type="bool">true</internal>
     <config>

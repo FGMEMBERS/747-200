@@ -26,45 +26,49 @@ Ceiling : 45100 ft (C).
 
 Installation
 ============
-If your preferences.xml doesn't have 6 views, update Nasal/747-200-views.xml.
-
 Fuel load
 ---------
 - default is maximum landing weight, 630000 lb.
-- for alternate load, press "ctrl-M f" (saved on exit by userarchive).
+- for alternate load, press "ctrl-I f" (saved on exit in aircraft-data).
 
 Known compatibility
 -------------------
-- 0.9.11 : nasal loads menus, and Systems/747-200-instrumentation.xml.
-- 0.9.10 : JSBSim 2.0 FDM.
-- 0.9.9  : object nasal.
+- 1.0.0 : minimal version.
+
 
 
 Keyboard
 ========
-- "ctrl-M" : "M"enu.
 - "q"      : quit speed up.
 
 Views
 -----
-- "ctrl-M c" : debug views.
+- "ctrl-E"   : "E"ngineer view.
+- "ctrl-J"   : "C"opilot view.
+- "ctrl-K"   : "O"bserver view (floating).
+- "ctrl-I c" : debug views (floating).
 
 Same behaviour
 --------------
 - "ctrl-R" : radio frequencies.
-- "s" swaps between Captain and Center 2D panels.
+- "S" swaps between Captain and Center 2D panels.
+- "left / right" : autopilot heading.
  
 Improved behaviour
 ------------------
 - "a / A"  : speeds up BOTH speed and time. Until X 15.
              Automatically resets to 1, when above 2000 ft/min.
+- "up / down"  : increases / decreases altitude hold, vertical speed hold.
+- "home / end" : increases / decreases (slow) altitude hold, vertical speed hold.
+- "page up / page down" : increases / decreases speed hold, Mach hold.
 
 Alternate behaviour
 -------------------
+- "ctrl-I" : menu.
 - "ctrl-T" : toggle altitude hold.
+- "left / right" : move floating view in width.
 - "up / down"  : move floating view in length.
 - "home / end" : move floating view in length (fast).
-- "left / right" : move floating view in width.
 - "page up / page down" : move floating view in height.
 
 Disabled
@@ -112,7 +116,8 @@ JSBSim
 
 TO DO
 =====
-- 3D cockpit.
+- systems.
+- 3D instruments.
 
 TO DO JSBSim
 ------------
@@ -121,11 +126,13 @@ TO DO JSBSim
 
 Known problems
 ==============
-- taxi turns : body gear steering (without, turn radius is too large) should be reversed.
+- the file in application-data (saved configuration) causes the bounce at loading
+  (it seems to trim over the runway).
+- start taxi turns with a small angle : body gear steering (without, turn radius is too large)
+  should be reversed.
 
 Known problems autopilot
 ------------------------
-- close waypoint may not pop for the next one, to avoid a strong bank.
 - heading hold is a little slow to converge.
 - beyond 15 NM, nav hold makes wide rolls.
 
@@ -133,9 +140,20 @@ Known problems autoland
 -----------------------
 - nav must be accurate until 0 ft AGL : KSFO 28R, RJAA 34L are correct;
   but EGLL 27R, KJFK 22L are wrong : to land at these airports,
-  set /controls/autoflight/real-nav to false, by "ctrl-M c".
-- glide slope must be accurate until 200 ft AGL : real should be 100 ft,
+  set /controls/autoflight/real-nav to false, by "ctrl-I c".
+- glide slope must be accurate until 250 ft AGL : real should be 100 ft,
   but nose tends to dive to catch the slope (simplistic autopilot or wrong glide slope ?).
+
+Known problems keyboard
+-----------------------
+- because of ctrl-I overriding, TAB altimeter menu is not available with GLUT.
+
+Known problems OSG
+------------------
+The following artefacts are supposed to be solved by OSG (works with 1.0.0 / Plib) :
+- missing hotspots.
+- panels swaping too early.
+- instrument transparent through layer with alpha (observer view).
 
 
 References
@@ -161,4 +179,4 @@ References
     747 Classics.
 
 
-16 December 2006.
+17 February 2008.

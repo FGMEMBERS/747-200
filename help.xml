@@ -21,7 +21,7 @@
 
     <key>
      <name>up/down</name>
-     <desc>autopilot pitch</desc>
+     <desc>increase/decrease altitude</desc>
     </key>
 
     <key>
@@ -31,7 +31,7 @@
 
     <key>
      <name>home/end</name>
-     <desc>increase/decrease autopilot pitch (slow)</desc>
+     <desc>increase/decrease altitude (slow)</desc>
     </key>
 
     <key>
@@ -40,8 +40,13 @@
     </key>
 
     <key>
-     <name>page up/down</name>
-     <desc>floating view up/down</desc>
+      <name>page up/down</name>
+      <desc>increase/decrease autothrottle</desc>
+    </key>
+
+    <key>
+      <name></name>
+      <desc>floating view up/down</desc>
     </key>
 
     <key>
@@ -60,7 +65,7 @@
     </key>
 
     <key>
-      <name>s</name>
+      <name>S</name>
       <desc>swap 2D panels</desc>
     </key>
 
@@ -75,6 +80,11 @@
     </key>
 
     <key>
+      <name>ctrl-E</name>
+      <desc>engineer view</desc>
+    </key>
+
+    <key>
       <name>ctrl-G</name>
       <desc>toggle glide slope + vor loc</desc>
     </key>
@@ -85,8 +95,18 @@
     </key>
 
     <key>
-     <name>Ctrl-M</name>
+     <name>ctrl-I</name>
      <desc>menu</desc>
+    </key>
+
+    <key>
+      <name>ctrl-J</name>
+      <desc>copilot view</desc>
+    </key>
+
+    <key>
+      <name>ctrl-K</name>
+      <desc>observer (floating) view</desc>
     </key>
 
     <key>

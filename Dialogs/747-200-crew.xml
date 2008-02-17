@@ -15,38 +15,73 @@
     <halign>center</halign>
 
     <text>
-      <label>Cargo doors</label>
+      <label>Doors</label>
     </text>
 
-    <checkbox>
-      <halign>left</halign>
-      <label>Forward</label>
-      <property>/controls/doors/cargo/forward/position-norm</property>
-      <binding>
-       <command>nasal</command>
-       <script>globals.Boeing747.doorsystem.cargoforwardexport();</script>
-      </binding>
-    </checkbox>
+    <group>
+      <layout>hbox</layout>
 
-    <checkbox>
-      <halign>left</halign>
-      <label>Aft</label>
-      <property>/controls/doors/cargo/aft/position-norm</property>
-      <binding>
-       <command>nasal</command>
-       <script>globals.Boeing747.doorsystem.cargoaftexport();</script>
-      </binding>
-    </checkbox>
+      <group>
+        <layout>vbox</layout>
 
-    <checkbox>
-      <halign>left</halign>
-      <label>Bulk</label>
-      <property>/controls/doors/cargo/bulk/position-norm</property>
-      <binding>
-       <command>nasal</command>
-       <script>globals.Boeing747.doorsystem.cargobulkexport();</script>
-      </binding>
-    </checkbox>
+        <checkbox>
+          <halign>left</halign>
+          <label>Flight deck</label>
+          <property>/controls/doors/crew/flightdeck/position-norm</property>
+          <binding>
+           <command>nasal</command>
+           <script>globals.Boeing747.doorsystem.flightdeckexport();</script>
+          </binding>
+        </checkbox>
+
+        <checkbox>
+          <halign>left</halign>
+          <label>Exit</label>
+          <property>/controls/doors/crew/exit/position-norm</property>
+          <binding>
+           <command>nasal</command>
+           <script>globals.Boeing747.doorsystem.exitexport();</script>
+          </binding>
+        </checkbox>
+
+      </group>
+
+      <group>
+        <layout>vbox</layout>
+
+        <checkbox>
+          <halign>left</halign>
+          <label>Cargo forward</label>
+          <property>/controls/doors/cargo/forward/position-norm</property>
+          <binding>
+           <command>nasal</command>
+           <script>globals.Boeing747.doorsystem.cargoforwardexport();</script>
+          </binding>
+        </checkbox>
+
+        <checkbox>
+          <halign>left</halign>
+          <label>Cargo aft</label>
+          <property>/controls/doors/cargo/aft/position-norm</property>
+          <binding>
+           <command>nasal</command>
+           <script>globals.Boeing747.doorsystem.cargoaftexport();</script>
+          </binding>
+        </checkbox>
+
+        <checkbox>
+          <halign>left</halign>
+          <label>Cargo bulk</label>
+          <property>/controls/doors/cargo/bulk/position-norm</property>
+          <binding>
+           <command>nasal</command>
+           <script>globals.Boeing747.doorsystem.cargobulkexport();</script>
+          </binding>
+        </checkbox>
+
+      </group>
+
+    </group>
 
     <text>
       <label></label>
@@ -56,52 +91,93 @@
       <label>Views</label>
     </text>
 
+    <group>
+      <layout>hbox</layout>
+
+      <group>
+        <layout>vbox</layout>
+
+        <checkbox>
+          <halign>left</halign>
+          <label>Cargo forward (floating)</label>
+          <property>/systems/seat/cargo-forward</property>
+          <binding>
+           <command>nasal</command>
+           <script>globals.Boeing747.seatsystem.viewexport("cargo-forward");</script>
+          </binding>
+          <binding>
+           <command>dialog-update</command>
+          </binding>
+        </checkbox>
+
+        <checkbox>
+          <halign>left</halign>
+          <label>Gear well (floating)</label>
+          <property>/systems/seat/gear-well</property>
+          <binding>
+           <command>nasal</command>
+           <script>globals.Boeing747.seatsystem.viewexport("gear-well");</script>
+          </binding>
+          <binding>
+           <command>dialog-update</command>
+          </binding>
+        </checkbox>
+
+        <checkbox>
+          <halign>left</halign>
+          <label>Cargo aft (floating)</label>
+          <property>/systems/seat/cargo-aft</property>
+          <binding>
+           <command>nasal</command>
+           <script>globals.Boeing747.seatsystem.viewexport("cargo-aft");</script>
+          </binding>
+          <binding>
+           <command>dialog-update</command>
+          </binding>
+        </checkbox>
+      </group>
+
+      <checkbox>
+        <label>Recover position of last session  ~</label>
+        <property>/controls/seat/recover</property>
+        <binding>
+         <command>nasal</command>
+         <script>globals.Boeing747.seatsystem.recoverexport();</script>
+        </binding>
+      </checkbox>
+    </group>
+
+    <text>
+      <label></label>
+    </text>
+
+    <text>
+      <label>Stowe seat</label>
+    </text>
+
     <checkbox>
       <halign>left</halign>
-      <label>Cargo forward (floating)</label>
-      <property>/systems/seat/cargo-forward</property>
+      <label>Captain</label>
+      <property>/systems/human/captain/stowe-norm</property>
       <binding>
        <command>nasal</command>
-       <script>globals.Boeing747.seatsystem.viewexport("cargo-forward");</script>
-      </binding>
-      <binding>
-       <command>dialog-update</command>
+       <script>globals.Boeing747.doorsystem.seatexport("captain");</script>
       </binding>
     </checkbox>
 
     <checkbox>
       <halign>left</halign>
-      <label>Gear well (floating)</label>
-      <property>/systems/seat/gear-well</property>
+      <label>Copilot</label>
+      <property>/systems/human/copilot/stowe-norm</property>
       <binding>
        <command>nasal</command>
-       <script>globals.Boeing747.seatsystem.viewexport("gear-well");</script>
-      </binding>
-      <binding>
-       <command>dialog-update</command>
+       <script>globals.Boeing747.doorsystem.seatexport("copilot");</script>
       </binding>
     </checkbox>
 
-    <checkbox>
-      <halign>left</halign>
-      <label>Cargo aft (floating)</label>
-      <property>/systems/seat/cargo-aft</property>
-      <binding>
-       <command>nasal</command>
-       <script>globals.Boeing747.seatsystem.viewexport("cargo-aft");</script>
-      </binding>
-      <binding>
-       <command>dialog-update</command>
-      </binding>
-    </checkbox>
-  </group>
-
-  <text>
-    <label></label>
-  </text>
-
-  <group>
-    <layout>vbox</layout>
+    <text>
+      <label></label>
+    </text>
 
     <text>
       <label>Autoland</label>
@@ -117,6 +193,10 @@
       </binding>
     </checkbox>
   </group>
+
+  <text>
+    <label></label>
+  </text>
 
   <text>
     <label></label>

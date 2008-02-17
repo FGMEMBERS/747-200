@@ -6,6 +6,9 @@
  
 <PropertyList>
 
+<!-- position x/y/z = depth/width/height, from nose (because of VRP) -->
+
+
  <fx>
 
 <!-- ENGINE INTERNAL -->
@@ -24,8 +27,8 @@
     </and>
    </condition>
    <position>
-    <x>-17.0</x>
-    <y>0.0</y>
+    <x>30.0</x>                                        <!-- wing -->
+    <y>-17.0</y>                                       <!-- left -->
     <z>0.0</z>
    </position>
    <volume>
@@ -66,8 +69,8 @@
     </and>
    </condition>
    <position>
-    <x>17.0</x>
-    <y>0.0</y>
+    <x>30.0</x>                                        <!-- wing -->
+    <y>17.0</y>                                        <!-- right -->
     <z>0.0</z>
    </position>
    <volume>
@@ -112,8 +115,8 @@
     </and>
    </condition>
    <position>
-    <x>-17.0</x>
-    <y>0.0</y>
+    <x>30.0</x>
+    <y>-17.0</y>
     <z>0.0</z>
    </position>
    <volume>
@@ -156,8 +159,8 @@
     </and>
    </condition>
    <position>
-    <x>17.0</x>
-    <y>0.0</y>
+    <x>30.0</x>
+    <y>17.0</y>
     <z>0.0</z>
    </position>
    <volume>
@@ -184,7 +187,7 @@
    </pitch>
   </engine>
 
-<!-- COCKPIT -->
+<!-- OUTPSIDE -->
 
   <gear>
    <name>gear</name>
@@ -214,7 +217,40 @@
     <offset>1.0</offset>
     <factor>-0.001</factor>
    </pitch>
+   <position>
+    <x>30.0</x>                                                       <!-- gear -->
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
   </gear>
+ 
+  <flap>
+   <name>flaps</name>
+   <mode>in-transit</mode>
+   <path>Sounds/flaps.wav</path>
+   <condition>
+    <and>
+     <not>
+      <property>/sim/current-view/internal</property>
+     </not>
+     <not-equals>
+      <property>/surface-positions/flap-pos-norm</property>
+      <property n="1">/controls/flight/flaps</property>
+     </not-equals>
+    </and>
+   </condition>
+   <property>/surface-positions/flap-pos-norm</property>
+   <volume>
+    <factor>0.07</factor>
+   </volume>
+   <position>
+    <x>35.0</x>                                                       <!-- wing -->
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+  </flap>
+
+<!-- COCKPIT -->
 
   <squeal>
    <name>squeal</name>
@@ -253,27 +289,6 @@
     <offset>1.2</offset>
    </pitch>
   </squeal>
- 
-  <flap>
-   <name>flaps</name>
-   <mode>in-transit</mode>
-   <path>Sounds/flaps.wav</path>
-   <condition>
-    <and>
-     <not>
-      <property>/sim/current-view/internal</property>
-     </not>
-     <not-equals>
-      <property>/surface-positions/flap-pos-norm</property>
-      <property n="1">/controls/flight/flaps</property>
-     </not-equals>
-    </and>
-   </condition>
-   <property>/surface-positions/flap-pos-norm</property>
-   <volume>
-    <factor>0.07</factor>
-   </volume>
-  </flap>
  
   <stall>
    <name>stall</name>
@@ -322,7 +337,8 @@
    <mode>looped</mode>
    <path>Sounds/mk-viii/pull-up.wav</path>
    <condition>
-    <and include="../Panels/Instruments/747-cond-pull-up.xml">
+    <and include="../Panels/Instruments/747-cond-voltage-inst.xml">
+     <property>/systems/warning/red/pull-up</property>
      <property>/sim/current-view/internal</property>
     </and>
    </condition>
@@ -331,6 +347,44 @@
     <min>0.1</min>
    </volume>
   </terrain>
+
+  <door>
+   <name>flight deck door</name>
+   <path>Sounds/door_close.wav</path>
+   <condition>
+    <equals>
+     <property>/controls/doors/crew/flightdeck/position-norm</property>
+     <value>0.0</value>
+    </equals>
+   </condition>
+   <volume>
+    <factor>0.2</factor>
+   </volume>
+   <position>
+    <x>7.5</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+   </position>
+  </door>
+
+  <door>
+   <name>exit door</name>
+   <path>Sounds/door_close.wav</path>
+   <condition>
+    <equals>
+     <property>/controls/doors/crew/exit/position-norm</property>
+     <value>0.0</value>
+    </equals>
+   </condition>
+   <volume>
+    <factor>0.2</factor>
+   </volume>
+   <position>
+    <x>7.5</x>
+    <y>2.5</y>
+    <z>0.0</z>
+   </position>
+  </door>
 
 </fx>
  

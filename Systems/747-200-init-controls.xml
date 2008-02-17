@@ -19,12 +19,17 @@
    <dial-speed-kt type="double">250.0</dial-speed-kt>
    <heading></heading>
    <horizontal-selector type="int">-1</horizontal-selector>                        <!-- magnetic heading -->
+   <real-nav type="bool">true</real-nav>
    <vertical></vertical>
    <vertical-selector type="int">-1</vertical-selector>                            <!-- off -->
   </autoflight>
 
   <flight>
-   <spoilers-flight type="bool">true</spoilers-flight>
+   <spoilers-lever type="double">0.0</spoilers-lever>
   </flight>
+
+  <seat>
+   <recover userarchive="y" type="bool">false</recover>
+  </seat>
 
 </PropertyList>

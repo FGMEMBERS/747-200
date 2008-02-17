@@ -2,6 +2,8 @@
 
 <!-- 747 throttle :
 
+     inert with autothrottle.
+
 
 Adapted from John Check, j4strngs@rockfish.net
 
@@ -35,6 +37,7 @@ Hacked to create a single throttle quadrant.
 
  <params>
   <engine-throttle-select>/controls/engines/engine[0]/throttle</engine-throttle-select>
+  <engine-throttle-manual>/controls/engines/engine[0]/throttle-manual</engine-throttle-manual>
  </params>
 
  <layers>
@@ -72,7 +75,7 @@ Hacked to create a single throttle quadrant.
     </transformation>
     <transformation>
      <type>y-shift</type>
-     <property alias="../../../../../params/engine-throttle-select"/>
+     <property alias="../../../../../params/engine-throttle-manual"/>
      <min>0.0</min>
      <max>1.0</max>
      <scale>40</scale>
@@ -101,6 +104,14 @@ Hacked to create a single throttle quadrant.
     <max>1.0</max>
     <wrap>false</wrap>
    </binding>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/engine-throttle-manual"/>
+    <step>-0.01</step>
+    <min>0</min>
+    <max>1.0</max>
+    <wrap>false</wrap>
+   </binding>
   </action>
 
   <action>
@@ -113,6 +124,14 @@ Hacked to create a single throttle quadrant.
    <binding>
     <command>property-adjust</command>
     <property alias="../../../../params/engine-throttle-select"/>
+    <step>0.01</step>
+    <min>0</min>
+    <max>1.0</max>
+    <wrap>false</wrap>
+   </binding>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/engine-throttle-manual"/>
     <step>0.01</step>
     <min>0</min>
     <max>1.0</max>
@@ -135,6 +154,14 @@ Hacked to create a single throttle quadrant.
     <max>1.0</max>
     <wrap>false</wrap>
    </binding>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/engine-throttle-manual"/>
+    <step>-0.1</step>
+    <min>0</min>
+    <max>1.0</max>
+    <wrap>false</wrap>
+   </binding>
   </action>
 
   <action>
@@ -147,6 +174,14 @@ Hacked to create a single throttle quadrant.
    <binding>
     <command>property-adjust</command>
     <property alias="../../../../params/engine-throttle-select"/>
+    <step>0.1</step>
+    <min>0</min>
+    <max>1.0</max>
+    <wrap>false</wrap>
+   </binding>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/engine-throttle-manual"/>
     <step>0.1</step>
     <min>0</min>
     <max>1.0</max>

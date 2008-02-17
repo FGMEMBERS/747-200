@@ -4,7 +4,7 @@ The generic passenger configuration 200B (A), with 10 portholes at upper deck,
 and 3 cargo doors on the right side.
 
 The texture is N638US (B), a 251B powered by the JT9D-7R4G2 (C);
-6 portholes are obstructed.
+on upper deck, the left exit door and 6 portholes are obstructed.
 
 JT9D-7RG4G2 has a nacelle with hole; inside turbofan, air is bypassed around the shaft,
 providing a large part of thrust.
@@ -18,6 +18,13 @@ Fuselage is shaped by a cylinder and the upper deck :
 these 2 meshes though merged are still kept distinct.
 
 This model might also be used as 747-100 (same dimensions and portholes ?).
+
+
+Cockpit
+-------
+The engineer panel is not smoothed (solid).
+
+747-200-warning.rgb is required at loading (green is text area).
 
 
 VRP
@@ -40,14 +47,17 @@ Engine : the rose is for very hot parts.
 
 TO DO
 =====
-- 3D cockpit.
+- engine fans are not symmetrical.
+- aft shape of JT9D-7RG4G2 engine ?
+
+TO DO livery
+------------
 - KLM-NW logo, on the right side.
 - release the Metapost file.
 
 
 Known problems
 ==============
-- engine fans are not symmetrical.
 - the a of "nwa".
 - the portholes should have a roundness.
 - the livery is difficult to repaint (not a skin).
@@ -75,7 +85,7 @@ Metapost template by M. Franz.
 http://www.usflag.org/ : the 50 stars flag.
 
 
-Made with Blender 2.42a.
+Made with Blender 2.45 and Gimp.
 
 
-10 September 2006.
+10 February 2008.

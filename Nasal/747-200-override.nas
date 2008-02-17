@@ -12,7 +12,7 @@
 override_flapsDown = controls.flapsDown;
 
 controls.flapsDown = func( step ) {
-   flapspos = constant.nonil( getprop("/controls/flight/flaps") );
+   var flapspos = constant.nonil( getprop("/controls/flight/flaps") );
 
    # only flaps 1 and 5 deg
    if( flapspos < getprop("/sim/flaps/setting[3]") ) {
@@ -24,4 +24,18 @@ controls.flapsDown = func( step ) {
    }
 
    override_flapsDown( step );
+}
+
+
+# overrides the joystick axis handler to make inert the throttle animation with autothrottle
+override_throttleAxis = controls.throttleAxis;
+
+controls.throttleAxis = func {
+    var val = cmdarg().getNode("setting").getValue();
+    if(size(arg) > 0) { val = -val; }
+
+    var position = (1 - val)/2;
+
+    props.setAll("/controls/engines/engine", "throttle", position);
+    props.setAll("/controls/engines/engine", "throttle-manual", position);
 }
