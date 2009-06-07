@@ -2,7 +2,8 @@
 <!--
   File:     JT9D-7R4G2.xml
   Author:   Aero-Matic v 0.7
-  Date:     23 August 2006
+  Version:  2.0
+  Date:     30 May 2009
 
   Inputs:
     name:           JT9D-7R4G2
@@ -16,18 +17,24 @@
   ==========
 
   - http://www.aircraftenginedesign.com/TableB3.html :
-    JT9D-J9A has the closest characteristics.
+    JT9D-J9A.
 
-    Takeoff : Thrust 53000 lb, Bypass Ratio 4.90, Overall Pressure Ratio 24.5, Airflow : 1639 lb/s.
-    Cruise  : Altitude : 35000 ft, Mach 0.85, Thrust 11950 lb, TSFC : 0.646.
+    Takeoff : Thrust 53000 lb, Bypass Ratio 4.90, Overall Pressure Ratio 24.5, Airflow 1639 lb/s.
+    Cruise  : Altitude 35000 ft, Mach 0.85, Thrust 11950 lb, TSFC 0.646.
+
+  - http://www.jet-engine.net/civtfspec.html :
+    JT9D-7R4G2.
+
+    Dry : Thrust 54750 lb, Airflow 1695 lb/s, SFC 0.360, BPR 4.80.
+    Cruise : Altitude 35000 ft, Mach 0.85, Thrust 12250 lb, SFC 0.639.
 
 -->
 
 <turbine_engine name="JT9D-7R4G2">
   <milthrust> 54750 </milthrust>
   <maxthrust> 54750 </maxthrust>
-  <bypassratio>   4.90 </bypassratio>                                            <!-- aeromatic 1.0 -->
-  <tsfc>          0.860 </tsfc>              <!-- 0.646 x 1.33 -->               <!-- aeromatic 0.8 -->
+  <bypassratio>   4.80 </bypassratio>                                            <!-- aeromatic 1.0 -->
+  <tsfc>          0.639 </tsfc>                                                  <!-- aeromatic 0.8 -->
   <atsfc>         1.7 </atsfc>
   <idlen1>       30.0 </idlen1>
   <idlen2>       60.0 </idlen2>
