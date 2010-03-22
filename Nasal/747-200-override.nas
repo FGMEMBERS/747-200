@@ -36,6 +36,10 @@ controls.throttleAxis = func {
 
     var position = (1 - val)/2;
 
-    props.setAll("/controls/engines/engine", "throttle", position);
+    # throttle doesn't disturb autothrottle
+    if( getprop("/autopilot/locks/speed") == "" ) {
+        props.setAll("/controls/engines/engine", "throttle", position);
+    }
+
     props.setAll("/controls/engines/engine", "throttle-manual", position);
 }

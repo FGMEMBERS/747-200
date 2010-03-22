@@ -7,10 +7,6 @@
      - the model is already align vertically in the nose axis.
 
 
-     Panels :
-     all panels are 1024x512, i.e. surface must have width/height = 2/1, to keep the scale of instruments.
-
-
      Aninmation :
      - WARNING : cockpit must be inside a distinct group (LOD).
      - x y z Blender => x z y animation.
@@ -26,7 +22,6 @@
 
      TO DO :
      =====
-     - body gear turns with hysteresis.
      - torsion of gear spring (presently sliding).
      - the gear pistons are more extended in flight.
 
@@ -47,168 +42,49 @@
    <z-m> 0.0</z-m>             <!-- aligned by FDM gear, if model at the scale -->
  </offsets>
 
+  <nasal>
+   <load>
+    var livery_update = aircraft.livery_update.new(
+    "Aircraft/747-200/Models/Liveries", 10,
+    func { print("747-200 livery update") });
+   </load>
 
- <!-- ======================================= -->
- <!-- panel models (X/Y/Z depth/width/height) -->
- <!-- ======================================= -->
-
- <!-- AUTOPILOT -->
-
-  <panel>
-   <path>Aircraft/747-200/Panels/747-200-autopilot.xml</path>
-   <bottom-left>
-    <x-m>-19.267</x-m>
-    <y-m>-0.281</y-m>
-    <z-m> 3.023</z-m>
-   </bottom-left>
-   <bottom-right>
-    <x-m>-19.267</x-m>
-    <y-m> 0.229</y-m>
-    <z-m> 3.023</z-m>
-   </bottom-right>
-   <top-left>
-    <x-m>-19.302</x-m>
-    <y-m>-0.281</y-m>
-    <z-m> 3.268</z-m>
-   </top-left>
-  </panel>
-
-  <panel>
-   <path>Aircraft/747-200/Panels/747-200-autopilot-right.xml</path>
-   <bottom-left>
-    <x-m>-19.267</x-m>
-    <y-m> 0.277</y-m>
-    <z-m> 3.023</z-m>
-   </bottom-left>
-   <bottom-right>
-    <x-m>-19.267</x-m>
-    <y-m> 0.787</y-m>
-    <z-m> 3.023</z-m>
-   </bottom-right>
-   <top-left>
-    <x-m>-19.302</x-m>
-    <y-m> 0.277</y-m>
-    <z-m> 3.268</z-m>
-   </top-left>
-  </panel>
-
- <!-- PILOT -->
-
-  <panel>
-   <path>Aircraft/747-200/Panels/747-200-pilot.xml</path>
-   <bottom-left>
-    <x-m>-19.310</x-m>
-    <y-m>-0.581</y-m>
-    <z-m> 2.668</z-m>
-   </bottom-left>
-   <bottom-right>
-    <x-m>-19.310</x-m>
-    <y-m> 0.429</y-m>
-    <z-m> 2.668</z-m>
-   </bottom-right>
-   <top-left>
-    <x-m>-19.355</x-m>
-    <y-m>-0.581</y-m>
-    <z-m> 3.173</z-m>
-   </top-left>
-  </panel>
-
-  <panel>
-   <path>Aircraft/747-200/Panels/747-200-copilot.xml</path>
-   <bottom-left>
-    <x-m>-19.310</x-m>
-    <y-m> 0.306</y-m>
-    <z-m> 2.668</z-m>
-   </bottom-left>
-   <bottom-right>
-    <x-m>-19.310</x-m>
-    <y-m> 1.316</y-m>
-    <z-m> 2.668</z-m>
-   </bottom-right>
-   <top-left>
-    <x-m>-19.355</x-m>
-    <y-m> 0.306</y-m>
-    <z-m> 3.173</z-m>
-   </top-left>
-  </panel>
-
- <!-- OVERHEAD -->
-
-  <panel>
-   <path>Aircraft/747-200/Panels/747-200-overhead.xml</path>
-   <bottom-left>
-    <x-m>-19.280</x-m>
-    <y-m>-0.251</y-m>
-    <z-m> 3.328</z-m>
-   </bottom-left>
-   <bottom-right>
-    <x-m>-19.280</x-m>
-    <y-m> 0.759</y-m>
-    <z-m> 3.328</z-m>
-   </bottom-right>
-   <top-left>
-    <x-m>-18.775</x-m>
-    <y-m>-0.251</y-m>
-    <z-m> 3.578</z-m>
-   </top-left>
-  </panel>
-
- <!-- PEDESTAL -->
-
-  <panel>
-   <path>Aircraft/747-200/Panels/747-200-pedestal.xml</path>
-   <bottom-left>
-    <x-m>-18.475</x-m>
-    <y-m>-0.201</y-m>
-    <z-m> 2.623</z-m>
-   </bottom-left>
-   <bottom-right>
-    <x-m>-18.475</x-m>
-    <y-m> 0.409</y-m>
-    <z-m> 2.623</z-m>
-   </bottom-right>
-   <top-left>
-    <x-m>-18.780</x-m>
-    <y-m>-0.201</y-m>
-    <z-m> 2.623</z-m>
-   </top-left>
-  </panel>
-
- <!-- ENGINEER -->
-
-  <panel>
-   <path>Aircraft/747-200/Panels/747-200-engineer-fuel.xml</path>
-   <bottom-left>
-    <x-m>-17.86</x-m>
-    <y-m> 0.55</y-m>
-    <z-m> 2.78</z-m>
-   </bottom-left>
-   <bottom-right>
-    <x-m>-17.36</x-m>
-    <y-m> 0.55</y-m>
-    <z-m> 2.78</z-m>
-   </bottom-right>
-   <top-left>
-    <x-m>-17.86</x-m>
-    <y-m> 0.59</y-m>
-    <z-m> 3.03</z-m>
-   </top-left>
-  </panel>
+   <unload>
+    livery_update.stop();
+   </unload>
+  </nasal>
 
 
-<!-- =========== -->
-<!-- Instruments -->
-<!-- =========== -->
+<!-- ================ -->
+<!-- Separated models -->
+<!-- ================ -->
 
   <model>
-   <name>Magnetic Compass</name>
-   <path>Aircraft/Instruments-3d/mag-compass.xml</path>
-   <offsets>
-    <x-m>-19.29</x-m>
-    <y-m>0.00</y-m>
-    <z-m>3.38</z-m>
+   <name>Instruments</name>
+   <path>Aircraft/747-200/Models/boeing747-200_instruments.xml</path>
+  </model>
+
+  <model>
+   <name>Pushback</name>
+   <path>Models\Airport\Pushback\Goldhofert.xml</path>
+   <offsets>   
+    <x-m>-16.90</x-m>
+    <y-m>0</y-m>
+    <z-m>-5.77</z-m>
    </offsets>
   </model>
+
+
+<!-- ============================ -->
+<!-- Livery (1 texture per group) -->
+<!-- ============================ -->
+
+  <animation>
+   <type>material</type>
+   <object-name>Fuselage</object-name>
+   <property-base>sim/model/livery/</property-base>
+   <texture-prop>texture</texture-prop>
+  </animation>
 
 
 <!-- ============= -->
@@ -217,9 +93,24 @@
 
   <animation>
    <type>range</type>
-   <object-name>Cockpit</object-name>
+   <object-name>AmberCargoDoors</object-name>
+   <object-name>RedPullUp</object-name>
    <min-m>0</min-m>
-   <max-m>100</max-m>
+   <max-m>25</max-m>
+  </animation>
+
+  <animation>
+   <type>range</type>
+   <object-name>Cockpit</object-name>
+   <object-name>Cylinder</object-name>
+   <object-name>Captain Yoke</object-name>
+   <object-name>Copilot Yoke</object-name>
+   <object-name>Captain Seat</object-name>
+   <object-name>Copilot Seat</object-name>
+   <object-name>Engineer Seat</object-name>
+   <object-name>Observer Seat</object-name>
+   <min-m>0</min-m>
+   <max-m>100</max-m>      <!-- beyond external view -->
   </animation>
 
 
@@ -299,8 +190,7 @@
    </less-than>
   </condition>
   <object-name>GearNoseWheels</object-name>
-  <property>gear/gear[0]/steering-norm</property>
-  <factor>-70</factor>
+  <property>fdm/jsbsim/fcs/steer-pos-deg[0]</property>
   <center>
    <x-m>-16.58</x-m>
    <y-m>0.0</y-m>
@@ -309,7 +199,7 @@
   <axis>
    <x>0</x>
    <y>0</y>
-   <z>1</z>
+   <z>-1</z>
   </axis>
  </animation>
 
@@ -1103,8 +993,7 @@
    </less-than>
   </condition>
   <object-name>GearBodyLeftWheels</object-name>
-  <property>gear/gear[2]/steering-norm</property>
-  <factor>-13</factor>
+  <property>fdm/jsbsim/fcs/steer-pos-deg[2]</property>
   <center>
    <x-m>10.853</x-m>
    <y-m>-1.5</y-m>
@@ -1113,7 +1002,7 @@
   <axis>
    <x>0</x>
    <y>0</y>
-   <z>1</z>
+   <z>-1</z>
   </axis>
  </animation>
 
@@ -1403,8 +1292,7 @@
    </less-than>
   </condition>
   <object-name>GearBodyRightWheels</object-name>
-  <property>gear/gear[3]/steering-norm</property>
-  <factor>-13</factor>
+  <property>fdm/jsbsim/fcs/steer-pos-deg[3]</property>
   <center>
    <x-m>10.853</x-m>
    <y-m>1.5</y-m>
@@ -1413,7 +1301,7 @@
   <axis>
    <x>0</x>
    <y>0</y>
-   <z>1</z>
+   <z>-1</z>
   </axis>
  </animation>
 
@@ -2600,8 +2488,8 @@
   <property>engines/engine[0]/n1</property>
   <center>
    <x-m>8.21</x-m>
-   <y-m>-21.40</y-m>
-   <z-m>-2.10</z-m>
+   <y-m>-21.386</y-m>
+   <z-m>-2.067</z-m>
   </center>
   <axis>
    <x>1</x>
@@ -2617,8 +2505,8 @@
   <property>engines/engine[1]/n1</property>
   <center>
    <x-m>8.21</x-m>
-   <y-m>-12.14</y-m>
-   <z-m>-2.98</z-m>
+   <y-m>-12.119</y-m>
+   <z-m>-2.947</z-m>
   </center>
   <axis>
    <x>1</x>
@@ -2634,8 +2522,8 @@
   <property>engines/engine[2]/n1</property>
   <center>
    <x-m>8.21</x-m>
-   <y-m>12.04</y-m>
-   <z-m>-2.98</z-m>
+   <y-m>12.068</y-m>
+   <z-m>-2.953</z-m>
   </center>
   <axis>
    <x>1</x>
@@ -2651,8 +2539,8 @@
   <property>engines/engine[3]/n1</property>
   <center>
    <x-m>8.21</x-m>
-   <y-m>21.35</y-m>
-   <z-m>-2.10</z-m>
+   <y-m>21.365</y-m>
+   <z-m>-2.070</z-m>
   </center>
   <axis>
    <x>1</x>
@@ -2687,6 +2575,19 @@
    <y>0.0</y>
    <z>1.0</z>
   </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>FlightDeckDoor</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Boeing747.doorsystem.flightdeckexport();</script>
+   </binding>
+  </action>
  </animation>
 
  <animation>
@@ -2740,6 +2641,19 @@
  </animation>
 
  <animation>
+  <type>pick</type>
+  <object-name>ExitDoor</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Boeing747.doorsystem.exitexport();</script>
+   </binding>
+  </action>
+ </animation>
+
+ <animation>
   <type>rotate</type>
   <object-name>ForwardCargoDoor</object-name>
   <property>controls/doors/cargo/forward/position-norm</property>
@@ -2765,6 +2679,19 @@
    <y2-m>3.020</y2-m>
    <z2-m>-0.83</z2-m>
   </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>ForwardCargoDoor</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Boeing747.doorsystem.cargoforwardexport();</script>
+   </binding>
+  </action>
  </animation>
 
  <animation>
@@ -2796,6 +2723,19 @@
  </animation>
 
  <animation>
+  <type>pick</type>
+  <object-name>AftCargoDoor</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Boeing747.doorsystem.cargoaftexport();</script>
+   </binding>
+  </action>
+ </animation>
+
+ <animation>
   <type>rotate</type>
   <object-name>BulkCargoDoor</object-name>
   <property>controls/doors/cargo/bulk/position-norm</property>
@@ -2823,458 +2763,17 @@
   </axis>
  </animation>
 
-<!-- YOKES -->
-
  <animation>
-  <type>rotate</type>
-  <object-name>LeftYokeColumn</object-name>
-  <object-name>LeftYoke</object-name>
-  <property>controls/flight/elevator</property>
-  <factor>-5</factor>
-  <center>
-   <x-m>-19.040</x-m>
-   <y-m>0.0</y-m>
-   <z-m>2.276</z-m>
-  </center>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
-
- <animation>
-  <type>rotate</type>
-  <object-name>LeftYoke</object-name>
-  <property>controls/flight/aileron</property>
-  <factor>-90</factor>
-  <center>
-   <x-m>0.0</x-m>
-   <y-m>-0.460</y-m>
-   <z-m>2.876</z-m>
-  </center>
-  <axis>
-   <x>1.0</x>
-   <y>0.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
-
- <animation>
-  <type>rotate</type>
-  <object-name>RightYokeColumn</object-name>
-  <object-name>RightYoke</object-name>
-  <property>controls/flight/elevator</property>
-  <factor>-5</factor>
-  <center>
-   <x-m>-19.040</x-m>
-   <y-m>0.0</y-m>
-   <z-m>2.276</z-m>
-  </center>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
-
- <animation>
-  <type>rotate</type>
-  <object-name>RightYoke</object-name>
-  <property>controls/flight/aileron</property>
-  <factor>-90</factor>
-  <center>
-   <x-m>0.0</x-m>
-   <y-m>0.467</y-m>
-   <z-m>2.876</z-m>
-  </center>
-  <axis>
-   <x>1.0</x>
-   <y>0.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
-
-<!-- SEAT -->
-
-<!-- CAPTAIN -->
-
-<!-- raises the armrest to reach the pedestal -->
-
- <animation>
-  <type>rotate</type>
-  <object-name>CaptainSeatArm</object-name>
-  <offset-deg>80</offset-deg>   
-  <condition>
-   <property>systems/seat/captain</property>
-  </condition>
-  <center>
-   <x-m>-18.555</x-m>
-   <y-m>0.0</y-m>
-   <z-m>2.779</z-m>
-  </center>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
-
- <animation>
-  <type>translate</type>
-  <object-name>CaptainSeat</object-name>
-  <property>systems/human/captain/stowe-norm</property>
-  <interpolation>
-    <entry>
-     <ind>0.0</ind>
-     <dep>0</dep>
-    </entry>
-    <entry>
-     <ind>0.6</ind>
-     <dep>0.3</dep>
-    </entry>
-    <entry>
-     <ind>1.0</ind>
-     <dep>0.3</dep>
-    </entry>
-  </interpolation>
-  <center>
-   <x-m>0.0</x-m>
-   <y-m>0.0</y-m>
-   <z-m>0.0</z-m>
-  </center>
-  <axis>
-   <x>1</x>
-   <y>0</y>
-   <z>0</z>
-  </axis>
- </animation>
-
- <animation>
-  <type>translate</type>
-  <object-name>CaptainSeat</object-name>
-  <property>systems/human/captain/stowe-norm</property>
-  <interpolation>
-    <entry>
-     <ind>0.0</ind>
-     <dep>0</dep>
-    </entry>
-    <entry>
-     <ind>0.6</ind>
-     <dep>0.0</dep>
-    </entry>
-    <entry>
-     <ind>1.0</ind>
-     <dep>-0.2</dep>
-    </entry>
-  </interpolation>
-  <center>
-   <x-m>0.0</x-m>
-   <y-m>0.0</y-m>
-   <z-m>0.0</z-m>
-  </center>
-  <axis>
-   <x>0</x>
-   <y>1</y>
-   <z>0</z>
-  </axis>
- </animation>
-
-<!-- COPILOT -->
-
-<!-- raises the armrest to reach the pedestal -->
-
- <animation>
-  <type>rotate</type>
-  <object-name>CopilotSeatArm</object-name>
-  <offset-deg>80</offset-deg>   
-  <condition>
-   <property>systems/seat/copilot</property>
-  </condition>
-  <center>
-   <x-m>-18.555</x-m>
-   <y-m>0.0</y-m>
-   <z-m>2.779</z-m>
-  </center>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
-
- <animation>
-  <type>translate</type>
-  <object-name>CopilotSeat</object-name>
-  <property>systems/human/copilot/stowe-norm</property>
-  <interpolation>
-    <entry>
-     <ind>0.0</ind>
-     <dep>0</dep>
-    </entry>
-    <entry>
-     <ind>0.6</ind>
-     <dep>0.3</dep>
-    </entry>
-    <entry>
-     <ind>1.0</ind>
-     <dep>0.3</dep>
-    </entry>
-  </interpolation>
-  <center>
-   <x-m>0.0</x-m>
-   <y-m>0.0</y-m>
-   <z-m>0.0</z-m>
-  </center>
-  <axis>
-   <x>1</x>
-   <y>0</y>
-   <z>0</z>
-  </axis>
- </animation>
-
- <animation>
-  <type>translate</type>
-  <object-name>CopilotSeat</object-name>
-  <property>systems/human/copilot/stowe-norm</property>
-  <interpolation>
-    <entry>
-     <ind>0.0</ind>
-     <dep>0</dep>
-    </entry>
-    <entry>
-     <ind>0.6</ind>
-     <dep>0.0</dep>
-    </entry>
-    <entry>
-     <ind>1.0</ind>
-     <dep>0.2</dep>
-    </entry>
-  </interpolation>
-  <center>
-   <x-m>0.0</x-m>
-   <y-m>0.0</y-m>
-   <z-m>0.0</z-m>
-  </center>
-  <axis>
-   <x>0</x>
-   <y>1</y>
-   <z>0</z>
-  </axis>
- </animation>
-
-<!-- ENGINEER -->
-
- <animation>
-  <type>rotate</type>
-  <object-name>EngineerSeat</object-name>
-  <property>sim/current-view/goal-heading-offset-deg</property>
-  <offset-deg>90</offset-deg>   
-  <condition>
-   <property>systems/seat/engineer</property>
-  </condition>
-  <center>
-   <x-m>-17.603</x-m>
-   <y-m>-0.004</y-m>
-   <z-m>0.0</z-m>
-  </center>
-  <axis>
-   <x>0.0</x>
-   <y>0.0</y>
-   <z>1.0</z>
-  </axis>
- </animation>
-
-<!-- WARNING -->
-
- <animation>
-  <type>material</type>
-  <object-name>AmberCargoDoor</object-name>
-  <emission>
-   <red>1.0</red>
-   <green>1.0</green>
-   <blue>0.0</blue>
-   <factor-prop>systems/warning/amber/cargo-doors</factor-prop>
-  </emission> 
-  <texture-prop>systems/warning/texture/amber/cargo-doors</texture-prop>
- </animation> 
-
- <animation>
-  <type>material</type>
-  <object-name>RedPullUp</object-name>
-  <emission>
-   <red>1.0</red>
-   <green>0.0</green>
-   <blue>0.0</blue>
-   <factor-prop>systems/warning/red/pull-up</factor-prop>
-  </emission> 
-  <texture-prop>systems/warning/texture/red/pull-up</texture-prop>
- </animation> 
-
-<!-- CENTER -->
-
- <animation>
-  <type>rotate</type>
-  <object-name>GearLever</object-name>
-  <property>controls/gear/gear-down</property>
-  <factor>60</factor>
-  <offset-deg>-25</offset-deg>   
-  <center>
-   <x-m>-19.38</x-m>
-   <y-m>0.0</y-m>
-   <z-m>2.842</z-m>
-  </center>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
-
-<!-- PEDESTAL -->
-
- <animation>
-  <type>rotate</type>
-  <object-name>StabLever</object-name>
-  <object-name>TrimLever</object-name>
-  <property>controls/flight/elevator-trim</property>
-  <factor>-25</factor>
-  <center>
-   <x-m>-19.028</x-m>
-   <y-m>0.0</y-m>
-   <z-m>2.599</z-m>
-  </center>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
-
- <animation>
-  <type>rotate</type>
-  <object-name>SpoilerLever</object-name>
-  <property>controls/flight/spoilers-lever</property>
-  <factor>60</factor>
-  <offset-deg>-30</offset-deg>
-  <center>
-   <x-m>-19.028</x-m>
-   <y-m>0.0</y-m>
-   <z-m>2.599</z-m>
-  </center>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
-
- <animation>
-  <type>rotate</type>
-  <object-name>Throttle1</object-name>
-  <property>controls/engines/engine[0]/throttle-manual</property>
-  <factor>-50</factor>
-  <offset-deg>25</offset-deg>
-  <center>
-   <x-m>-19.028</x-m>
-   <y-m>0.0</y-m>
-   <z-m>2.599</z-m>
-  </center>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
-
- <animation>
-  <type>rotate</type>
-  <object-name>Throttle2</object-name>
-  <property>controls/engines/engine[1]/throttle-manual</property>
-  <factor>-50</factor>
-  <offset-deg>25</offset-deg>
-  <center>
-   <x-m>-19.028</x-m>
-   <y-m>0.0</y-m>
-   <z-m>2.599</z-m>
-  </center>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
-
- <animation>
-  <type>rotate</type>
-  <object-name>Throttle3</object-name>
-  <property>controls/engines/engine[2]/throttle-manual</property>
-  <factor>-50</factor>
-  <offset-deg>25</offset-deg>
-  <center>
-   <x-m>-19.028</x-m>
-   <y-m>0.0</y-m>
-   <z-m>2.599</z-m>
-  </center>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
-
- <animation>
-  <type>rotate</type>
-  <object-name>Throttle4</object-name>
-  <property>controls/engines/engine[3]/throttle-manual</property>
-  <factor>-50</factor>
-  <offset-deg>25</offset-deg>
-  <center>
-   <x-m>-19.028</x-m>
-   <y-m>0.0</y-m>
-   <z-m>2.599</z-m>
-  </center>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
-
- <animation>
-  <type>rotate</type>
-  <object-name>FlapLever</object-name>
-  <property>controls/flight/flaps</property>
-  <factor>60</factor>
-  <offset-deg>-30</offset-deg>
-  <center>
-   <x-m>-19.028</x-m>
-   <y-m>0.0</y-m>
-   <z-m>2.599</z-m>
-  </center>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
-
- <animation>
-  <type>rotate</type>
-  <object-name>ParkingBrakeLever</object-name>
-  <property>controls/gear/brake-parking</property>
-  <factor>80</factor>
-  <offset-deg>-10</offset-deg>   
-  <center>
-   <x-m>-18.937</x-m>
-   <y-m>0.0</y-m>
-   <z-m>2.633</z-m>
-  </center>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
+  <type>pick</type>
+  <object-name>BulkCargoDoor</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Boeing747.doorsystem.cargobulkexport();</script>
+   </binding>
+  </action>
  </animation>
 
 </PropertyList>

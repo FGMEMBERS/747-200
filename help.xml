@@ -125,6 +125,11 @@
     </key>
 
     <key>
+     <name>shift-ctrl-V</name>
+     <desc>restore view pitch</desc>
+    </key>
+    
+    <key>
      <name>shift-ctrl-X</name>
      <desc>restore floating view</desc>
     </key>
@@ -138,15 +143,22 @@
           rotation 180 kt (full load), 170 kt (landing load), flaps 20.
           trim before engaging autopilot.
  Climb :
-          flaps retraction with autothrottle.
-          310 kt above 10000 ft.
+          1000 ft/min, 220 kt until 5000 ft.
+          retract flaps with autothrottle : 10 / 220, 5 / 240, 1 / 250.
+          300 kt above 10000 ft.
+          1500 ft/min until FL150.
+          1200 ft/min until FL240.
+          1000 ft/min, 0.82 mach until cruise.
  Cruise :
           0.84 mach.
  Descent :
-          at 225 NM (38000 ft).
-          310 kt below 28000 ft.
+          at 250 NM (38000 ft).
+          1000 ft/min, 0.84 mach until FL240.
+          1000 ft/min, decelerate to 290 kt until FL100.
+          1000 ft/min, 250 kt until approach.
  Approach :
           160 kt (landing load), 150 kt (empty tank), flaps 20.
+          10 NM at 3500 ft.
  Final :
           160 kt (landing load), 150 kt (empty tank), 140 kt (empty weight), flaps 30.
           arm spoilers.

@@ -201,7 +201,7 @@ DayTime.new = func {
 
            SPEEDUPSEC : 1.0,
 
-           CLIMBFTPMIN : 2000,                                       # average climb rate
+           CLIMBFTPMIN : 3500,                                       # maximum climb rate
            MAXSTEPFT : 0.0,                                          # altitude change for step
 
            lastft : 0.0

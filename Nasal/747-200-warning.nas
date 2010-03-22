@@ -82,10 +82,7 @@ Warning.new = func {
            gpwssystem : Gpws.new(),
 
            ambers : nil,
-           reds : nil,
-           textures : nil,
-
-           PATH : "Textures/"
+           reds : nil
          };
 
    obj.init();
@@ -94,28 +91,8 @@ Warning.new = func {
 };
 
 Warning.init = func {
-   var children = nil;
-   var name = "";
-   var texture = "";
-
    me.ambers = props.globals.getNode("/systems/warning/amber");
    me.reds = props.globals.getNode("/systems/warning/red");
-   me.textures = props.globals.getNode("/systems/warning/texture");
-
-   # all textures at off
-   children = me.textures.getNode("amber").getChildren();
-   foreach( var c; children ) {
-       name = c.getName();
-       texture = me.offtexture( name );
-       c.setValue( texture );
-   }
-
-   children = me.textures.getNode("red").getChildren();
-   foreach( var c; children ) {
-       name = c.getName();
-       texture = me.offtexture( name );
-       c.setValue( texture );
-   }
 }
 
 Warning.set_relation = func( door ) {
@@ -128,42 +105,14 @@ Warning.schedule = func {
    me.sendred( "pull-up", me.gpwssystem.red_pull_up() );
 }
 
-Warning.offtexture = func( name ) {
-   var result = me.PATH ~ "747-off-" ~ name ~ ".rgb";
-
-   return result;
-}
-
 Warning.sendamber = func( name, value ) {
-   var texture = "";
-
    if( me.ambers.getChild(name).getValue() != value ) {
        me.ambers.getChild(name).setValue( value );
-
-       if( value ) {
-           texture = me.PATH ~ "747-amber-" ~ name ~ ".rgb";
-       }
-       else {
-           texture = me.offtexture( name );
-       }
-
-       me.textures.getNode("amber").getChild(name).setValue( texture );
    }
 }
 
 Warning.sendred = func( name, value ) {
-   var texture = "";
-
    if( me.reds.getChild(name).getValue() != value ) {
        me.reds.getChild(name).setValue( value );
-
-       if( value ) {
-           texture = me.PATH ~ "747-red-" ~ name ~ ".rgb";
-       }
-       else {
-           texture = me.offtexture( name );
-       }
-
-       me.textures.getNode("red").getChild(name).setValue( texture );
    }
 }

@@ -208,15 +208,7 @@
     <transformations>
      <transformation>
       <type>rotation</type>
-      <property>/orientation/heading-magnetic-deg</property>
       <offset>-90</offset> <!-- horizontal left -->
-     </transformation>
-     <transformation>
-      <type>rotation</type>
-      <property>/orientation/heading-magnetic-deg</property>
-      <min>0.0</min>
-      <max>360.0</max>
-      <scale>-1.0</scale>
      </transformation>
      <transformation>
       <type>x-shift</type>
@@ -274,15 +266,7 @@
     <transformations>
      <transformation>
       <type>rotation</type>
-      <property>/orientation/heading-magnetic-deg</property>
       <offset>90</offset> <!-- horizontal right -->
-     </transformation>
-     <transformation>
-      <type>rotation</type>
-      <property>/orientation/heading-magnetic-deg</property>
-      <min>0.0</min>
-      <max>360.0</max>
-      <scale>-1.0</scale>
      </transformation>
      <transformation>
       <type>x-shift</type>
@@ -344,15 +328,7 @@
     <transformations>
      <transformation>
       <type>rotation</type>
-      <property>/orientation/heading-magnetic-deg</property>
       <offset>90</offset> <!-- horizontal right -->
-     </transformation>
-     <transformation>
-      <type>rotation</type>
-      <property>/orientation/heading-magnetic-deg</property>
-      <min>0.0</min>
-      <max>360.0</max>
-      <scale>-1.0</scale>
      </transformation>
      <transformation>
       <type>rotation</type>

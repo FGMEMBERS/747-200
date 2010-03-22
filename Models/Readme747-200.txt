@@ -24,8 +24,6 @@ Cockpit
 -------
 The engineer panel is not smoothed (solid).
 
-747-200-warning.rgb is required at loading (green is text area).
-
 
 VRP
 ---
@@ -44,10 +42,11 @@ Rudder : map at once the logo on both sides.
 
 Engine : the rose is for very hot parts.
 
+Floor color by 9G-MKS (E).
+
 
 TO DO
 =====
-- engine fans are not symmetrical.
 - aft shape of JT9D-7RG4G2 engine ?
 
 TO DO livery
@@ -58,6 +57,7 @@ TO DO livery
 
 Known problems
 ==============
+- transparency ordering of cockpit glasses.
 - the a of "nwa".
 - the portholes should have a roundness.
 - the livery is difficult to repaint (not a skin).
@@ -76,6 +76,9 @@ References
 (D) http://www.airliners.net/open.file/0820734/L/ :
     N627US by Wietse de Graaf.
 
+(E) http://www.airliners.net/photo/Untitled-(MK-Airlines)/Boeing-747-2B5F-SCD/0954074/L/ :
+    9G-MKS by Serge Bailleul.
+
 
 Credits
 -------
@@ -85,7 +88,7 @@ Metapost template by M. Franz.
 http://www.usflag.org/ : the 50 stars flag.
 
 
-Made with Blender 2.45 and Gimp.
+Made with Blender 2.49a and Gimp.
 
 
-10 February 2008.
+9 January 2010.
