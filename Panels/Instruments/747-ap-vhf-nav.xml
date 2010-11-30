@@ -18,7 +18,7 @@
   <layer>
    <name>background</name>
    <texture>
-    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-bg.rgb</path>
+    <path>Aircraft/747-200/Panels/Instruments/Textures/747-black-bg.rgb</path>
    </texture>
     <w>75</w>
     <h>30</h>

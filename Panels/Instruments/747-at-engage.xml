@@ -31,7 +31,7 @@
     <layer>
      <name>knob on</name>
      <texture>
-      <path>Aircraft/Concorde/Panels/Instruments/Textures/led.rgb</path>
+      <path>Aircraft/747-200/Panels/Instruments/Textures/led.rgb</path>
       <x1>0.25</x1>
       <y1>0.0</y1>
       <x2>0.5</x2>
@@ -86,7 +86,7 @@
     </condition>
     <name>on</name>
     <texture>
-     <path>Aircraft/Concorde/Panels/Instruments/Textures/switches.rgb</path>
+     <path>Aircraft/747-200/Panels/Instruments/Textures/switches.rgb</path>
      <x1>0.0</x1>
      <y1>0.74</y1>
      <x2>0.25</x2>
@@ -104,7 +104,7 @@
    <layer>
     <name>off</name>
     <texture>
-     <path>Aircraft/Concorde/Panels/Instruments/Textures/switches.rgb</path>
+     <path>Aircraft/747-200/Panels/Instruments/Textures/switches.rgb</path>
      <x1>0.0</x1>
      <y1>0.0</y1>
      <x2>0.25</x2>
