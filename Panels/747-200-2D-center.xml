@@ -236,7 +236,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
   <instrument include="Instruments/747-engine-egt.xml">
    <name>Engine 1 EGT</name>
    <params>
-    <egt-select>/engines/engine[0]/egt_degf</egt-select>
+    <egt-select>/engines/engine[0]/egt-degf</egt-select>
    </params>
    <x>54</x>
    <y>274</y>
@@ -247,7 +247,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
   <instrument include="Instruments/747-engine-egt.xml">
    <name>Engine 2 EGT</name>
    <params>
-    <egt-select>/engines/engine[1]/egt_degf</egt-select>
+    <egt-select>/engines/engine[1]/egt-degf</egt-select>
    </params>
    <x>156</x>
    <y>274</y>
@@ -258,7 +258,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
   <instrument include="Instruments/747-engine-egt.xml">
    <name>Engine 3 EGT</name>
    <params>
-    <egt-select>/engines/engine[2]/egt_degf</egt-select>
+    <egt-select>/engines/engine[2]/egt-degf</egt-select>
    </params>
    <x>258</x>
    <y>274</y>
@@ -269,7 +269,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
   <instrument include="Instruments/747-engine-egt.xml">
    <name>Engine 4 EGT</name>
    <params>
-    <egt-select>/engines/engine[3]/egt_degf</egt-select>
+    <egt-select>/engines/engine[3]/egt-degf</egt-select>
    </params>
    <x>360</x>
    <y>274</y>
