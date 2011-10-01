@@ -65,6 +65,11 @@
   </model>
 
   <model>
+   <name>Effects</name>
+   <path>Aircraft/747-200/Models/boeing747-200_effects.xml</path>
+  </model>
+
+  <model>
    <name>Pushback</name>
    <path>Models\Airport\Pushback\Goldhofert.xml</path>
    <offsets>   
@@ -183,13 +188,13 @@
 
  <animation>
   <type>rotate</type>
+  <object-name>GearNoseWheels</object-name>
   <condition>
    <less-than>
     <property>position/altitude-agl-ft</property>        <!-- weight sensor -->
     <value>30.0</value>
    </less-than>
   </condition>
-  <object-name>GearNoseWheels</object-name>
   <property>fdm/jsbsim/fcs/steer-pos-deg[0]</property>
   <center>
    <x-m>-16.58</x-m>
@@ -247,7 +252,6 @@
    <z2-m>-2.42</z2-m>
   </axis>
  </animation>
-
 
  <animation>
   <type>rotate</type>

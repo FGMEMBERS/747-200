@@ -22,12 +22,8 @@
       <name type="string">MK Airlines (seats)</name>
       <index type="int">1</index>
       <texture>747NW-fuselage.rgb</texture>
+      <texture-seat>../../Models/Liveries/747-200-seat-7G.rgb</texture-seat>
      </livery>
-     <liveryseat>
-      <name type="string">MK Airlines (seats)</name>
-      <index type="int">1</index>
-      <texture>../../Models/Liveries/747-200-seat-7G.rgb</texture>
-     </liveryseat>
     </model>
   </sim>
 </PropertyList>

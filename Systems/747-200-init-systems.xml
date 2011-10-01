@@ -7,6 +7,52 @@
 <PropertyList>
 
   <autopilot>
+   <config n="0">
+    <dg-heading-hold1>
+     <input>/autopilot/internal/fdm-heading-bug-error-deg-15-sec</input>
+    </dg-heading-hold1>
+    <nav-hold1>
+     <input>/autopilot/internal/nav1-heading-error-deg-2-sec</input>
+    </nav-hold1>
+    <true-heading-hold1>
+     <input type="string">/autopilot/internal/true-heading-error-deg-15-sec</input>
+    </true-heading-hold1>
+   </config>
+
+   <config n="1">
+    <dg-heading-hold1>
+     <input>/autopilot/internal/fdm-heading-bug-error-deg</input>
+    </dg-heading-hold1>
+    <nav-hold1>
+     <input>/autopilot/internal/nav1-heading-error-deg</input>
+    </nav-hold1>
+    <true-heading-hold1>
+     <input type="string">/autopilot/internal/true-heading-error-deg</input>
+    </true-heading-hold1>
+   </config>
+
+   <pid>
+    <dg-heading-hold1>
+     <input alias="/autopilot/internal/fdm-heading-bug-error-deg-15-sec"/>
+     <launch-sec type="double">0.0</launch-sec>
+     <prediction-filter type="bool">true</prediction-filter>
+     <stable-sec type="double">0.0</stable-sec>
+    </dg-heading-hold1>
+    <nav-hold1>
+     <input alias="/autopilot/internal/nav1-heading-error-deg-2-sec"/>
+     <launch-sec type="double">0.0</launch-sec>
+     <prediction-filter type="bool">true</prediction-filter>
+     <stable-sec type="double">0.0</stable-sec>
+    </nav-hold1>
+    <prediction-filter type="bool">true</prediction-filter>                 <!-- no debug -->
+    <true-heading-hold1>
+     <input alias="/autopilot/internal/true-heading-error-deg-15-sec"/>
+     <launch-sec type="double">0.0</launch-sec>
+     <prediction-filter type="bool">true</prediction-filter>
+     <stable-sec type="double">0.0</stable-sec>
+    </true-heading-hold1>
+   </pid>
+
    <state>
     <vor-engage type="bool">false</vor-engage>
     <waypoint-nm type="double">0.0</waypoint-nm>
@@ -15,15 +61,63 @@
    <relations>
     <itself>
      <autoflight>/controls/autoflight</autoflight>
+     <channel>
+      <component>/controls/autoflight</component>
+      <subcomponent>autopilot</subcomponent>
+     </channel>
+     <config>
+      <component>/systems/autopilot</component>
+      <subcomponent>config</subcomponent>
+     </config>
+     <locks>/autopilot/locks</locks>
+     <pid>/systems/autopilot/pid</pid>
      <route>/autopilot/route-manager/route</route>
      <route-manager>/autopilot/route-manager</route-manager>
+     <settings>/autopilot/settings</settings>
+     <state>/systems/autopilot/state</state>
      <waypoint>
       <component>/autopilot/route-manager</component>
       <subcomponent>wp</subcomponent>
      </waypoint>
     </itself>
+
+    <noinstrument>
+     <pitch>/orientation/pitch-deg</pitch>
+     <roll>/orientation/roll-deg</roll>
+     <speed-up>/sim/speed-up</speed-up>
+     <time>/sim/time/elapsed-sec</time>
+    </noinstrument>
    </relations>
   </autopilot>
+
+  <autothrottle>
+   <relations>
+    <dependency>
+     <engine>
+      <component>/controls/engines</component>
+      <subcomponent>engine</subcomponent>
+     </engine>
+    </dependency>
+
+    <itself>
+     <autoflight>/controls/autoflight</autoflight>
+     <locks>/autopilot/locks</locks>
+     <settings>/autopilot/settings</settings>
+    </itself>
+   </relations>
+  </autothrottle>
+
+  <crew>
+   <serviceable type="bool">true</serviceable>
+
+   <minimized type="bool">true</minimized>
+  </crew>
+
+  <electrical>
+   <power>
+    <specific type="bool">true</specific>
+   </power>
+  </electrical>
 
   <engineer>
    <serviceable type="bool" archive="y">true</serviceable>
@@ -109,6 +203,13 @@
    </copilot>
   </human>
 
+  <lighting>
+   <level>
+    <roof type="double">0.0</roof>
+    <roof-ambient type="double">0.0</roof-ambient>                                     <!-- 3D warning lights -->
+   </level>
+  </lighting>
+
   <seat>
    <captain type="bool">true</captain>
    <copilot type="bool">false</copilot>
@@ -163,12 +264,8 @@
     <pull-up type="bool">false</pull-up>
    </red>
    <texture>
-    <amber>
-     <cargo-doors type="string">747-amber-cargo-doors.rgb</cargo-doors>
-    </amber>
-    <red>
-     <pull-up type="string">747-red-pull-up.rgb</pull-up>
-    </red>
+    <amber type="string">747-amber.png</amber>
+    <red type="string">747-red.png</red>
    </texture>
   </warning>
 

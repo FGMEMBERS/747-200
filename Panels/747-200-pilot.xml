@@ -47,14 +47,6 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 
  <instruments>
 
-  <instrument include="Instruments/747-speed-up.xml">
-   <name>speed up</name>
-   <x>170</x>
-   <y>320</y>
-   <w>75</w>
-   <h>15</h>
-  </instrument>
-
 <!-- CAPTAIN -->
 
   <instrument include="Instruments/747-ap-annunciator.xml">
@@ -119,8 +111,8 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>Vertical speed</name>
    <x>285</x>
    <y>250</y>
-   <w>63</w>
-   <h>63</h>
+   <w>72</w>
+   <h>72</h>
   </instrument>
 
 <!-- 3rd line -->

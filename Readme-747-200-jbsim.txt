@@ -41,13 +41,13 @@ Fuel load
 
 Known compatibility
 -------------------
-- 2.0.0 : minimal version.
+- 2.4.0 : minimal version.
 
 
 
 Keyboard
 ========
-- "q"      : quit speed up.
+- "q"   : quit speed up.
 
 Views
 -----
@@ -59,8 +59,8 @@ Views
 
 Same behaviour
 --------------
-- "ctrl-R" : radio frequencies.
-- "S" swaps between Captain and Center 2D panels.
+- "F12" : radio frequencies.
+- "S"   : swaps between Captain and Center 2D panels.
 - "left / right" : autopilot heading.
  
 Improved behaviour
@@ -136,8 +136,10 @@ TO DO
 
 Known problems
 ==============
+- data are not saved on reinit.
 - use turn at maximum angle, only to stop taxi.
 - from Mach 0.82, Mach drag delays altitude modes, when velocity increases.
+- approach steady below the glide slope, otherwise descent overspeed triggers inertia roll. 
 
 Known problems FDM
 ------------------
@@ -145,19 +147,15 @@ Known problems FDM
 
 Known problems autopilot
 ------------------------
-- NAV hold mode is sensitive to the turbulence of the ground layer.
 - toggle INS mode, only AFTER activation of route, or use "ctrl-I a".
-- heading modes are a little slow to converge, at supersonic speed.
-- heading modes may start to bank into the opposite direction.
+- NAV hold mode is sensitive to the turbulence of the ground layer.
 - heading hold is a little slow to converge.
 - beyond 15 NM, nav hold makes wide rolls.
 - yoke rolls with nav hold.
 
-Known problems 2.0.0 autopilot
+Known problems 2.4.0 autopilot
 ------------------------------
-- the first waypoint is always ignored : insert a double waypoint.
-- to update waypoints, once route is activated, clear completely the route.
-- during descent, route manager may update the target altitude (press F11).
+- heading modes may start to bank into the opposite direction.
 
 Known problems autoland
 -----------------------
@@ -202,5 +200,8 @@ References
 
 (G) http://elearning.ians.lu/aircraftperformance/ :
 
+(H) http://www.flight-manuals-on-cd.com/747.html :
 
-14 March 2010.
+
+
+10 September 2011.

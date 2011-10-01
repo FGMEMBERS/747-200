@@ -72,7 +72,7 @@ Navigation.init = func {
 }
 
 Navigation.schedule = func {
-   var groundfps = me.dependency["ins"].getChild("ground-speed-fps").getValue();
+   var groundfps = me.dependency["ins"].getNode("computed/ground-speed-fps").getValue();
    var id = "";
    var distnm = 0.0;
    var targetft = 0;

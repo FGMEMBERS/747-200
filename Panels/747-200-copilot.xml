@@ -137,8 +137,8 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>Vertical speed</name>
    <x>250</x>
    <y>175</y>
-   <w>63</w>
-   <h>63</h>
+   <w>72</w>
+   <h>72</h>
   </instrument>
 
   <instrument include="Instruments/747-adf.xml">

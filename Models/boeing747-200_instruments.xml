@@ -112,27 +112,6 @@
    </top-left>
   </panel>
 
- <!-- PEDESTAL -->
-
-  <panel>
-   <path>Aircraft/747-200/Panels/747-200-pedestal.xml</path>
-   <bottom-left>
-    <x-m>-18.475</x-m>
-    <y-m>-0.201</y-m>
-    <z-m> 2.623</z-m>
-   </bottom-left>
-   <bottom-right>
-    <x-m>-18.475</x-m>
-    <y-m> 0.409</y-m>
-    <z-m> 2.623</z-m>
-   </bottom-right>
-   <top-left>
-    <x-m>-18.780</x-m>
-    <y-m>-0.201</y-m>
-    <z-m> 2.623</z-m>
-   </top-left>
-  </panel>
-
  <!-- ENGINEER -->
 
   <panel>
@@ -206,12 +185,134 @@
 <!-- pedestal -->
 
   <model>
+   <name>INS 1</name>
+   <path>Aircraft/747-200/Instruments/INS/INS.xml</path>
+   <offsets>
+    <x-m>-19.250</x-m>
+    <y-m>-0.150</y-m>
+    <z-m> 2.695</z-m>
+    <pitch-deg>34</pitch-deg>
+   </offsets>
+  </model>
+
+  <model>
+   <name>INS 2</name>
+   <path>Aircraft/747-200/Instruments/INS/INS.xml</path>
+   <offsets>
+    <x-m>-19.250</x-m>
+    <y-m> 0.150</y-m>
+    <z-m> 2.695</z-m>
+    <pitch-deg>34</pitch-deg>
+   </offsets>
+   <overlay>
+    <params>
+     <ins-service>/instrumentation/ins[1]/serviceable</ins-service>
+     <ins-selector>/instrumentation/ins[1]/control/selector</ins-selector>
+     <ins-switch>/instrumentation/ins[1]/control/test</ins-switch>
+     <ins-light>/instrumentation/ins[1]/control/light</ins-light>
+     <ins-waypoint>/instrumentation/ins[1]/control/waypoint</ins-waypoint>
+     <ins-mode>/instrumentation/ins[1]/msu/mode</ins-mode>
+     <display-left>/instrumentation/ins[1]/data/left</display-left>
+     <display-right>/instrumentation/ins[1]/data/right</display-right>
+     <light-alert>/instrumentation/ins[1]/light/alert</light-alert>
+     <light-warning>/instrumentation/ins[1]/light/warning</light-warning>
+     <light-remote>/instrumentation/ins[1]/light/remote</light-remote>
+     <light-insert>/instrumentation/ins[1]/light/insert</light-insert>
+     <light-hold>/instrumentation/ins[1]/light/hold</light-hold>
+     <light-battery>/instrumentation/ins[1]/light/battery</light-battery>
+    </params>
+   </overlay>
+  </model>
+
+  <model>
    <name>Cylinder</name>
    <path>Aircraft/747-200/Instruments/pedestal/cylinder.xml</path>
    <offsets>
     <x-m>-19.029</x-m>
     <y-m>0.00</y-m>
     <z-m>2.599</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Park brake</name>
+   <path>Aircraft/747-200/Instruments/warning/red-park-brake.xml</path>
+   <offsets>
+    <x-m>-18.937</x-m>
+    <y-m>-0.139</y-m>
+    <z-m>2.650</z-m>
+    <pitch-deg>-33</pitch-deg>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Radio 1</name>
+   <path>Aircraft/Instruments-3d/kx165/kx165-1.xml</path>
+   <offsets>
+    <x-m>-18.88</x-m>
+    <y-m>-0.09</y-m>
+    <z-m>2.61</z-m>
+    <pitch-deg>-90</pitch-deg>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Radio 2</name>
+   <path>Aircraft/Instruments-3d/kx165/kx165-2.xml</path>
+   <offsets>
+    <x-m>-18.88</x-m>
+    <y-m>0.09</y-m>
+    <z-m>2.61</z-m>
+    <pitch-deg>-90</pitch-deg>
+   </offsets>
+  </model>
+
+  <model>
+   <name>ADF 1 2</name>
+   <path>Aircraft/Instruments-3d/ADF-462/ctl62-adf.xml</path>
+   <offsets>
+    <x-m>-18.80</x-m>
+    <y-m> 0.0</y-m>
+    <z-m>2.623</z-m>
+    <pitch-deg>-90</pitch-deg>
+   </offsets>
+  </model>
+
+  <model>
+   <name>INS 3</name>
+   <path>Aircraft/747-200/Instruments/INS/INS.xml</path>
+   <offsets>
+    <x-m>-18.70</x-m>
+    <y-m> 0.0</y-m>
+    <z-m> 2.623</z-m>
+   </offsets>
+   <overlay>
+    <params>
+     <ins-service>/instrumentation/ins[2]/serviceable</ins-service>
+     <ins-selector>/instrumentation/ins[2]/control/selector</ins-selector>
+     <ins-switch>/instrumentation/ins[2]/control/test</ins-switch>
+     <ins-light>/instrumentation/ins[2]/control/light</ins-light>
+     <ins-waypoint>/instrumentation/ins[2]/control/waypoint</ins-waypoint>
+     <ins-mode>/instrumentation/ins[2]/msu/mode</ins-mode>
+     <display-left>/instrumentation/ins[2]/data/left</display-left>
+     <display-right>/instrumentation/ins[2]/data/right</display-right>
+     <light-alert>/instrumentation/ins[2]/light/alert</light-alert>
+     <light-warning>/instrumentation/ins[2]/light/warning</light-warning>
+     <light-remote>/instrumentation/ins[2]/light/remote</light-remote>
+     <light-insert>/instrumentation/ins[2]/light/insert</light-insert>
+     <light-hold>/instrumentation/ins[2]/light/hold</light-hold>
+     <light-battery>/instrumentation/ins[2]/light/battery</light-battery>
+    </params>
+   </overlay>
+  </model>
+
+  <model>
+   <name>Rudder trim</name>
+   <path>Aircraft/747-200/Instruments/pedestal/rudder-trim.xml</path>
+   <offsets>
+    <x-m>-18.46</x-m>
+    <y-m> 0.0</y-m>
+    <z-m>2.623</z-m>
    </offsets>
   </model>
 

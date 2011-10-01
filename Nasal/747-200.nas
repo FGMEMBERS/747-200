@@ -30,31 +30,32 @@ BoeingMain.putinrelation = func {
 
 # 1 s cron
 BoeingMain.sec1cron = func {
-   autopilotsystem.schedule();
    flightsystem.schedule();
    fuelsystem.schedule();
    warningsystem.schedule();
    daytimeinstrument.schedule();
 
    # schedule the next call
-   settimer(func{ me.sec1cron(); },autopilotsystem.AUTOPILOTSEC);
+   settimer(func{ me.sec1cron(); },1);
 }
 
 # 2 s cron
 BoeingMain.sec2cron = func {
-   autothrottlesystem.schedule();
    gearsystem.schedule();
 
    # schedule the next call
-   settimer(func{ me.sec2cron(); },autothrottlesystem.AUTOTHROTTLESEC);
+   settimer(func{ me.sec2cron(); },2);
 }
 
 # 3 s cron
 BoeingMain.sec3cron = func {
-   tcasinstrument.schedule();
+   autopilotsystem.schedule();
+   autothrottlesystem.schedule();
+   INSinstrument.schedule();
+   crewscreen.schedule();
 
    # schedule the next call
-   settimer(func{ me.sec3cron(); },tcasinstrument.TCASSEC);
+   settimer(func{ me.sec3cron(); },crewscreen.MENUSEC);
 }
 
 # 5 s cron
@@ -75,6 +76,7 @@ BoeingMain.sec60cron = func {
 
 BoeingMain.savedata = func {
    aircraft.data.add("/controls/autoflight/fg-waypoint");
+   aircraft.data.add("/controls/fuel/reinit");
    aircraft.data.add("/controls/seat/recover");
    aircraft.data.add("/systems/fuel/presets");
    aircraft.data.add("/systems/seat/position/cargo-aft/x-m");
@@ -103,13 +105,14 @@ BoeingMain.instantiate = func {
    globals.Boeing747.gearsystem = Gear.new();
    globals.Boeing747.warningsystem = Warning.new();
 
-   globals.Boeing747.tcasinstrument = Traffic.new();
+   globals.Boeing747.INSinstrument = Inertial.new();
    globals.Boeing747.daytimeinstrument = DayTime.new();
 
    globals.Boeing747.doorsystem = Doors.new();
    globals.Boeing747.seatsystem = Seats.new();
 
    globals.Boeing747.menuscreen = Menu.new();
+   globals.Boeing747.crewscreen = Crewbox.new();
 
    globals.Boeing747.engineercrew = Virtualengineer.new();
 
@@ -118,11 +121,9 @@ BoeingMain.instantiate = func {
 
 # initialization
 BoeingMain.init = func {
-   # 1 path per name + 1 path for index
    aircraft.livery.init( "Aircraft/747-200/Models/Liveries",
                          "sim/model/livery/name",
-                         "sim/model/liveryseat/name",
-                         "sim/model/liveryseat/index" );
+                         "sim/model/livery/index" );
 
    me.instantiate();
    me.putinrelation();
@@ -138,5 +139,17 @@ BoeingMain.init = func {
    me.savedata();
 }
 
+# state reset
+BoeingMain.reinit = func {
+   if( getprop("/controls/fuel/reinit") ) {
+       # default is JSBSim state, which loses fuel selection.
+       globals.Boeing747.fuelsystem.reinitexport();
+   }
+}
 
-L747200 = setlistener("/sim/signals/fdm-initialized", func { thejumbojet = BoeingMain.new(); removelistener(L747200); });
+
+# object creation
+boeing747L  = setlistener("/sim/signals/fdm-initialized", func { globals.Boeing747.main = BoeingMain.new(); removelistener(boeing747L); });
+
+# state reset
+boeing747L2 = setlistener("/sim/signals/reinit", func { globals.Boeing747.main.reinit(); });

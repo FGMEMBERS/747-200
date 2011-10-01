@@ -20,12 +20,8 @@
       <name type="string">United Airlines</name>
       <index type="int">0</index>
       <texture>747NW-fuselage.rgb</texture>
+      <texture-seat>747-200-seat.rgb</texture-seat>
      </livery>
-     <liveryseat>
-      <name type="string">United Airlines</name>
-      <index type="int">0</index>
-      <texture>747-200-seat.rgb</texture>
-     </liveryseat>
     </model>
   </sim>
 </PropertyList>

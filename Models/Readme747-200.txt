@@ -57,6 +57,7 @@ TO DO livery
 
 Known problems
 ==============
+- pedestal is too narrow for INS.
 - transparency ordering of cockpit glasses.
 - the a of "nwa".
 - the portholes should have a roundness.
@@ -91,4 +92,4 @@ http://www.usflag.org/ : the 50 stars flag.
 Made with Blender 2.49a and Gimp.
 
 
-9 January 2010.
+31 August 2011.

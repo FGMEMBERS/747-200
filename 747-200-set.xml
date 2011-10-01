@@ -4,13 +4,18 @@
 -->
 
 <!-- Version           CVS date                   Milestone
-     ==========================================================================================
+     ==============================================================================================
      1.0               December 2006              Aircraft, FDM, 2D panel.
      1.1               February 2008              3D cockpit, with seats, yokes, levers,
                                                   and a few warning lights.
      1.2               March 2010                 FDM 2.0 (747 coefficients),
                                                   body gear and nose wheel steering, pushback.
-     ==========================================================================================
+     2.0               October 2011               First version using flight manual.
+                                                  Tyre smoke effect.
+                                                  Conversion of pedestal to 3D.
+                                                  Looking ahead smooths autopilot heading modes.
+                                                  INS.
+     ==============================================================================================
 -->
 
 
@@ -19,7 +24,7 @@
  <sim include="Nasal/747-200-sim.xml">
   <description>Boeing 747-200</description>
   <status>early-production</status>
-  <aircraft-version>1.2</aircraft-version>
+  <aircraft-version>2.0</aircraft-version>
 
   <flight-model>jsb</flight-model>
   <aero>747-200</aero>
@@ -97,6 +102,7 @@
    <file>Aircraft/747-200/Nasal/747-200-constants.nas</file>
    <file>Aircraft/747-200/Nasal/747-200-hydraulic.nas</file>
    <file>Aircraft/747-200/Nasal/747-200-override.nas</file>
+   <file>Aircraft/747-200/Nasal/747-200-INS.nas</file>
    <file>Aircraft/747-200/Nasal/747-200-instrument.nas</file>
    <file>Aircraft/747-200/Nasal/747-200-fuel.nas</file>
    <file>Aircraft/747-200/Nasal/747-200-autopilot.nas</file>
@@ -105,6 +111,7 @@
    <file>Aircraft/747-200/Nasal/747-200-crew.nas</file>
    <file>Aircraft/747-200/Nasal/747-200-engineer.nas</file>
    <file>Aircraft/747-200/Nasal/747-200.nas</file>
+   <file>Aircraft/747-200/Nasal/747-200-effects.nas</file>
   </Boeing747>
  </nasal>
 

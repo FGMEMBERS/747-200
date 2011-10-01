@@ -50,12 +50,17 @@
     </key>
 
     <key>
+      <name>F12</name>
+      <desc>radio frequencies</desc>
+    </key>
+
+    <key>
       <name>a/A</name>
       <desc>speed-up</desc>
     </key>
 
     <key>
-      <name>j / k</name>
+      <name>j/k</name>
       <desc>decrease / increase spoilers</desc>
     </key>
 
@@ -143,12 +148,12 @@
           rotation 180 kt (full load), 170 kt (landing load), flaps 20.
           trim before engaging autopilot.
  Climb :
-          1000 ft/min, 220 kt until 5000 ft.
+          1000 ft/min, 220 kt.
           retract flaps with autothrottle : 10 / 220, 5 / 240, 1 / 250.
+          1500 ft/min above 5000 ft.
           300 kt above 10000 ft.
-          1500 ft/min until FL150.
-          1200 ft/min until FL240.
-          1000 ft/min, 0.82 mach until cruise.
+          1200 ft/min above FL150.
+          1000 ft/min, 0.82 mach above FL240.
  Cruise :
           0.84 mach.
  Descent :

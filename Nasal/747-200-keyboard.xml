@@ -112,15 +112,6 @@
     </binding>
    </key>
 
-   <key n="18">
-    <name>Ctrl-R</name>
-    <desc>Radio dialog.</desc>
-    <binding>
-     <command>dialog-show</command>
-     <dialog-name>747-200-radios</dialog-name>
-    </binding>
-   </key>
-
    <key n="19">
     <name>Ctrl-S</name>
     <desc>Toggle auto-throttle lock.</desc>
@@ -227,6 +218,15 @@
     <binding>
      <command>nasal</command>
      <script>globals.Boeing747.seatsystem.scrollexport();</script>
+    </binding>
+   </key>
+
+   <key n="268">
+    <name>F12</name>
+    <desc>Radio dialog.</desc>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>747-200-radios</dialog-name>
     </binding>
    </key>
 

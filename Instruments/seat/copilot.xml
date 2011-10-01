@@ -27,7 +27,7 @@
  </animation>
 
  <animation>
-  <name>AllSeat</name>
+  <name>MovingSeat</name>
   <object-name>Seat</object-name>
   <object-name>LeftArm</object-name>
   <object-name>RightArm</object-name>
@@ -35,14 +35,37 @@
 
  <animation> 
   <type>material</type> 
-  <object-name>AllSeat</object-name>
-  <property-base>sim/model/liveryseat/</property-base> 
-  <texture-prop>texture</texture-prop> 
+  <object-name>MovingSeat</object-name>
+  <property-base>sim/model/livery/</property-base> 
+  <texture-prop>texture-seat</texture-prop> 
  </animation> 
+
+<!-- raises the armrest to reach the pedestal -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>LeftArm</object-name>
+  <offset-deg>80</offset-deg>   
+  <condition>
+   <property>systems/seat/copilot</property>
+  </condition>
+  <center>
+   <x-m>0.13</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.519</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+<!-- stowing -->
 
  <animation>
   <type>translate</type>
-  <object-name>AllSeat</object-name>
+  <object-name>MovingSeat</object-name>
   <property>systems/human/copilot/stowe-norm</property>
   <interpolation>
    <entry>
@@ -72,7 +95,7 @@
 
  <animation>
   <type>translate</type>
-  <object-name>AllSeat</object-name>
+  <object-name>MovingSeat</object-name>
   <property>systems/human/copilot/stowe-norm</property>
   <interpolation>
    <entry>
@@ -100,25 +123,17 @@
   </axis>
  </animation>
 
-<!-- raises the armrest to reach the pedestal -->
-
  <animation>
-  <type>rotate</type>
-  <object-name>LeftArm</object-name>
-  <offset-deg>80</offset-deg>   
-  <condition>
-   <property>systems/seat/copilot</property>
-  </condition>
-  <center>
-   <x-m>0.13</x-m>
-   <y-m>0.0</y-m>
-   <z-m>0.519</z-m>
-  </center>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
+  <type>pick</type>
+  <object-name>Seat</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Boeing747.doorsystem.seatexport("copilot");</script>
+   </binding>
+  </action>
  </animation>
 
 </PropertyList>

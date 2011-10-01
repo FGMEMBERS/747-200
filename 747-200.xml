@@ -6,8 +6,8 @@
 
     <fileheader>
         <author> </author>
-        <filecreationdate> 28 November 2010 </filecreationdate>
-        <version> 2.01 </version>
+        <filecreationdate> 18 December 2010 </filecreationdate>
+        <version> 2.02 </version>
         <description> 747-200 with JT9D-7R4G2 </description>
 
         <license>
@@ -608,7 +608,7 @@
 
     <flight_control name="747-200">
      <property>fcs/LE-flap-cmd-norm</property>
-     <property>fcs/dummy</property>
+     <property>fcs/aeromatic</property>
 
      <channel name="Pitch">
 
@@ -955,7 +955,7 @@
                     <property>metrics/Sw-sqft</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -1006,7 +1006,7 @@
                     </abs>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -1045,7 +1045,13 @@
                     <property>aero/qbar-psf</property>
                     <property>metrics/Sw-sqft</property>
                     <property>aero/cl-squared</property>
-                    <value>0.0000</value>
+                      <table>
+                          <independentVar>fcs/aeromatic</independentVar>
+                          <tableData>
+                              0 	0.0000	
+                              1     	0.0420	
+                          </tableData>
+                      </table>
                 </product>
             </function>
 
@@ -1062,7 +1068,7 @@
                     <value> 0.1 </value>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="20000">
                                       0         1
@@ -1188,7 +1194,7 @@
                     <property>aero/beta-rad</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -1227,7 +1233,7 @@
                     <property>fcs/rudder-pos-rad</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -1280,7 +1286,7 @@
 -->
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -1317,7 +1323,7 @@
                     <property>aero/alpha-rad</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -1371,7 +1377,7 @@
                     <property>velocities/mach</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -1412,7 +1418,7 @@
                     <property>fcs/elevator-pos-rad</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -1479,8 +1485,16 @@
                     <property>aero/qbar-psf</property>
                     <property>metrics/Sw-sqft</property>
                     <property>aero/function/kCLge</property>
-                    <property>fcs/flap-pos-norm</property>
-                    <value> 0.9100 </value>	
+                      <table>
+                          <independentVar lookup="row">fcs/flap-pos-deg</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
+                          <tableData>
+                                      0         1
+                              0       0.0000    0.0000
+                              20      0.6067    1.0000
+                              30      0.9100    0.9100
+                          </tableData>
+                      </table>
                 </product>
             </function>
 
@@ -1522,10 +1536,12 @@
                     <property>aero/alphadot-rad_sec</property>
                     <property>aero/ci2vel</property>
                       <table>
-                          <independentVar>velocities/mach</independentVar>
+                          <independentVar lookup="row">velocities/mach</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <tableData>
-                              0.20   -6.7000
-                              0.25   -6.7000
+                                      0         1
+                              0.20   -6.7000    0.0000
+                              0.25   -6.7000    0.0000
                           </tableData>
                       </table>
                 </product>
@@ -1543,10 +1559,12 @@
                     <property>velocities/q-aero-rad_sec</property>
                     <property>aero/ci2vel</property>
                       <table>
-                          <independentVar>velocities/mach</independentVar>
+                          <independentVar lookup="row">velocities/mach</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <tableData>
-                              0.20    5.6500
-                              0.25    5.4000
+                                      0         1
+                              0.20    5.6500    0.0000
+                              0.25    5.4000    0.0000
                           </tableData>
                       </table>
                 </product>
@@ -1566,7 +1584,7 @@
                     <property>aero/beta-rad</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -1608,7 +1626,7 @@
                     <property>velocities/p-aero-rad_sec</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -1652,7 +1670,7 @@
                     <property>velocities/r-aero-rad_sec</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -1694,7 +1712,7 @@
                     <property>fcs/differential-inboard-aileron-rad</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -1746,7 +1764,7 @@
                     <property>fcs/rudder-pos-rad</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -1790,7 +1808,7 @@
                     <property>aero/alpha-rad</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -1830,31 +1848,31 @@
                     <property>fcs/elevator-pos-rad</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
-                              0.20   -1.4000   -1.3000
-                              0.25   -1.3400   -1.3000
-                              0.30   -1.2500   -1.3000
-                              0.45   -1.0500   -1.3000
-                              0.65   -0.7500   -1.3000
-                              0.70   -0.7000   -1.3000
+                              0.20   -1.4000   -1.2025
+                              0.25   -1.3400   -1.1781
+                              0.30   -1.2500   -1.1538
+                              0.45   -1.0500   -1.0806
+                              0.65   -0.7500   -0.9831
+                              0.70   -0.7000   -0.9588
                           </tableData>
                           <tableData breakPoint="20000">
                                       0         1
-                              0.40   -1.5000   -1.3000
-                              0.50   -1.4000   -1.3000
-                              0.65   -1.3500   -1.3000
-                              0.80   -1.1000   -1.3000
-                              0.95   -0.6000   -1.3000
+                              0.40   -1.5000   -1.1050
+                              0.50   -1.4000   -1.0563
+                              0.65   -1.3500   -0.9831
+                              0.80   -1.1000   -0.9100
+                              0.95   -0.6000   -0.8369
                           </tableData>
                           <tableData breakPoint="40000">
                                       0         1
-                              0.70   -1.6000   -1.3000
-                              0.80   -1.4500   -1.3000
-                              0.90   -1.2500   -1.3000
-                              0.95   -1.0000   -1.3000
+                              0.70   -1.6000   -0.9588
+                              0.80   -1.4500   -0.9100
+                              0.90   -1.2500   -0.8613
+                              0.95   -1.0000   -0.8369
                           </tableData>
                       </table>
 <!--
@@ -1882,7 +1900,7 @@
                     <property>velocities/q-aero-rad_sec</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0          1
@@ -1926,7 +1944,7 @@
                     <property>aero/alphadot-rad_sec</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -1969,7 +1987,7 @@
                     <property>velocities/mach</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -2014,7 +2032,7 @@
                     <property>aero/beta-rad</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -2058,7 +2076,7 @@
                     <property>velocities/p-aero-rad_sec</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -2100,7 +2118,7 @@
                     <property>velocities/r-aero-rad_sec</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -2142,7 +2160,7 @@
                     <property>fcs/rudder-pos-rad</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
@@ -2184,7 +2202,7 @@
                     <property>fcs/differential-inboard-aileron-rad</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/dummy</independentVar>
+                          <independentVar lookup="column">fcs/aeromatic</independentVar>
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1

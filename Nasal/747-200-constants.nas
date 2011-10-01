@@ -17,6 +17,9 @@ ConstantAero.new = func {
                LANDINGLB : 630000,
                EMPTYLB : 376330,
 
+               NBENGINES : 4,
+               NBINS : 3,
+
 # AGL altitude when on ground : radio altimeter is above gear
 # (Z height of center of gravity minus Z height of main landing gear)
                AGLFT : 13,
@@ -57,32 +60,36 @@ Constant.new = func {
    var obj = { parents : [Constant],
 
 # angles
-           DEG360 : 360,
-           DEG180 : 180,
-           DEG90 : 90,
+               DEG360 : 360,
+               DEG180 : 180,
+               DEG90 : 90,
 
 # no boolean
-           TRUE : 1.0,
-           FALSE : 0.0,
+               TRUE : 1.0,
+               FALSE : 0.0,
 
 # ---------------
 # unit conversion
 # ---------------
+# length
+               FEETTONM : 0.0001645788,
+
 # angle
-           DEGTORAD : 0.0174532925199,
+               DEGTORAD : 0.0174532925199,
 
 # time
-           HOURTOMINUTE : 60,
-           HOURTOSECOND : 3600.0,
-           MINUTETOSECOND : 60.0,
+               HOURTOMINUTE : 60,
+               HOURTOSECOND : 3600.0,
+               MINUTETOSECOND : 60.0,
+               MINUTETODECIMAL : 0.01,
 
 # velocity
-          FPSTOKT : 0.592483801296,
-          MPSTOKT : 1.943844,
+               FPSTOKT : 0.592483801296,
+               MPSTOKT : 1.943844,
 
 # weight
-           GALUSTOLB : 6.6,                        # 1 US gallon = 6.6 pound
-           LBTOGALUS : 0.0
+               GALUSTOLB : 6.6,                        # 1 US gallon = 6.6 pound
+               LBTOGALUS : 0.0
          };
 
    obj.init();

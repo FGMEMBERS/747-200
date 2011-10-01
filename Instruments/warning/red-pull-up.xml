@@ -1,12 +1,5 @@
 <?xml version="1.0"?>
 
-<!--
-     Known problems :
-     ==============
-     - the font of warning lights should be brighter, when on, than their face (easier reading).
-
--->
-
 <PropertyList>
 
  <path>warning.ac</path>
@@ -20,7 +13,58 @@
    <blue>0.0</blue>
    <factor-prop>systems/warning/red/pull-up</factor-prop>
   </emission> 
-  <texture-prop>systems/warning/texture/red/pull-up</texture-prop>
+  <ambient>
+   <red>0.5</red>
+   <green>0.5</green>
+   <blue>0.5</blue>
+   <factor-prop>systems/lighting/level/roof-ambient</factor-prop>
+  </ambient>
+  <texture-prop>systems/warning/texture/red</texture-prop>
  </animation> 
+
+ <text>
+  <name>line</name>
+  <type type="string">literal</type>
+  <text type="string">PULL UP</text>
+  <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <font>Helvetica.txf</font>
+  <character-size type="double">0.006</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <x-m> 0.0011</x-m>
+   <y-m>-0.011</y-m>
+   <z-m> 0.0000</z-m>
+  </offsets>
+ </text>
+
+ <animation>
+  <type>material</type>
+  <object-name>line</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.7</blue>
+   <factor-prop>systems/warning/red/pull-up</factor-prop>
+  </emission>
+  <ambient>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.7</blue>
+   <factor-prop>systems/warningred/pull-up</factor-prop>
+  </ambient>
+  <diffuse>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.7</blue>
+   <factor-prop>systems/warning/red/pull-up</factor-prop>
+  </diffuse>
+ </animation>
 
 </PropertyList>

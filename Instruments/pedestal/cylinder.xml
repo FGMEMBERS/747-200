@@ -28,7 +28,7 @@
   <object-name>TrimLever</object-name>
   <action>
    <button>0</button>
-   <repeatable>false</repeatable>
+   <repeatable>true</repeatable>
    <binding>
     <command>property-adjust</command>
     <property>controls/flight/elevator-trim</property>
@@ -40,7 +40,7 @@
   </action>
   <action>
    <button>1</button>
-   <repeatable>false</repeatable>
+   <repeatable>true</repeatable>
    <binding>
     <command>property-adjust</command>
     <property>controls/flight/elevator-trim</property>
@@ -79,16 +79,16 @@
    <button>0</button>
    <repeatable>false</repeatable>
    <binding>
-   <command>nasal</command>
-   <script>globals.Boeing747.flightsystem.spoilersexport(1)</script>
+    <command>nasal</command>
+    <script>globals.Boeing747.flightsystem.spoilersexport(1)</script>
    </binding>
   </action>
   <action>
    <button>1</button>
    <repeatable>false</repeatable>
-   <command>nasal</command>
-   <script>globals.Boeing747.flightsystem.spoilersexport(-1)</script>
    <binding>
+    <command>nasal</command>
+    <script>globals.Boeing747.flightsystem.spoilersexport(-1)</script>
    </binding>
   </action>
  </animation>
@@ -172,7 +172,7 @@
    <object-name>Throttle1</object-name>
    <action>
     <button>0</button>
-    <repeatable>false</repeatable>
+    <repeatable>true</repeatable>
     <binding>
      <command>property-adjust</command>
      <property>controls/engines/engine[0]/throttle-manual</property>
@@ -184,7 +184,7 @@
    </action>
    <action>
     <button>1</button>
-    <repeatable>false</repeatable>
+    <repeatable>true</repeatable>
     <binding>
      <command>property-adjust</command>
      <property>controls/engines/engine[0]/throttle-manual</property>
@@ -201,7 +201,7 @@
    <object-name>Throttle2</object-name>
    <action>
     <button>0</button>
-    <repeatable>false</repeatable>
+    <repeatable>true</repeatable>
     <binding>
      <command>property-adjust</command>
      <property>controls/engines/engine[1]/throttle-manual</property>
@@ -213,7 +213,7 @@
    </action>
    <action>
     <button>1</button>
-    <repeatable>false</repeatable>
+    <repeatable>true</repeatable>
     <binding>
      <command>property-adjust</command>
      <property>controls/engines/engine[1]/throttle-manual</property>
@@ -230,7 +230,7 @@
    <object-name>Throttle3</object-name>
    <action>
     <button>0</button>
-    <repeatable>false</repeatable>
+    <repeatable>true</repeatable>
     <binding>
      <command>property-adjust</command>
      <property>controls/engines/engine[2]/throttle-manual</property>
@@ -242,7 +242,7 @@
    </action>
    <action>
     <button>1</button>
-    <repeatable>false</repeatable>
+    <repeatable>true</repeatable>
     <binding>
      <command>property-adjust</command>
      <property>controls/engines/engine[2]/throttle-manual</property>
@@ -259,7 +259,7 @@
    <object-name>Throttle4</object-name>
    <action>
     <button>0</button>
-    <repeatable>false</repeatable>
+    <repeatable>true</repeatable>
     <binding>
      <command>property-adjust</command>
      <property>controls/engines/engine[3]/throttle-manual</property>
@@ -271,7 +271,7 @@
    </action>
    <action>
     <button>1</button>
-    <repeatable>false</repeatable>
+    <repeatable>true</repeatable>
     <binding>
      <command>property-adjust</command>
      <property>controls/engines/engine[3]/throttle-manual</property>
@@ -308,18 +308,18 @@
   <object-name>FlapLever</object-name>
   <action>
    <button>0</button>
-   <repeatable>false</repeatable>
+   <repeatable>true</repeatable>
    <binding>
-   <command>nasal</command>
-   <script>controls.flapsDown(1)</script>
+    <command>nasal</command>
+    <script>controls.flapsDown(1)</script>
    </binding>
   </action>
   <action>
    <button>1</button>
-   <repeatable>false</repeatable>
-   <command>nasal</command>
-   <script>controls.flapsDown(-1)</script>
+   <repeatable>true</repeatable>
    <binding>
+    <command>nasal</command>
+    <script>controls.flapsDown(-1)</script>
    </binding>
   </action>
  </animation>

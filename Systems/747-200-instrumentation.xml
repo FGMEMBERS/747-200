@@ -86,11 +86,6 @@ file, these values will be used (they are hardcoded).
     <suction>/systems/vacuum/suction-inhg</suction>
   </heading-indicator>
 
-  <inst-vertical-speed-indicator>
-    <name>inst-vertical-speed-indicator</name>
-    <number>0</number>
-  </inst-vertical-speed-indicator>
-
 <!--
   <KT-70>
     <name>kt-70</name>
@@ -118,10 +113,20 @@ file, these values will be used (they are hardcoded).
     <number>1</number>
   </nav-radio>
 
+  <radar>
+    <name>radar</name>
+    <number>0</number>
+  </radar>
+
   <slip-skid-ball>
     <name>slip-skid-ball</name>
     <number>0</number>
   </slip-skid-ball>
+
+  <tcas>
+     <name>tcas</name>
+     <number>0</number>
+  </tcas>
 
 <!--
   <transponder>

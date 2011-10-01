@@ -49,14 +49,6 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 
 <!-- AUTOPILOT -->
 
-  <instrument include="Instruments/747-speed-up.xml">
-   <name>speed up</name>
-   <x>100</x>
-   <y>350</y>
-   <w>150</w>
-   <h>30</h>
-  </instrument>
-
   <instrument include="Instruments/747-ap-vhf-nav.xml">
    <name>NAV 1 dial</name>
    <params>
@@ -251,8 +243,8 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>Vertical speed</name>
    <x>700</x>
    <y>235</y>
-   <w>125</w>
-   <h>125</h>
+   <w>140</w>
+   <h>140</h>
   </instrument>
 
 <!-- 3rd line -->

@@ -30,6 +30,8 @@
     <pedal type="bool">false</pedal>
     <wheel alias="/fdm/jsbsim/systems/NWS/engaged"/>
    </steering>
+   <timeout type="bool">true</timeout>                                             <!-- of 10 seconds -->
+   <timeout-s type="double">10.0</timeout-s>
   </crew>
 
   <engineer>
@@ -50,6 +52,10 @@
     <throttle-manual>0.0</throttle-manual>
    </engine>
   </engines>
+
+  <fuel>
+   <reinit type="bool">true</reinit>                                               <!-- restore fuel on reinit -->
+  </fuel>
 
   <flight>
    <spoilers-lever type="double">0.0</spoilers-lever>

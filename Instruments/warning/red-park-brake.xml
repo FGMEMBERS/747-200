@@ -2,16 +2,16 @@
 
 <PropertyList>
 
- <path>warning.ac</path>
+ <path>warning-vertical.ac</path>
 
  <animation>
   <type>material</type>
   <object-name>Warning</object-name>
   <emission>
    <red>1.0</red>
-   <green>1.0</green>
+   <green>0.0</green>
    <blue>0.0</blue>
-   <factor-prop>systems/warning/amber/cargo-doors</factor-prop>
+   <factor-prop>controls/gear/brake-parking</factor-prop>
   </emission> 
   <ambient>
    <red>0.5</red>
@@ -19,17 +19,18 @@
    <blue>0.5</blue>
    <factor-prop>systems/lighting/level/roof-ambient</factor-prop>
   </ambient>
-  <texture-prop>systems/warning/texture/amber</texture-prop>
+  <texture-prop>systems/warning/texture/red</texture-prop>
  </animation> 
 
  <text>
   <name>line 1</name>
   <type type="string">literal</type>
-  <text type="string">CARGO</text>
+  <text type="string">PARK</text>
   <format type="string">%s</format>
+  <layout>vertical</layout> 
   <draw-text type="bool">true</draw-text>
   <font>Helvetica.txf</font>
-  <character-size type="double">0.006</character-size>
+  <character-size type="double">0.004</character-size>
   <character-aspect-ratio type="double">1.0</character-aspect-ratio>
   <font-resolution>
    <width type="int">32</width>
@@ -39,19 +40,20 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
    <x-m> 0.0011</x-m>
-   <y-m>-0.009</y-m>
-   <z-m> 0.0025</z-m>
+   <y-m>-0.0045</y-m>
+   <z-m>-0.0000</z-m>
   </offsets>
  </text>
 
  <text>
   <name>line 2</name>
   <type type="string">literal</type>
-  <text type="string">DOORS</text>
+  <text type="string">BRAKE</text>
   <format type="string">%s</format>
+  <layout>vertical</layout> 
   <draw-text type="bool">true</draw-text>
   <font>Helvetica.txf</font>
-  <character-size type="double">0.006</character-size>
+  <character-size type="double">0.004</character-size>
   <character-aspect-ratio type="double">1.0</character-aspect-ratio>
   <font-resolution>
    <width type="int">32</width>
@@ -61,8 +63,8 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
    <x-m> 0.0011</x-m>
-   <y-m>-0.0090</y-m>
-   <z-m>-0.0025</z-m>
+   <y-m> 0.0005</y-m>
+   <z-m> 0.0000</z-m>
   </offsets>
  </text>
 
@@ -77,21 +79,21 @@
   <object-name>text position</object-name>
   <emission>
    <red>1.0</red>
-   <green>1.0</green>
+   <green>0.7</green>
    <blue>0.7</blue>
-   <factor-prop>systems/warning/amber/cargo-doors</factor-prop>
+   <factor-prop>controls/gear/brake-parking</factor-prop>
   </emission>
   <ambient>
    <red>1.0</red>
-   <green>1.0</green>
+   <green>0.7</green>
    <blue>0.7</blue>
-   <factor-prop>systems/warning/amber/cargo-doors</factor-prop>
+   <factor-prop>controls/gear/brake-parking</factor-prop>
   </ambient>
   <diffuse>
    <red>1.0</red>
-   <green>1.0</green>
+   <green>0.7</green>
    <blue>0.7</blue>
-   <factor-prop>systems/warning/amber/cargo-doors</factor-prop>
+   <factor-prop>controls/gear/brake-parking</factor-prop>
   </diffuse>
  </animation>
 

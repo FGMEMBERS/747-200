@@ -6,12 +6,26 @@
      Altitude hold at 1000 ft/min.
 
 
-     Known problems:
-     ==============
+     Tuning :
+     ......
      - altitude hold has a strong sensitivity in pitch (inertia).
      Solved by reducing proportional gain of climb rate.
      - heading hold rolls (inertia) above 250 kt.
      Solved by a rudder trim, and a shorter integration of roll reference, which both improve responsiveness.
+     - looking ahead accelerates the convergence of heading modes.
+     - clamping roll rate smooths heading modes.
+
+
+     Heading modes :
+     .............
+     As looking ahead amplifies oscillations :
+     - not used with autoland.
+     - not used with ILS.
+     - on mode engagement, nasal delays looking ahead, until the heading error is plausible.
+     - once heading is stable, nasal stops looking ahead.
+
+     Looking ahead can be disabled with /systems/autopilot/pid/prediction-filter.
+
 -->
 
 <!-- Each component is evaluated in the order specified.  You can make up -->
@@ -36,6 +50,27 @@
      <input>/instrumentation/inst-vertical-speed-indicator/indicated-speed-fps</input>
      <output>/autopilot/internal/lookahead-10-sec-fps</output>
      <seconds>10.0</seconds>
+     <filter-gain>0.0</filter-gain>
+  </predict-simple>
+
+  <predict-simple>
+     <input>/autopilot/internal/true-heading-error-deg</input>
+     <output>/autopilot/internal/true-heading-error-deg-15-sec</output>
+     <seconds>15.0</seconds>
+     <filter-gain>0.0</filter-gain>
+  </predict-simple>
+
+  <predict-simple>
+     <input>/autopilot/internal/nav1-heading-error-deg</input>
+     <output>/autopilot/internal/nav1-heading-error-deg-2-sec</output>
+     <seconds>2.0</seconds>
+     <filter-gain>0.0</filter-gain>
+  </predict-simple>
+
+  <predict-simple>
+     <input>/autopilot/internal/fdm-heading-bug-error-deg</input>
+     <output>/autopilot/internal/fdm-heading-bug-error-deg-15-sec</output>
+     <seconds>15.0</seconds>
      <filter-gain>0.0</filter-gain>
   </predict-simple>
 
@@ -78,6 +113,19 @@
     </config>
   </pid-controller>
 
+  <filter>
+    <name>Roll rate limiter Filter (mag)</name>
+    <debug>false</debug>
+    <enable>
+      <prop>/autopilot/locks/heading</prop>
+      <value>dg-heading-hold</value>
+    </enable>
+    <type>noise-spike</type>
+    <input>/autopilot/internal/target-roll-deg</input>
+    <output>/autopilot/internal/target-roll-deg-filtered</output>
+    <max-rate-of-change>3.0</max-rate-of-change>
+  </filter>
+
   <!-- Stage #2 drives the ailerons to achieve the desired roll deg. -->
   <pid-controller>
     <name>Heading Bug Hold (DG based) Stage 2</name>
@@ -90,7 +138,7 @@
       <prop>/orientation/roll-deg</prop>
     </input>
     <reference>
-      <prop>/autopilot/internal/target-roll-deg</prop>
+      <prop>/autopilot/internal/target-roll-deg-filtered</prop>
     </reference>
     <output>
       <prop>/controls/flight/aileron</prop>
@@ -203,6 +251,19 @@
     </config>
   </pid-controller>
 
+  <filter>
+    <name>Roll rate limiter Filter</name>
+    <debug>false</debug>
+    <enable>
+      <prop>/autopilot/locks/heading</prop>
+      <value>true-heading-hold</value>
+    </enable>
+    <type>noise-spike</type>
+    <input>/autopilot/internal/target-roll-deg</input>
+    <output>/autopilot/internal/target-roll-deg-filtered</output>
+    <max-rate-of-change>3.0</max-rate-of-change>
+  </filter>
+
   <!-- Stage #3 drives the rudder to unlock roll. -->
   <pid-controller>
     <name>True Heading Hold (DG based) Stage 3</name>
@@ -215,7 +276,7 @@
       <prop>/orientation/roll-deg</prop>
     </input>
     <reference>
-      <prop>/autopilot/internal/target-roll-deg</prop>
+      <prop>/autopilot/internal/target-roll-deg-filtered</prop>
     </reference>
     <output>
       <prop>/controls/flight/rudder</prop>
@@ -262,6 +323,19 @@
     </config>
   </pi-simple-controller>
 
+  <filter>
+    <name>Roll rate limiter Filter (nav)</name>
+    <debug>false</debug>
+    <enable>
+      <prop>/autopilot/locks/heading</prop>
+      <value>nav1-hold</value>
+    </enable>
+    <type>noise-spike</type>
+    <input>/autopilot/internal/target-roll-deg</input>
+    <output>/autopilot/internal/target-roll-deg-filtered</output>
+    <max-rate-of-change>3.0</max-rate-of-change>
+  </filter>
+
   <!-- Stage #2 drives the ailerons to achieve the desired roll deg. -->
   <pid-controller>
     <name>Nav1 Hold Stage 2</name>
@@ -274,7 +348,7 @@
       <prop>/orientation/roll-deg</prop>
     </input>
     <reference>
-      <prop>/autopilot/internal/target-roll-deg</prop>
+      <prop>/autopilot/internal/target-roll-deg-filtered</prop>
     </reference>
     <output>
       <prop>/controls/flight/aileron</prop>
@@ -425,7 +499,7 @@
 
   <!-- Stage #1 drives the elevator-trim to achieve the desired climb rate. -->
   <pid-controller>
-    <name>Glideslop Hold</name>
+    <name>Glide slope Hold</name>
     <debug>false</debug>
     <enable>
       <prop>/autopilot/locks/altitude</prop>
@@ -459,7 +533,7 @@
 
   <!-- Stage #1 drives the elevator-trim to achieve the desired climb rate. -->
   <pid-controller>
-    <name>Glideslop Hold</name>
+    <name>Glide slope with throttle</name>
     <debug>false</debug>
     <enable>
       <prop>/autopilot/locks/speed</prop>
