@@ -11,17 +11,15 @@
 Flight = {};
 
 Flight.new = func {
-   var obj = { parents : [Flight],
+   var obj = { parents : [Flight,System],
 
-           flightcontrols : nil,
+               FLIGHTSEC : 1.0,              # refresh rate
 
-           FLIGHTSEC : 1.0,              # refresh rate
+               SPOILEREXTEND : 1.0,
+               SPOILERARM : 0.5,
+               SPOILERRETRACT : 0.0,
 
-           SPOILEREXTEND : 1.0,
-           SPOILERARM : 0.5,
-           SPOILERRETRACT : 0.0,
-
-           SPOILERSKT : 120.0
+               SPOILERSKT : 120.0
          };
 
    obj.init();
@@ -30,23 +28,25 @@ Flight.new = func {
 };
 
 Flight.init = func {
-   me.flightcontrols = props.globals.getNode("/controls/flight");
+   me.inherit_system("/systems/flight");
 }
 
 Flight.schedule = func {
    var aglft = 0.0;
    var speedkt = 0.0;
 
-   if( me.flightcontrols.getChild("spoilers-lever").getValue() == me.SPOILERARM ) {
-       aglft = constant.nonil( getprop("/instrumentation/radio-altimeter/indicated-altitude-ft") );
-       speedkt = constant.nonil( getprop("/instrumentation/airspeed-indicator/indicated-speed-kt" ) );
+   if( me.itself["root-ctrl"].getChild("spoilers-lever").getValue() == me.SPOILERARM ) {
+       aglft = constant.nonil( me.dependency["radio-altimeter"].getChild("indicated-altitude-ft").getValue() );
+       speedkt = constant.nonil( me.dependency["airspeed"].getChild("indicated-speed-kt").getValue() );
 
        # extend spoilers at touch down (also avoids rebound of autoland)
        if( aglft < constantaero.AGLTOUCHFT and speedkt > me.SPOILERSKT ) {
  
            # avoids hard landing (quick fall of nose)
-           if( getprop("/gear/gear[1]/wow") or getprop("/gear/gear[2]/wow") or
-               getprop("/gear/gear[3]/wow") or getprop("/gear/gear[4]/wow") ) {
+           if( me.dependency["gear"][1].getChild("wow").getValue() or
+               me.dependency["gear"][2].getChild("wow").getValue() or
+               me.dependency["gear"][3].getChild("wow").getValue() or
+               me.dependency["gear"][4].getChild("wow").getValue() ) {
                me.spoilersexport( 1.0 );
            }
        }
@@ -54,9 +54,8 @@ Flight.schedule = func {
 }
 
 Flight.spoilersexport = func( step ) {
-   var value = 0.0;
+   var value = me.itself["root-ctrl"].getChild("spoilers-lever").getValue();
 
-   value = me.flightcontrols.getChild("spoilers-lever").getValue();
    value = value + step * me.SPOILERARM;
 
    if( value < me.SPOILERRETRACT ) {
@@ -66,7 +65,7 @@ Flight.spoilersexport = func( step ) {
        value = me.SPOILEREXTEND;
    }
 
-   me.flightcontrols.getChild("spoilers-lever").setValue(value);
+   me.itself["root-ctrl"].getChild("spoilers-lever").setValue(value);
 
    controls.stepSpoilers( step );
 }
@@ -80,18 +79,14 @@ Flight.spoilersexport = func( step ) {
 DayTime = {};
 
 DayTime.new = func {
-   var obj = { parents : [DayTime],
+   var obj = { parents : [DayTime,System],
 
-           altitudenode : nil,
-           thesim : nil,
-           warpnode : nil,
+               SPEEDUPSEC : 1.0,
 
-           SPEEDUPSEC : 1.0,
+               CLIMBFTPMIN : 3500,                                       # maximum climb rate
+               MAXSTEPFT : 0.0,                                          # altitude change for step
 
-           CLIMBFTPMIN : 3500,                                       # maximum climb rate
-           MAXSTEPFT : 0.0,                                          # altitude change for step
-
-           lastft : 0.0
+               lastft : 0.0
          };
 
    obj.init();
@@ -100,34 +95,30 @@ DayTime.new = func {
 }
 
 DayTime.init = func {
+    me.inherit_system("/instrumentation/clock");
+
     var climbftpsec = me.CLIMBFTPMIN / constant.MINUTETOSECOND;
 
     me.MAXSTEPFT = climbftpsec * me.SPEEDUPSEC;
-
-    me.altitudenode = props.globals.getNode("/position/altitude-ft");
-    me.thesim = props.globals.getNode("/sim");
-    me.warpnode = props.globals.getNode("/sim/time/warp");
 }
 
 DayTime.schedule = func {
-   var altitudeft = 0.0;
-   var speedup = 1.0;
-   var multiplier = 0.0;
-   var offsetsec = 0.0;
-   var warpi = 0.0;
-   var stepft = 0.0;
-   var maxft = 0.0;
-   var minft = 0.0;
+   var altitudeft = me.noinstrument["altitude"].getValue();
+   var speedup = me.noinstrument["speed-up"].getValue();
 
-   altitudeft = me.altitudenode.getValue();
-
-   speedup = me.thesim.getChild("speed-up").getValue();
    if( speedup > 1 ) {
+       var multiplier = 0.0;
+       var offsetsec = 0.0;
+       var warp = 0.0;
+       var stepft = 0.0;
+       var maxft = 0.0;
+       var minft = 0.0;
+
        # accelerate day time
        multiplier = speedup - 1;
        offsetsec = me.SPEEDUPSEC * multiplier;
-       warp = me.warpnode.getValue() + offsetsec; 
-       me.warpnode.setValue(warp);
+       warp = me.noinstrument["warp"].getValue() + offsetsec; 
+       me.noinstrument["warp"].setValue(warp);
 
        # safety
        stepft = me.MAXSTEPFT * speedup;
@@ -136,7 +127,7 @@ DayTime.schedule = func {
 
        # too fast
        if( altitudeft > maxft or altitudeft < minft ) {
-           me.thesim.getChild("speed-up").setValue(1);
+           me.noinstrument["speed-up"].setValue(1);
        }
    }
 

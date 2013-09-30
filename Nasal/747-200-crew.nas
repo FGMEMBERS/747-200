@@ -11,7 +11,7 @@
 SeatRail = {};
 
 SeatRail.new = func {
-   var obj = { parents : [SeatRail],
+   var obj = { parents : [SeatRail,System],
 
                RAILSEC : 5.0,
 
@@ -19,10 +19,18 @@ SeatRail.new = func {
                PARK : 1.0
          };
 
+
+   obj.init();
+
+   return obj;
+}
+
+SeatRail.init = func {
+   me.inherit_system("/systems/human");
 }
 
 SeatRail.toggle = func( seat ) {
-   me.roll("/systems/human/" ~ seat ~ "/stowe-norm");
+   me.roll(me.itself[seat].getChild("stowe-norm").getPath());
 }
 
 # roll on rail

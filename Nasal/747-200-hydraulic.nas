@@ -11,9 +11,7 @@
 Doors = {};
 
 Doors.new = func {
-   var obj = { parents : [Doors],
-
-               cargodoors : nil,
+   var obj = { parents : [Doors,System],
 
                seat : SeatRail.new(),
  
@@ -30,15 +28,15 @@ Doors.new = func {
 };
 
 Doors.init = func {
-   me.cargodoors = props.globals.getNode("/controls/doors/cargo");
+   me.inherit_system( "/systems/doors" );
 }
 
 Doors.amber_cargo_doors = func {
    var result = constant.FALSE;
 
-   if( me.cargodoors.getNode("forward").getChild("position-norm").getValue() > 0.0 or
-       me.cargodoors.getNode("aft").getChild("position-norm").getValue() > 0.0 or
-       me.cargodoors.getNode("bulk").getChild("position-norm").getValue() > 0.0 ) {
+   if( me.itself["root-ctrl"].getNode("cargo").getNode("forward").getChild("position-norm").getValue() > 0.0 or
+       me.itself["root-ctrl"].getNode("cargo").getNode("aft").getChild("position-norm").getValue() > 0.0 or
+       me.itself["root-ctrl"].getNode("cargo").getChild("position-norm").getValue() > 0.0 ) {
        result = constant.TRUE;
    }
 

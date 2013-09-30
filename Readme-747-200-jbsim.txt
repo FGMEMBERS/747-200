@@ -41,7 +41,7 @@ Fuel load
 
 Known compatibility
 -------------------
-- 2.4.0 : minimal version.
+- 2.12 : minimal version.
 
 
 
@@ -204,4 +204,4 @@ References
 
 
 
-10 September 2011.
+29 September 2013.

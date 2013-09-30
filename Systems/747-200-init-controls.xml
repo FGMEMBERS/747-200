@@ -6,6 +6,21 @@
 
 <PropertyList>
 
+  <audio>
+   <comm n="0">
+    <knob n="0" type="double">0.0</knob>                      <!-- 3D instrument -->
+    <knob n="1" type="double">0.0</knob>
+    <selected type="bool">true</selected>
+    <standby type="bool">false</standby>
+   </comm>
+   <comm n="1">
+    <knob n="0" type="double">0.0</knob>                      <!-- 3D instrument -->
+    <knob n="1" type="double">0.0</knob>
+    <selected type="bool">true</selected>
+    <standby type="bool">false</standby>
+   </comm>
+  </audio>
+
   <autoflight>
    <altitude></altitude>
    <automach-ft type="double">28000.0</automach-ft>
@@ -33,6 +48,18 @@
    <timeout type="bool">true</timeout>                                             <!-- of 10 seconds -->
    <timeout-s type="double">10.0</timeout-s>
   </crew>
+
+  <doors>
+   <cargo>
+    <aft>
+     <position-norm type="double">0.0</position-norm>
+    </aft>
+    <forward>
+     <position-norm type="double">0.0</position-norm>
+    </forward>
+    <position-norm type="double">0.0</position-norm>
+   </cargo>
+  </doors>
 
   <engineer>
    <destination-ft type="int">0</destination-ft>

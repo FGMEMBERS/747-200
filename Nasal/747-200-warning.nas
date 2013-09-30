@@ -11,21 +11,17 @@
 Gpws = {};
 
 Gpws.new = func {
-   var obj = { parents : [Gpws],
+   var obj = { parents : [Gpws,System],
 
-           FLIGHTFT : 2500,
-           GEARFT : 500,
-           GROUNDFT : 200,
+               FLIGHTFT : 2500,
+               GEARFT : 500,
+               GROUNDFT : 200,
 
-           FLIGHTFPS : -50,
-           GROUNDFPS : -15,
-           TAXIFPS : -5,                                   # taxi is not null
+               FLIGHTFPS : -50,
+               GROUNDFPS : -15,
+               TAXIFPS : -5,                                   # taxi is not null
 
-           GEARDOWN : 1.0,
-
-           gear : nil,
-           ivsi : nil,
-           radioaltimeter : nil
+               GEARDOWN : 1.0
          };
 
    obj.init();
@@ -34,16 +30,14 @@ Gpws.new = func {
 };
 
 Gpws.init = func {
-   me.gear = props.globals.getNode("/gear/gear[0]");
-   me.ivsi = props.globals.getNode("/instrumentation/inst-vertical-speed-indicator");
-   me.radioaltimeter = props.globals.getNode("/position");
+   me.inherit_system("/instrumentation/gpws");
 }
 
 Gpws.red_pull_up = func {
    var result = constant.FALSE;
-   var aglft = me.radioaltimeter.getChild("altitude-agl-ft").getValue();
-   var verticalfps = me.ivsi.getChild("indicated-speed-fps").getValue();
-   var gearpos = me.gear.getChild("position-norm").getValue();
+   var aglft = me.dependency["radio-altimeter"].getChild("indicated-altitude-ft").getValue();
+   var verticalfps = me.dependency["ivsi"].getChild("indicated-speed-fps").getValue();
+   var gearpos = me.dependency["gear"].getChild("position-norm").getValue();
 
    if( aglft == nil or verticalfps == nil or gearpos == nil ) {
       result = constant.FALSE;
@@ -75,14 +69,11 @@ Gpws.red_pull_up = func {
 Warning = {};
 
 Warning.new = func {
-   var obj = { parents : [Warning],
+   var obj = { parents : [Warning,System],
 
-           doorsystem : nil,
+               doorsystem : nil,
 
-           gpwssystem : Gpws.new(),
-
-           ambers : nil,
-           reds : nil
+               gpwssystem : Gpws.new()
          };
 
    obj.init();
@@ -91,8 +82,7 @@ Warning.new = func {
 };
 
 Warning.init = func {
-   me.ambers = props.globals.getNode("/systems/warning/amber");
-   me.reds = props.globals.getNode("/systems/warning/red");
+   me.inherit_system("/systems/warning");
 }
 
 Warning.set_relation = func( door ) {
@@ -106,13 +96,13 @@ Warning.schedule = func {
 }
 
 Warning.sendamber = func( name, value ) {
-   if( me.ambers.getChild(name).getValue() != value ) {
-       me.ambers.getChild(name).setValue( value );
+   if( me.itself["amber"].getChild(name).getValue() != value ) {
+       me.itself["amber"].getChild(name).setValue( value );
    }
 }
 
 Warning.sendred = func( name, value ) {
-   if( me.reds.getChild(name).getValue() != value ) {
-       me.reds.getChild(name).setValue( value );
+   if( me.itself["red"].getChild(name).getValue() != value ) {
+       me.itself["red"].getChild(name).setValue( value );
    }
 }
