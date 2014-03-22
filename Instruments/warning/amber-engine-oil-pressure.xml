@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <params>
+  <oil-pressure>systems/warning/amber/engine-oil-pressure[0]</oil-pressure>
+  <engine-num>systems/engines/engine[0]/engine-num</engine-num>
+ </params>
+
+ <path>warning.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>Warning</object-name>
+  <condition>
+   <property alias="../../../params/oil-pressure"/>
+  </condition>
+  <emission>
+   <red>0.1</red>
+   <green>0.1</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/oil-pressure"/>
+  </emission> 
+  <ambient>
+   <red>0.5</red>
+   <green>0.5</green>
+   <blue>0.5</blue>
+   <factor-prop>systems/lighting/level/roof-ambient</factor-prop>
+  </ambient>
+  <texture-prop>systems/warning/texture/amber</texture-prop>
+ </animation> 
+
+ <text>
+  <name>line 1</name>
+  <type type="string">literal</type>
+  <text type="string">ENG OIL</text>
+  <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <font>Helvetica.txf</font>
+  <character-size type="double">0.004</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <x-m> 0.0011</x-m>
+   <y-m>-0.0070</y-m>
+   <z-m> 0.0025</z-m>
+  </offsets>
+ </text>
+
+ <text>
+  <name>line 2</name>
+  <type type="string">literal</type>
+  <text type="string">PRESS</text>
+  <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <font>Helvetica.txf</font>
+  <character-size type="double">0.004</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <x-m> 0.0011</x-m>
+   <y-m>-0.0070</y-m>
+   <z-m>-0.0025</z-m>
+  </offsets>
+ </text>
+
+ <text>
+  <name>line 3</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/engine-num"/>
+  <format type="string">%1.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>Helvetica.txf</font>
+  <character-size type="double">0.004</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <x-m> 0.0011</x-m>
+   <y-m> 0.0060</y-m>
+   <z-m>-0.0025</z-m>
+  </offsets>
+ </text>
+
+ <animation>
+  <name>text position</name>
+  <object-name>line 1</object-name>
+  <object-name>line 2</object-name>
+  <object-name>line 3</object-name>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>text position</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>0.1</blue>
+   <factor-prop alias="../../../params/oil-pressure"/>
+  </emission>
+  <ambient>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>0.1</blue>
+   <factor-prop alias="../../../params/oil-pressure"/>
+  </ambient>
+  <diffuse>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>0.1</blue>
+   <factor-prop alias="../../../params/oil-pressure"/>
+  </diffuse>
+ </animation>
+
+</PropertyList>

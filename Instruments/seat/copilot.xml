@@ -1,5 +1,7 @@
 <?xml version="1.0" ?> 
 
+<!-- auto smooth is disabled (except rail). -->
+
 <PropertyList> 
  <path>seat.ac</path> 
 
@@ -31,6 +33,7 @@
   <object-name>Seat</object-name>
   <object-name>LeftArm</object-name>
   <object-name>RightArm</object-name>
+  <object-name>Boggie</object-name>
  </animation>
 
  <animation> 
@@ -74,11 +77,11 @@
    </entry>
    <entry>
     <ind>0.6</ind>
-    <dep>0.16</dep>
+    <dep>0.30</dep>
    </entry>
    <entry>
     <ind>1.0</ind>
-    <dep>0.16</dep>
+    <dep>0.30</dep>
    </entry>
   </interpolation>
   <center>

@@ -37,11 +37,11 @@ Installation
 Fuel load
 ---------
 - default is maximum landing weight, 630000 lb.
-- for alternate load, press "ctrl-I f" (saved on exit in aircraft-data).
+- for alternate load, press "= f" (saved on exit in aircraft-data).
 
 Known compatibility
 -------------------
-- 2.12 : minimal version.
+- 3.0.0 : minimal version.
 
 
 
@@ -52,8 +52,8 @@ Keyboard
 Views
 -----
 - "ctrl-E"   : "E"ngineer view.
-- "ctrl-J"   : "C"opilot view.
-- "ctrl-K"   : "O"bserver view (floating).
+- "ctrl-K"   : Observer view (floating).
+- "ctrl-Y"   : Copilot view.
 - "shift-ctrl-V" : restore view pitch.
 - "shift-ctrl-X" : restore floating view.
 
@@ -73,7 +73,7 @@ Improved behaviour
 
 Alternate behaviour
 -------------------
-- "ctrl-I" : menu.
+- "=" : menu.
 - "ctrl-T" : toggle altitude hold.
 - "left / right" : move floating view in width.
 - "up / down"  : move floating view in length.
@@ -88,12 +88,6 @@ Disabled
 
 Mouse
 =====
-
-ADF
----
-To update the frequency of ADF 2 :
-- press "swap" on the overhead.
-- press "ctrl-R" to call the radio menu. 
 
 Autopilot
 ---------
@@ -147,7 +141,7 @@ Known problems FDM
 
 Known problems autopilot
 ------------------------
-- toggle INS mode, only AFTER activation of route, or use "ctrl-I a".
+- toggle INS mode, only AFTER activation of route, or use "= a".
 - NAV hold mode is sensitive to the turbulence of the ground layer.
 - heading hold is a little slow to converge.
 - beyond 15 NM, nav hold makes wide rolls.
@@ -161,13 +155,13 @@ Known problems autoland
 -----------------------
 - nav must be accurate until 0 ft AGL : KSFO 28R, RJAA 34L are correct;
   but EGLL 27R, KJFK 22L are wrong : to land at these airports,
-  set /controls/autoflight/real-nav to false, by "ctrl-I a".
+  set /controls/autoflight/real-nav to false, by "= a".
 - glide slope must be accurate until 250 ft AGL : real should be 100 ft,
   but nose tends to dive to catch the slope (simplistic autopilot or wrong glide slope ?).
 
 Known problems keyboard
 -----------------------
-- because of ctrl-I overriding, TAB altimeter menu is not available with GLUT.
+- because of = overriding, TAB altimeter menu is not available with GLUT.
 
 Known problems OSG
 ------------------
@@ -204,4 +198,4 @@ References
 
 
 
-29 September 2013.
+22 March 2014.

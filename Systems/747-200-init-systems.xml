@@ -59,6 +59,16 @@
    </state>
 
    <relations>
+    <dependency>
+     <altimeter>/instrumentation/altimeter</altimeter>
+     <dme>/instrumentation/dme[0]</dme>
+     <flight>/controls/flight</flight>
+     <dme>/instrumentation/dme[0]</dme>
+     <ivsi>/instrumentation/inst-vertical-speed-indicator</ivsi>
+     <nav>/instrumentation/nav[0]</nav>
+     <radio-altimeter>/instrumentation/radio-altimeter</radio-altimeter>
+    </dependency>
+    
     <itself>
      <autoflight>/controls/autoflight</autoflight>
      <channel>
@@ -82,10 +92,13 @@
     </itself>
 
     <noinstrument>
+     <heading>/orientation/heading-magnetic-deg</heading>
      <pitch>/orientation/pitch-deg</pitch>
      <roll>/orientation/roll-deg</roll>
      <speed-up>/sim/speed-up</speed-up>
      <time>/sim/time/elapsed-sec</time>
+     <weight>/fdm/jsbsim/inertia/weight-lbs</weight>
+     <wind>/environment</wind>
     </noinstrument>
    </relations>
   </autopilot>
@@ -93,6 +106,7 @@
   <autothrottle>
    <relations>
     <dependency>
+     <altimeter>/instrumentation/altimeter</altimeter>
      <engine>
       <component>/controls/engines</component>
       <subcomponent>engine</subcomponent>
@@ -104,6 +118,11 @@
      <locks>/autopilot/locks</locks>
      <settings>/autopilot/settings</settings>
     </itself>
+
+    <noinstrument>
+     <airspeed>/velocities/airspeed-kt</airspeed>
+     <mach>/velocities/mach</mach>
+    </noinstrument>
    </relations>
   </autothrottle>
 
@@ -111,6 +130,20 @@
    <serviceable type="bool">true</serviceable>
 
    <minimized type="bool">true</minimized>
+
+   <relations>
+    <dependency>
+     <engineer>/systems/engineer</engineer>
+     <engineer-ctrl>/controls/engineer</engineer-ctrl>
+     <human>/systems/human</human>
+    </dependency>
+
+    <noinstrument>
+     <freeze>/sim/freeze/master</freeze>
+     <speed-up>/sim/speed-up</speed-up>
+     <startup>/sim/startup/ysize</startup>
+    </noinstrument>
+   </relations>
   </crew>
 
   <doors>
@@ -146,6 +179,7 @@
      <autoflight>/controls/autoflight</autoflight>
      <fuel>/instrumentation/fuel</fuel>
      <ins>/instrumentation/ins</ins>
+     <route-manager>/autopilot/route-manager</route-manager>
      <waypoint>
       <component>/autopilot/route-manager</component>
       <subcomponent>wp</subcomponent>
@@ -178,6 +212,15 @@
    <engine n="3">
     <engine-num>4</engine-num>
    </engine>
+
+   <relations>
+    <itself>
+     <engine>
+      <component>/engines</component>
+      <subcomponent>engine</subcomponent>
+     </engine>
+    </itself>
+   </relations>
   </engines>
 
   <flight>
@@ -205,6 +248,13 @@
      <steering>/controls/crew/steering</steering>
     </dependency>
 
+    <itself>
+     <gear>
+      <component>/gear</component>
+      <subcomponent>gear</subcomponent>
+     </gear>
+    </itself>
+    
     <noinstrument>
      <airspeed>/velocities/airspeed-kt</airspeed>
     </noinstrument>
@@ -264,6 +314,20 @@
      <z-m type="double">0.0</z-m>
     </observer>
    </position>
+
+   <relations>
+    <dependency>
+     <current-view>/sim/current-view</current-view>
+     <views>
+      <component>/sim</component>
+      <subcomponent>view</subcomponent>
+     </views>
+    </dependency>
+
+    <itself>
+     <position>/systems/seat/position</position>
+    </itself>
+   </relations>
   </seat>
 
   <tractor>
@@ -285,7 +349,15 @@
 
    <amber>
     <cargo-doors type="bool">false</cargo-doors>
+    <engine-oil-pressure n="0" type="bool">false</engine-oil-pressure>
+    <engine-oil-pressure n="1" type="bool">false</engine-oil-pressure>
+    <engine-oil-pressure n="2" type="bool">false</engine-oil-pressure>
+    <engine-oil-pressure n="3" type="bool">false</engine-oil-pressure>
    </amber>
+
+   <green>
+    <gear-down type="bool">false</gear-down>
+   </green>
 
    <red>
     <pull-up type="bool">false</pull-up>
@@ -294,12 +366,14 @@
    <relations>
     <itself>
      <amber>/systems/warning/amber</amber>
+     <green>/systems/warning/green</green>
      <red>/systems/warning/red</red>
     </itself>
    </relations>
 
    <texture>
     <amber type="string">747-amber.png</amber>
+    <green type="string">747-green.png</green>
     <red type="string">747-red.png</red>
    </texture>
   </warning>

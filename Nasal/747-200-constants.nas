@@ -151,7 +151,7 @@ System.new = func {
 
 System.inherit_system = func( path, subpath = "" ) {
    var fullpath = path;
-   var ctrlpath = string.replace(path,"systems","controls");
+   var ctrlpath = "";
 
    var obj = System.new();
 
@@ -162,6 +162,12 @@ System.inherit_system = func( path, subpath = "" ) {
    me.dependency = obj.dependency;
    me.itself = obj.itself;
    me.noinstrument = obj.noinstrument;
+
+
+   ctrlpath = string.replace(path,"systems","controls");
+   if( fullpath == ctrlpath ) {
+       ctrlpath = string.replace(path,"instrumentation","controls");
+   }
 
    # reserved entry
    if( subpath == "" ) {
@@ -215,7 +221,7 @@ System.loadtree = func( path, table ) {
           name = c.getName();
           subchildren = c.getChildren();
 
-          # <slave>
+          # <dependency>
           #  <engine>
           #   <component>/engines</component>
           #   <subcomponent>engine</subcomponent>
@@ -227,7 +233,7 @@ System.loadtree = func( path, table ) {
           }
 
           #  <altimeter>/instrumentation/altimeter[0]</altimeter>
-          # </slave>
+          # </dependency>
           else {
               value = c.getValue();
               table[name] = props.globals.getNode(value);

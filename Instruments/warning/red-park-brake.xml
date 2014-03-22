@@ -7,8 +7,11 @@
  <animation>
   <type>material</type>
   <object-name>Warning</object-name>
+  <condition>
+   <property>controls/gear/brake-parking</property>
+  </condition>
   <emission>
-   <red>1.0</red>
+   <red>0.1</red>
    <green>0.0</green>
    <blue>0.0</blue>
    <factor-prop>controls/gear/brake-parking</factor-prop>
@@ -79,20 +82,20 @@
   <object-name>text position</object-name>
   <emission>
    <red>1.0</red>
-   <green>0.7</green>
-   <blue>0.7</blue>
+   <green>0.1</green>
+   <blue>0.1</blue>
    <factor-prop>controls/gear/brake-parking</factor-prop>
   </emission>
   <ambient>
    <red>1.0</red>
-   <green>0.7</green>
-   <blue>0.7</blue>
+   <green>0.1</green>
+   <blue>0.1</blue>
    <factor-prop>controls/gear/brake-parking</factor-prop>
   </ambient>
   <diffuse>
    <red>1.0</red>
-   <green>0.7</green>
-   <blue>0.7</blue>
+   <green>0.1</green>
+   <blue>0.1</blue>
    <factor-prop>controls/gear/brake-parking</factor-prop>
   </diffuse>
  </animation>

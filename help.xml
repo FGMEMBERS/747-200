@@ -10,6 +10,11 @@
 <!-- Specific keys -->
 
     <key>
+     <name>=</name>
+     <desc>menu</desc>
+    </key>
+
+    <key>
      <name>left/right</name>
      <desc>autopilot heading</desc>
     </key>
@@ -100,16 +105,6 @@
     </key>
 
     <key>
-     <name>ctrl-I</name>
-     <desc>menu</desc>
-    </key>
-
-    <key>
-      <name>ctrl-J</name>
-      <desc>copilot view</desc>
-    </key>
-
-    <key>
       <name>ctrl-K</name>
       <desc>observer (floating) view</desc>
     </key>
@@ -137,6 +132,11 @@
     <key>
      <name>shift-ctrl-X</name>
      <desc>restore floating view</desc>
+    </key>
+
+    <key>
+      <name>ctrl-Y</name>
+      <desc>copilot view</desc>
     </key>
 
 

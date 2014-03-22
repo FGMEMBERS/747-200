@@ -79,6 +79,7 @@ Navigation.schedule = func {
    var selectft = 0.0;
    var fuelgalus = 0.0;
    var speedfpm = 0.0;
+   var child = nil;
 
    if( groundfps != nil ) {
        me.groundkt = groundfps * constant.FPSTOKT;
@@ -111,8 +112,12 @@ Navigation.schedule = func {
 
         # last
         else {
-            id = getprop("/autopilot/route-manager/wp-last/id"); 
-            distnm = getprop("/autopilot/route-manager/wp-last/dist"); 
+            id = "";
+            child = me.dependency["route-manager"].getNode("wp-last/id");
+            if( child != nil ) {
+                id = child.getValue();
+            } 
+            distnm = me.dependency["route-manager"].getNode("wp-last/dist").getValue(); 
         }
 
         fuelgalus = me.estimatefuelgalus( id, distnm );

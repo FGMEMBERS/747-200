@@ -63,24 +63,6 @@
     </binding>
    </key>
 
-   <key n="61">
-    <name>=</name>
-    <desc>Menu</desc>
-    <binding>
-     <command>dialog-show</command>
-     <dialog-name>747-200-menu</dialog-name>
-    </binding>
-   </key>
-
-   <key n="10">
-    <name>Ctrl-J</name>
-    <desc>Toggle copilot view.</desc>
-    <binding>
-     <command>nasal</command>
-     <script>globals.Boeing747.seatsystem.viewexport("copilot");</script>
-    </binding>
-   </key>
-
    <key n="11">
     <name>Ctrl-K</name>
     <desc>Toggle observer view.</desc>
@@ -172,6 +154,24 @@
       <script>globals.Boeing747.seatsystem.restoreexport();</script>
      </binding>
     </mod-shift>
+   </key>
+
+   <key n="25">
+    <name>Ctrl-Y</name>
+    <desc>Toggle copilot view.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Boeing747.seatsystem.viewexport("copilot");</script>
+    </binding>
+   </key>
+
+   <key n="61">
+    <name>=</name>
+    <desc>Menu</desc>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>747-200-menu</dialog-name>
+    </binding>
    </key>
 
    <key n="86">

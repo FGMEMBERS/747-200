@@ -5,7 +5,7 @@
  <sim include="Nasal/747-200-sim.xml">
   <description>Boeing 747-200</description>
   <status>early-production</status>
-  <aircraft-version>2.1</aircraft-version>
+  <aircraft-version>2.2</aircraft-version>
 
   <flight-model>jsb</flight-model>
   <aero>747-200</aero>

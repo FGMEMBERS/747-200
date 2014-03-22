@@ -330,7 +330,7 @@
   <type>rotate</type>
   <object-name>ParkingBrakeLever</object-name>
   <property>controls/gear/brake-parking</property>
-  <factor>80</factor>
+  <factor>60</factor>
   <offset-deg>-10</offset-deg>   
   <center>
    <x-m>0.092</x-m>

@@ -72,6 +72,8 @@ Warning.new = func {
    var obj = { parents : [Warning,System],
 
                doorsystem : nil,
+               enginesystem : nil,
+               gearsystem : nil,
 
                gpwssystem : Gpws.new()
          };
@@ -85,19 +87,43 @@ Warning.init = func {
    me.inherit_system("/systems/warning");
 }
 
-Warning.set_relation = func( door ) {
+Warning.set_relation = func( door, engine, gear ) {
    me.doorsystem = door;
+   me.enginesystem = engine;
+   me.gearsystem = gear;
 }
 
 Warning.schedule = func {
-   me.sendamber( "cargo-doors", me.doorsystem.amber_cargo_doors() );
-
    me.sendred( "pull-up", me.gpwssystem.red_pull_up() );
+
+   me.sendamber( "cargo-doors", 0, me.doorsystem.amber_cargo_doors() );
+   for (var i = 0; i < constantaero.NBENGINES; i=i+1) {
+        me.sendamber( "engine-oil-pressure", i, me.enginesystem.amber_oil_pressure( i ) );
+   }
+
+   me.sendgreen( "gear-down", me.gearsystem.green_gear_down() );
 }
 
-Warning.sendamber = func( name, value ) {
-   if( me.itself["amber"].getChild(name).getValue() != value ) {
-       me.itself["amber"].getChild(name).setValue( value );
+Warning.sendgreen = func( name, value ) {
+   if( me.itself["green"].getChild(name).getValue() != value ) {
+       me.itself["green"].getChild(name).setValue( value );
+   }
+}
+
+Warning.sendamber = func( name, num, value ) {
+   if( num == 0 ) {
+       if( me.itself["amber"].getChild(name).getValue() != value ) {
+           me.itself["amber"].getChild(name).setValue( value );
+       }
+   }
+   else {
+       var children = nil;
+
+       children = me.itself["amber"].getChildren(name);
+
+       if( children[num].getValue() != value ) {
+           children[num].setValue( value );
+       }
    }
 }
 

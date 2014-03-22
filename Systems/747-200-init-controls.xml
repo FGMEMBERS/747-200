@@ -7,6 +7,16 @@
 <PropertyList>
 
   <audio>
+   <adf n="0">
+    <knob n="0" type="double">0.0</knob>                      <!-- 3D instrument -->
+    <knob n="1" type="double">0.0</knob>
+    <knob n="2" type="double">0.0</knob>
+   </adf>
+   <adf n="1">
+    <knob n="0" type="double">0.0</knob>                      <!-- 3D instrument -->
+    <knob n="1" type="double">0.0</knob>
+    <knob n="2" type="double">0.0</knob>
+   </adf>
    <comm n="0">
     <knob n="0" type="double">0.0</knob>                      <!-- 3D instrument -->
     <knob n="1" type="double">0.0</knob>
@@ -87,6 +97,10 @@
   <flight>
    <spoilers-lever type="double">0.0</spoilers-lever>
   </flight>
+
+  <gear>
+   <brake-steering type="bool">false</brake-steering>
+  </gear>
 
   <seat>
    <recover type="bool">false</recover>

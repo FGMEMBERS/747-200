@@ -65,6 +65,11 @@
   </model>
 
   <model>
+   <name>Interior</name>
+   <path>Aircraft/747-200/Models/boeing747-200_interior.xml</path>
+  </model>
+
+  <model>
    <name>Effects</name>
    <path>Aircraft/747-200/Models/boeing747-200_effects.xml</path>
   </model>
@@ -2554,45 +2559,6 @@
  </animation>
 
 <!-- DOORS -->
-
- <animation>
-  <type>rotate</type>
-  <object-name>FlightDeckDoor</object-name>
-  <property>controls/doors/crew/flightdeck/position-norm</property>
-  <interpolation>
-    <entry>
-     <ind>0.0</ind>
-     <dep>0.0</dep>
-    </entry>
-    <entry>
-     <ind>1.0</ind>
-     <dep>180.0</dep>
-    </entry>
-  </interpolation>
-  <center>
-   <x-m>-16.875</x-m>
-   <y-m>-0.03</y-m>
-   <z-m>0.0</z-m>
-  </center>
-  <axis>
-   <x>0.0</x>
-   <y>0.0</y>
-   <z>1.0</z>
-  </axis>
- </animation>
-
- <animation>
-  <type>pick</type>
-  <object-name>FlightDeckDoor</object-name>
-  <action>
-   <button>0</button>
-   <repeatable>false</repeatable>
-   <binding>
-    <command>nasal</command>
-    <script>globals.Boeing747.doorsystem.flightdeckexport();</script>
-   </binding>
-  </action>
- </animation>
 
  <animation>
   <type>translate</type>

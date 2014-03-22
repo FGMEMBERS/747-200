@@ -25,7 +25,7 @@ BoeingMain.new = func {
 
 BoeingMain.putinrelation = func {
    autopilotsystem.set_relation( autothrottlesystem );
-   warningsystem.set_relation( doorsystem );
+   warningsystem.set_relation( doorsystem, enginesystem, gearsystem );
 }
 
 # 1 s cron
@@ -100,6 +100,7 @@ BoeingMain.instantiate = func {
 
    globals.Boeing747.autopilotsystem = Autopilot.new();
    globals.Boeing747.autothrottlesystem = Autothrottle.new();
+   globals.Boeing747.enginesystem = Engine.new();
    globals.Boeing747.fuelsystem = Fuel.new();
    globals.Boeing747.flightsystem = Flight.new();
    globals.Boeing747.gearsystem = Gear.new();

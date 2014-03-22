@@ -15,11 +15,11 @@ Doors.new = func {
 
                seat : SeatRail.new(),
  
-               flightdeck : aircraft.door.new("controls/doors/crew/flightdeck", 8.0),
-               exit : aircraft.door.new("controls/doors/crew/exit", 8.0),
-               cargobulk : aircraft.door.new("controls/doors/cargo/bulk", 12.0),
-               cargoaft : aircraft.door.new("controls/doors/cargo/aft", 12.0),
-               cargoforward : aircraft.door.new("controls/doors/cargo/forward", 12.0)
+               flightdeck : nil,
+               exit : nil,
+               cargobulk : nil,
+               cargoaft : nil,
+               cargoforward : nil
          };
 
    obj.init();
@@ -29,6 +29,12 @@ Doors.new = func {
 
 Doors.init = func {
    me.inherit_system( "/systems/doors" );
+
+   me.flightdeck = aircraft.door.new(me.itself["root-ctrl"].getNode("crew/flightdeck").getPath(), 8.0);
+   me.exit = aircraft.door.new(me.itself["root-ctrl"].getNode("crew/exit").getPath(), 8.0);
+   me.cargobulk = aircraft.door.new(me.itself["root-ctrl"].getNode("cargo/bulk").getPath(), 12.0);
+   me.cargoaft = aircraft.door.new(me.itself["root-ctrl"].getNode("cargo/aft").getPath(), 12.0);
+   me.cargoforward = aircraft.door.new(me.itself["root-ctrl"].getNode("cargo/forward").getPath(), 12.0);
 }
 
 Doors.amber_cargo_doors = func {
@@ -90,7 +96,7 @@ Gear.new = func {
 Gear.init = func {
    me.inherit_system( "/systems/gear" );
 
-   aircraft.steering.init("/controls/gear/brake-steering");
+   aircraft.steering.init(me.itself["root-ctrl"].getChild("brake-steering").getPath());
 }
 
 Gear.steeringexport = func {
@@ -110,6 +116,50 @@ Gear.steeringexport = func {
 
 Gear.schedule = func {
    me.steeringexport();
+}
+
+Gear.green_gear_down = func {
+   var result = constant.FALSE;
+
+   if( me.itself["gear"][0].getChild("position-norm").getValue() == 1.0 and
+       me.itself["gear"][1].getChild("position-norm").getValue() == 1.0 and
+       me.itself["gear"][2].getChild("position-norm").getValue() == 1.0 ) {
+       result = constant.TRUE;
+   }
+
+   return result;
+}
+
+
+# =======
+# ENGINES
+# =======
+
+Engine = {};
+
+Engine.new = func {
+   var obj = { parents : [Engine,System],
+
+               OILPRESSURELOWPSI : 35
+         };
+
+   obj.init();
+
+   return obj;
+};
+
+Engine.init = func {
+   me.inherit_system( "/systems/engines" );
+}
+
+Engine.amber_oil_pressure = func( num ) {
+   var result = constant.FALSE;
+
+   if( me.itself["engine"][num].getChild("oil-pressure-psi").getValue() <= me.OILPRESSURELOWPSI ) {
+       result = constant.TRUE;
+   }
+
+   return result;
 }
 
 
