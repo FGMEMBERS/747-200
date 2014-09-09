@@ -1,0 +1,27 @@
+<?xml version="1.0" ?> 
+
+<!-- auto smooth is disabled. -->
+
+<PropertyList> 
+ <path>seat-observer.ac</path> 
+
+ <nasal>
+  <load>
+   var livery_update = aircraft.livery_update.new(
+   "Aircraft/747-200/Models/Liveries", 10,
+   func { print("747-200 livery update (observer seat)") });
+  </load>
+
+  <unload>
+   livery_update.stop();
+  </unload>
+ </nasal>
+
+ <animation> 
+  <type>material</type> 
+  <object-name>Seat</object-name>
+  <property-base>sim/model/livery/</property-base> 
+  <texture-prop>texture-seat</texture-prop> 
+ </animation> 
+
+</PropertyList>

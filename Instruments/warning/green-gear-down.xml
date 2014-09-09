@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <path>warning.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>Warning</object-name>
+  <condition>
+   <property>systems/warning/green/gear-down</property>
+  </condition>
+  <emission>
+   <red>0.0</red>
+   <green>0.1</green>
+   <blue>0.0</blue>
+   <factor-prop>systems/warning/green/gear-down</factor-prop>
+  </emission> 
+  <ambient>
+   <red>0.5</red>
+   <green>0.5</green>
+   <blue>0.5</blue>
+   <factor-prop>systems/lighting/level/roof-ambient</factor-prop>
+  </ambient>
+  <texture-prop>systems/warning/texture/green</texture-prop>
+ </animation> 
+
+ <text>
+  <name>line 1</name>
+  <type type="string">literal</type>
+  <text type="string">GEAR</text>
+  <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <font>Helvetica.txf</font>
+  <character-size type="double">0.006</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <x-m> 0.0011</x-m>
+   <y-m>-0.0080</y-m>
+   <z-m> 0.0025</z-m>
+  </offsets>
+ </text>
+
+ <text>
+  <name>line 2</name>
+  <type type="string">literal</type>
+  <text type="string">DOWN</text>
+  <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <font>Helvetica.txf</font>
+  <character-size type="double">0.006</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <x-m> 0.0011</x-m>
+   <y-m>-0.0090</y-m>
+   <z-m>-0.0025</z-m>
+  </offsets>
+ </text>
+
+ <animation>
+  <name>text position</name>
+  <object-name>line 1</object-name>
+  <object-name>line 2</object-name>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>text position</object-name>
+  <emission>
+   <red>0.1</red>
+   <green>1.0</green>
+   <blue>0.1</blue>
+   <factor-prop>systems/warning/green/gear-down</factor-prop>
+  </emission>
+  <ambient>
+   <red>0.1</red>
+   <green>1.0</green>
+   <blue>0.1</blue>
+   <factor-prop>systems/warning/green/gear-down</factor-prop>
+  </ambient>
+  <diffuse>
+   <red>0.1</red>
+   <green>1.0</green>
+   <blue>0.1</blue>
+   <factor-prop>systems/warning/green/gear-down</factor-prop>
+  </diffuse>
+ </animation>
+
+</PropertyList>

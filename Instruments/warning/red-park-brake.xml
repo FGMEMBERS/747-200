@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <path>warning-vertical.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>Warning</object-name>
+  <condition>
+   <property>controls/gear/brake-parking</property>
+  </condition>
+  <emission>
+   <red>0.1</red>
+   <green>0.0</green>
+   <blue>0.0</blue>
+   <factor-prop>controls/gear/brake-parking</factor-prop>
+  </emission> 
+  <ambient>
+   <red>0.5</red>
+   <green>0.5</green>
+   <blue>0.5</blue>
+   <factor-prop>systems/lighting/level/roof-ambient</factor-prop>
+  </ambient>
+  <texture-prop>systems/warning/texture/red</texture-prop>
+ </animation> 
+
+ <text>
+  <name>line 1</name>
+  <type type="string">literal</type>
+  <text type="string">PARK</text>
+  <format type="string">%s</format>
+  <layout>vertical</layout> 
+  <draw-text type="bool">true</draw-text>
+  <font>Helvetica.txf</font>
+  <character-size type="double">0.004</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <x-m> 0.0011</x-m>
+   <y-m>-0.0045</y-m>
+   <z-m>-0.0000</z-m>
+  </offsets>
+ </text>
+
+ <text>
+  <name>line 2</name>
+  <type type="string">literal</type>
+  <text type="string">BRAKE</text>
+  <format type="string">%s</format>
+  <layout>vertical</layout> 
+  <draw-text type="bool">true</draw-text>
+  <font>Helvetica.txf</font>
+  <character-size type="double">0.004</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <x-m> 0.0011</x-m>
+   <y-m> 0.0005</y-m>
+   <z-m> 0.0000</z-m>
+  </offsets>
+ </text>
+
+ <animation>
+  <name>text position</name>
+  <object-name>line 1</object-name>
+  <object-name>line 2</object-name>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>text position</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.1</green>
+   <blue>0.1</blue>
+   <factor-prop>controls/gear/brake-parking</factor-prop>
+  </emission>
+  <ambient>
+   <red>1.0</red>
+   <green>0.1</green>
+   <blue>0.1</blue>
+   <factor-prop>controls/gear/brake-parking</factor-prop>
+  </ambient>
+  <diffuse>
+   <red>1.0</red>
+   <green>0.1</green>
+   <blue>0.1</blue>
+   <factor-prop>controls/gear/brake-parking</factor-prop>
+  </diffuse>
+ </animation>
+
+</PropertyList>

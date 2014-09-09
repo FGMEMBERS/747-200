@@ -1,0 +1,13 @@
+<?xml version="1.0" ?> 
+
+<!-- 747-200 pedestal :
+
+
+     - expected at scale in width.
+     - auto smoothed (30 degrees).
+-->
+
+<PropertyList> 
+ <path>pedestal.ac</path> 
+
+</PropertyList>
