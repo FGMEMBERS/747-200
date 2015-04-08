@@ -67,7 +67,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 
 <!-- 2nd line -->
 
-  <instrument include="../../Instruments/clock.xml">
+  <instrument include="Aircraft/Instruments/clock.xml">
    <name>Chronometer</name>
    <x>-20</x>
    <y>250</y>
