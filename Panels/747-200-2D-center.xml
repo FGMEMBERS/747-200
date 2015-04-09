@@ -369,7 +369,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <h>100</h>
   </instrument>
 
-  <instrument include="../../Instruments/oat.xml">
+  <instrument include="Aircraft/Instruments/oat.xml">
    <name>Outside Air Temperature</name>
    <x>490</x>
    <y>400</y>
@@ -379,7 +379,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 
 <!-- PEDESTAL -->
 
-  <instrument include="../../Instruments/controls.xml">
+  <instrument include="Aircraft/Instruments/controls.xml">
    <name>Control Position Indicators</name>
    <x>780</x>
    <y>355</y>
@@ -437,13 +437,13 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 
 <!-- RADIO -->
 
-  <instrument include="../../Instruments/navcom-kx155.xml">
+  <instrument include="Aircraft/Instruments/navcom-kx155.xml">
    <name>NavCom 1 Radio</name>
    <x>880</x>
    <y>201</y>
   </instrument>
 
-  <instrument include="../../Instruments/navcom-kx155.xml">
+  <instrument include="Aircraft/Instruments/navcom-kx155.xml">
    <name>NavCom 2 Radio</name>
    <params>
     <comm-freq-selected-prop>/instrumentation/comm[1]/frequencies/selected-mhz</comm-freq-selected-prop>
@@ -457,7 +457,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <y>115</y>
   </instrument>
 
-  <instrument include="../../Instruments/adf-radio.xml">
+  <instrument include="Aircraft/Instruments/adf-radio.xml">
    <name>ADF Radio</name>
    <params>
     <adf-freq-selected-prop>/instrumentation/adf[0]/frequencies/selected-khz</adf-freq-selected-prop>

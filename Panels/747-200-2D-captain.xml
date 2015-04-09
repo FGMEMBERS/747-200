@@ -207,7 +207,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 
 <!-- 2nd line -->
 
-  <instrument include="../../Instruments/clock.xml">
+  <instrument include="Aircraft/Instruments/clock.xml">
    <name>Chronometer</name>
    <x>50</x>
    <y>215</y>
@@ -299,7 +299,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <h>100</h>
   </instrument>
 
-  <instrument include="../../Instruments/gear-indicator.xml">
+  <instrument include="Aircraft/Instruments/gear-indicator.xml">
    <name>Gear Indicator Light</name>
    <x>990</x>
    <y>300</y>
@@ -320,7 +320,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 
 <!-- PEDESTAL -->
 
-  <instrument include="../../Instruments/brakes.xml">
+  <instrument include="Aircraft/Instruments/brakes.xml">
    <name>Brake Indicator Light</name>
    <x>990</x>
    <y>130</y>
@@ -341,7 +341,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 
 <!-- OVERHEAD PANEL -->
 
-  <instrument include="../../Instruments/magcompass.xml">
+  <instrument include="Aircraft/Instruments/magcompass.xml">
    <name>Magnetic Compass</name>
    <x>940</x>
    <y>485</y>

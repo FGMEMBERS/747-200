@@ -75,7 +75,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 
 <!-- 2nd line -->
 
-  <instrument include="../../Instruments/clock.xml">
+  <instrument include="Aircraft/Instruments/clock.xml">
    <name>Chronometer</name>
    <x>-60</x>
    <y>250</y>
@@ -337,7 +337,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 
 <!-- CENTER RIGHT -->
 
-  <instrument include="../../Instruments/oat.xml">
+  <instrument include="Aircraft/Instruments/oat.xml">
    <name>Outside Air Temperature</name>
    <x>735</x>
    <y>265</y>
