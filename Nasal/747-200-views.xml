@@ -36,6 +36,7 @@
      <y-offset-m archive="y">3.19</y-offset-m>
      <z-offset-m archive="y">5.43</z-offset-m>
      <pitch-offset-deg archive="y">-16.0</pitch-offset-deg>         <!-- looks at instruments -->
+     <heading-offset-deg type="double">0.0</heading-offset-deg>
    </config>
   </view>
 

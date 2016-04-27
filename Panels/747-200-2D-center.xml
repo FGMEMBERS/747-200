@@ -117,7 +117,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>Reserve 1 tank</name>
    <params>
     <level-select>/consumables/fuel/tank[5]/level-gal_us</level-select>
-    <tank-num>/consumables/fuel/tank[5]/tank-num</tank-num>
+    <name>/consumables/fuel/tank[5]/name</name>
    </params>
    <x>165</x>
    <y>595</y>
@@ -129,7 +129,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>Reserve 4 tank</name>
    <params>
     <level-select>/consumables/fuel/tank[6]/level-gal_us</level-select>
-    <tank-num>/consumables/fuel/tank[6]/tank-num</tank-num>
+    <name>/consumables/fuel/tank[6]/name</name>
    </params>
    <x>915</x>
    <y>595</y>
@@ -141,7 +141,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>Main 1 tank</name>
    <params>
     <level-select>/consumables/fuel/tank[1]/level-gal_us</level-select>
-    <tank-num>/consumables/fuel/tank[1]/tank-num</tank-num>
+    <name>/consumables/fuel/tank[1]/name</name>
    </params>
    <x>315</x>
    <y>520</y>
@@ -153,7 +153,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>Main 2 tank</name>
    <params>
     <level-select>/consumables/fuel/tank[2]/level-gal_us</level-select>
-    <tank-num>/consumables/fuel/tank[2]/tank-num</tank-num>
+    <name>/consumables/fuel/tank[2]/name</name>
    </params>
    <x>465</x>
    <y>520</y>
@@ -165,7 +165,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>Main 3 tank</name>
    <params>
     <level-select>/consumables/fuel/tank[3]/level-gal_us</level-select>
-    <tank-num>/consumables/fuel/tank[3]/tank-num</tank-num>
+    <name>/consumables/fuel/tank[3]/name</name>
    </params>
    <x>615</x>
    <y>520</y>
@@ -177,7 +177,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>Main 4 tank</name>
    <params>
     <level-select>/consumables/fuel/tank[4]/level-gal_us</level-select>
-    <tank-num>/consumables/fuel/tank[4]/tank-num</tank-num>
+    <name>/consumables/fuel/tank[4]/name</name>
    </params>
    <x>765</x>
    <y>520</y>
@@ -369,7 +369,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <h>100</h>
   </instrument>
 
-  <instrument include="Aircraft/Instruments/oat.xml">
+  <instrument include="../../Instruments/oat.xml">
    <name>Outside Air Temperature</name>
    <x>490</x>
    <y>400</y>
@@ -379,7 +379,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 
 <!-- PEDESTAL -->
 
-  <instrument include="Aircraft/Instruments/controls.xml">
+  <instrument include="../../Instruments/controls.xml">
    <name>Control Position Indicators</name>
    <x>780</x>
    <y>355</y>
@@ -437,13 +437,13 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 
 <!-- RADIO -->
 
-  <instrument include="Aircraft/Instruments/navcom-kx155.xml">
+  <instrument include="../../Instruments/navcom-kx155.xml">
    <name>NavCom 1 Radio</name>
    <x>880</x>
    <y>201</y>
   </instrument>
 
-  <instrument include="Aircraft/Instruments/navcom-kx155.xml">
+  <instrument include="../../Instruments/navcom-kx155.xml">
    <name>NavCom 2 Radio</name>
    <params>
     <comm-freq-selected-prop>/instrumentation/comm[1]/frequencies/selected-mhz</comm-freq-selected-prop>
@@ -457,7 +457,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <y>115</y>
   </instrument>
 
-  <instrument include="Aircraft/Instruments/adf-radio.xml">
+  <instrument include="../../Instruments/adf-radio.xml">
    <name>ADF Radio</name>
    <params>
     <adf-freq-selected-prop>/instrumentation/adf[0]/frequencies/selected-khz</adf-freq-selected-prop>

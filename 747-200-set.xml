@@ -11,7 +11,7 @@
   <aero>747-200</aero>
 
   <startup>
-   <splash-texture>Aircraft/747-200/747-200-splash.rgb</splash-texture>
+   <splash-texture>Aircraft/747-200/747-200-splash.rgb</splash-texture>            <!-- RJAA 34L -->
   </startup>
 
   <systems>
@@ -28,6 +28,11 @@
   <sound>
    <path>Aircraft/747-200/Sounds/747-200-sound.xml</path>
   </sound>
+
+  <submodels>
+   <serviceable type="bool">true</serviceable>
+   <path type="string">Aircraft/747-200/Models/Submodels/747-200-submodels.xml</path>
+  </submodels>
 
   <panel>
    <path>Aircraft/747-200/Panels/747-200-2D-captain.xml</path>
@@ -70,6 +75,20 @@
   <help include="help.xml"/>
 
  </sim>
+
+ <aircraft>
+  <door n="0">
+   <x-m type="float">-15.0   </x-m>                                <!-- left front door -->
+   <y-m type="float">  2.9212</y-m>
+   <z-m type="float"> -0.4730</z-m>
+  </door>
+  <door n="1">
+   <x-m type="float">-15.0   </x-m>                                <!-- right front door -->
+   <y-m type="float"> -2.9212</y-m>
+   <z-m type="float"> -0.4730</z-m>
+  </door>
+  <jetway-hood-deg type="float">0.0</jetway-hood-deg>
+ </aircraft>
 
  <consumables>
   <fuel include="Systems/747-200-init-fuel.xml"/>                  <!-- required by nasal -->

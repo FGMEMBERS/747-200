@@ -13,13 +13,13 @@
         <dialog-name>747-200-autopilot</dialog-name>
        </binding>
       </item>
-      <item>
+      <!--item>
        <label>Crew</label>
        <binding>
         <command>dialog-show</command>
         <dialog-name>747-200-crew</dialog-name>
        </binding>
-      </item>
+      </item-->
       <item>
        <label>Fuel</label>
        <binding>
@@ -60,6 +60,13 @@
        <binding>
         <command>dialog-show</command>
         <dialog-name>747-200-radios</dialog-name>
+       </binding>
+      </item>
+      <item>
+       <label>Views</label>
+       <binding>
+        <command>dialog-show</command>
+        <dialog-name>747-200-views</dialog-name>
        </binding>
       </item>
       <item>

@@ -87,8 +87,8 @@ http://www.usflag.org/ : the 50 stars flag.
 
 Made with Blender 2.67a and Gimp.
 AC3D export :
-- auto smooth is enabled (default is 30 degrees). Except fuselage antennas, seats, levers and switches. 
+- auto smooth is enabled (default is 30 degrees). Except fuselage antennas, seats, yokes, many levers and switches. 
 - AC3D groups are removed, to help import/export.
 
 
-22 March 2014.
+23 March 2014.

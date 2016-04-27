@@ -14,7 +14,7 @@
   <tank n="0">
    <capacity-gal_us>17160.0</capacity-gal_us>
    <density-ppg>6.7</density-ppg>
-   <tank-num>C</tank-num>
+   <name>C</name>
   </tank>
 
 <!-- main -->
@@ -22,22 +22,22 @@
   <tank n="1">
    <capacity-gal_us>4490.0</capacity-gal_us>
    <density-ppg>6.7</density-ppg>
-   <tank-num>1</tank-num>
+   <name>1</name>
   </tank>
   <tank n="2">
    <capacity-gal_us>12570.0</capacity-gal_us>
    <density-ppg>6.7</density-ppg>
-   <tank-num>2</tank-num>
+   <name>2</name>
   </tank>
   <tank n="3">
    <capacity-gal_us>12570.0</capacity-gal_us>
    <density-ppg>6.7</density-ppg>
-   <tank-num>3</tank-num>
+   <name>3</name>
   </tank>
   <tank n="4">
    <capacity-gal_us>4490.0</capacity-gal_us>
    <density-ppg>6.7</density-ppg>
-   <tank-num>4</tank-num>
+   <name>4</name>
   </tank>
 
 <!-- reserve -->
@@ -45,12 +45,12 @@
   <tank n="5">
    <capacity-gal_us>1554.0</capacity-gal_us>
    <density-ppg>6.7</density-ppg>
-   <tank-num>R1</tank-num>
+   <name>R1</name>
   </tank>
   <tank n="6">
    <capacity-gal_us>1554.0</capacity-gal_us>
    <density-ppg>6.7</density-ppg>
-   <tank-num>R4</tank-num>
+   <name>R4</name>
   </tank>
 
 </PropertyList>

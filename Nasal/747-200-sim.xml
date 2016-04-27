@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Sim initialization :
+<!-- sim initialization :
 
      - makes correspond the angles, because JSBSim wants normalized value.
 -->
@@ -16,6 +16,14 @@
    <setting>0.833</setting> <!-- Flaps 25: landing -->
    <setting>1.000</setting> <!-- Flaps 30: landing -->
   </flaps>
+
+<!-- B747-200, because property system refuses 747-200 -->
+
+  <gui>
+   <dialogs>
+    <B747-200></B747-200>             <!-- path creation for nasal -->
+   </dialogs>
+  </gui>
 
   <spoilers>
    <setting>0.000</setting> <!-- flight -->

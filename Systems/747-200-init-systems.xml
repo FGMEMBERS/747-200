@@ -2,6 +2,23 @@
 
 <!-- intialize systems :
 
+     - avoid nil values for Nasal.
+     - avoid string numbers (comparison doesn't work in XML instrument) for Nasal.
+     - autopilot, engines and gear also to distinguish the specific additions.
+
+
+     Relations :
+
+     <another>
+     - <dependency> is a real dependency.
+     - <itself> is the system.
+       Reserved entries : me.itself["root"] is path /systems/another.
+                          me.itself["root-ctrl"] is path /controls/another.
+     - <noinstrument> is to built the system. 
+       Or for fuzzy decision of virtual crew :
+       visual estimation of altitude over ground, if failure of radio altimeter;
+       speed implicitly known, during a subsonic cruise.
+     </another>
 -->
 
 <PropertyList>
@@ -138,6 +155,10 @@
      <human>/systems/human</human>
     </dependency>
 
+    <itself>
+     <dialogs>/sim/gui/dialogs/B747-200</dialogs>
+    </itself>
+
     <noinstrument>
      <freeze>/sim/freeze/master</freeze>
      <speed-up>/sim/speed-up</speed-up>
@@ -239,7 +260,9 @@
   <fuel>
    <presets type="int">0</presets>                                                     <!-- max landing load -->
 
-   <tanks include="../Nasal/747-200-fuel.xml"/>
+   <tanks include="../Nasal/747-200-fuel.xml">
+    <dialog></dialog>
+   </tanks>
   </fuel>
 
   <gear>

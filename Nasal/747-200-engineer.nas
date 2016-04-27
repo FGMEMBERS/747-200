@@ -124,8 +124,8 @@ Navigation.schedule = func {
         speedfpm = me.estimatespeedfpm( id, distnm, targetft );
 
         # display for FDM debug, or navigation
-        me.itself["waypoint"][i].getChild("fuel-gal_us").setValue(fuelgalus);
-        me.itself["waypoint"][i].getChild("speed-fpm").setValue(speedfpm);
+        me.itself["waypoint"][i].getChild("fuel-gal_us").setValue(int(math.round(fuelgalus)));
+        me.itself["waypoint"][i].getChild("speed-fpm").setValue(int(math.round(speedfpm)));
    }
 }
 

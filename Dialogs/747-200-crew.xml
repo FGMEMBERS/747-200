@@ -21,49 +21,6 @@
     <group>
       <layout>hbox</layout>
 
-      <group>
-        <layout>vbox</layout>
-
-        <checkbox>
-          <halign>left</halign>
-          <label>Cargo forward (floating)</label>
-          <property>/systems/seat/cargo-forward</property>
-          <binding>
-           <command>nasal</command>
-           <script>globals.Boeing747.seatsystem.viewexport("cargo-forward");</script>
-          </binding>
-          <binding>
-           <command>dialog-update</command>
-          </binding>
-        </checkbox>
-
-        <checkbox>
-          <halign>left</halign>
-          <label>Gear well (floating)</label>
-          <property>/systems/seat/gear-well</property>
-          <binding>
-           <command>nasal</command>
-           <script>globals.Boeing747.seatsystem.viewexport("gear-well");</script>
-          </binding>
-          <binding>
-           <command>dialog-update</command>
-          </binding>
-        </checkbox>
-
-        <checkbox>
-          <halign>left</halign>
-          <label>Cargo aft (floating)</label>
-          <property>/systems/seat/cargo-aft</property>
-          <binding>
-           <command>nasal</command>
-           <script>globals.Boeing747.seatsystem.viewexport("cargo-aft");</script>
-          </binding>
-          <binding>
-           <command>dialog-update</command>
-          </binding>
-        </checkbox>
-      </group>
-
       <checkbox>
         <label>Recover position of last session  ~</label>
         <property>/controls/seat/recover</property>
@@ -87,21 +44,21 @@
     <layout>hbox</layout>
 
     <button>
-      <legend>Close</legend>
-      <default>true</default>
-      <key>Esc</key>
+      <legend>Back</legend>
+      <key>b</key>
+      <binding>
+       <command>dialog-show</command>
+       <dialog-name>747-200-menu</dialog-name>
+      </binding>
       <binding>
         <command>dialog-close</command>
       </binding>
     </button>
 
     <button>
-      <legend>Menu</legend>
-      <key>m</key>
-      <binding>
-       <command>dialog-show</command>
-       <dialog-name>747-200-menu</dialog-name>
-      </binding>
+      <legend>Close</legend>
+      <default>true</default>
+      <key>Esc</key>
       <binding>
         <command>dialog-close</command>
       </binding>

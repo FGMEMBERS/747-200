@@ -2746,4 +2746,16 @@
   </action>
  </animation>
 
+
+<!-- EFFECTS -->
+
+ <effect>
+  <inherits-from>Effects/model-transparent</inherits-from>
+  <condition>
+   <property>sim/rendering/rembrandt/enabled</property>
+  </condition>
+  <object-name>Front</object-name>
+  <object-name>Cabin</object-name>
+ </effect>
+
 </PropertyList>

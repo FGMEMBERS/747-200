@@ -112,6 +112,11 @@
 
     <text>
      <label>Fuel consumption (gal/h)</label>
+     <color>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+     </color>
     </text>
 
     <text>
@@ -229,15 +234,28 @@
     </text>
 
     <text>
-      <label></label>
+     <label></label>
+    </text>
+
+    <text>
+     <label>last waypoint at</label>
+     <color>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+     </color>
     </text>
 
     <input>
      <halign>left</halign>
      <property>/controls/engineer/destination-ft</property>
-     <label>ft at last waypoint</label>
+     <label>ft</label>
     </input>
   </group>
+
+  <text>
+    <label></label>
+  </text>
 
   <text>
     <label></label>
@@ -247,11 +265,14 @@
    <layout>hbox</layout>
 
    <button>
-    <legend>Close</legend>
-    <default>true</default>
-    <key>Esc</key>
+    <legend>Back</legend>
+    <key>b</key>
     <binding>
       <command>dialog-apply</command>
+    </binding>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>747-200-menu</dialog-name>
     </binding>
     <binding>
       <command>dialog-close</command>
@@ -259,12 +280,9 @@
    </button>
 
    <button>
-    <legend>Menu</legend>
-    <key>m</key>
-    <binding>
-     <command>dialog-show</command>
-     <dialog-name>747-200-menu</dialog-name>
-    </binding>
+    <legend>Close</legend>
+    <default>true</default>
+    <key>Esc</key>
     <binding>
       <command>dialog-apply</command>
     </binding>
