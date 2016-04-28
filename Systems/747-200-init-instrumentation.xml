@@ -2,6 +2,20 @@
 
 <!-- Initialize instrumentation  :
 
+     - WARNING : this file inherits from preferences.xml.
+     - avoids nasal nil values or non-member error.
+     - nasal instruments are also serviceable.
+
+
+     Relations :
+
+     <another>
+     - <dependency> is a real dependency.
+     - <itself> is the instrument.
+       Reserved entries : me.itself["root"] is path /systems/another.
+                          me.itself["root-ctrl"] is path /controls/another.
+     - <noinstrument> is to built the instrument.
+     </another>
 -->
 
 <PropertyList>
@@ -16,7 +30,6 @@
     <noinstrument>
      <altitude>/position/altitude-ft</altitude>
      <speed-up>/sim/speed-up</speed-up>
-     <warp>/sim/time/warp</warp>
     </noinstrument>
    </relations>
   </clock>

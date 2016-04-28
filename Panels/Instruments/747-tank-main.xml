@@ -10,7 +10,7 @@
 
  <params>
   <level-select>/consumables/fuel/tank[1]/level-gal_us</level-select>
-  <tank-num>/consumables/fuel/tank[1]/tank-num</tank-num>
+  <name>/consumables/fuel/tank[1]/name</name>
  </params>
 
 
@@ -87,7 +87,7 @@
    <name>No 1</name>
    <condition>
     <equals>
-     <property alias="../../../../../params/tank-num"/>
+     <property alias="../../../../../params/name"/>
      <value>1</value>
     </equals>
    </condition>
@@ -120,7 +120,7 @@
    <name>No 4</name>
    <condition>
     <equals>
-     <property alias="../../../../../params/tank-num"/>
+     <property alias="../../../../../params/name"/>
      <value>4</value>
     </equals>
    </condition>
@@ -153,7 +153,7 @@
    <name>main</name>
    <condition>
     <equals>
-     <property alias="../../../../../params/tank-num"/>
+     <property alias="../../../../../params/name"/>
      <value>1</value>
     </equals>
    </condition>
@@ -186,7 +186,7 @@
    <name>main right</name>
    <condition>
     <equals>
-     <property alias="../../../../../params/tank-num"/>
+     <property alias="../../../../../params/name"/>
      <value>4</value>
     </equals>
    </condition>

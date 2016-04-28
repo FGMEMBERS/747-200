@@ -11,6 +11,10 @@
 
   <hrule><dummy/></hrule>
 
+  <text>
+    <label></label>
+  </text>
+
   <group>
     <layout>hbox</layout>
     <empty><stretch>true</stretch></empty>
@@ -27,7 +31,7 @@
       </binding>
     </button>
 
-    <button>
+    <!--button>
       <legend>Crew</legend>
       <key>c</key>
       <binding>
@@ -37,7 +41,7 @@
       <binding>
         <command>dialog-close</command>
       </binding>
-    </button>
+    </button-->
 
     <button>
       <legend>Fuel</legend>
@@ -88,6 +92,18 @@
     </button>
 
     <button>
+      <legend>1 Views</legend>
+      <key>1</key>
+      <binding>
+       <command>dialog-show</command>
+       <dialog-name>747-200-views</dialog-name>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <button>
       <legend>Help</legend>
       <key>h</key>
       <binding>
@@ -101,6 +117,10 @@
 
     <empty><stretch>true</stretch></empty>
   </group>
+
+  <text>
+    <label></label>
+  </text>
 
   <text>
     <label></label>

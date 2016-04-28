@@ -3,6 +3,49 @@
 
 <PropertyList>
 
+  <!-- ENGINE CONTRAILS -->
+  
+ <model>
+  <path>Aircraft/747-200/Models/Effects/contrail/contrail-new.xml</path>
+  <offsets>
+   <x-m> 15.81</x-m>
+   <y-m>-21.38</y-m>
+   <z-m> -2.07</z-m>
+   <heading-deg>0</heading-deg>
+  </offsets>
+ </model>
+  
+ <model>
+  <path>Aircraft/747-200/Models/Effects/contrail/contrail-new.xml</path>
+  <offsets>
+   <x-m>  6.59</x-m>
+   <y-m>-12.08</y-m>
+   <z-m> -2.95</z-m>
+   <heading-deg>0</heading-deg>
+  </offsets>
+ </model>
+  
+ <model>
+  <path>Aircraft/747-200/Models/Effects/contrail/contrail-new.xml</path>
+  <offsets>
+   <x-m>  6.59</x-m>
+   <y-m> 12.08</y-m>
+   <z-m> -2.95</z-m>
+   <heading-deg>0</heading-deg>
+  </offsets>
+ </model>
+  
+ <model>
+  <path>Aircraft/747-200/Models/Effects/contrail/contrail-new.xml</path>
+  <offsets>
+   <x-m> 15.81</x-m>
+   <y-m> 21.38</y-m>
+   <z-m> -2.07</z-m>
+   <heading-deg>0</heading-deg>
+  </offsets>
+ </model>
+
+ 
  <!-- TYRE SMOKE -->
 
  <model>

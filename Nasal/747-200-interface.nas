@@ -421,7 +421,7 @@ Seats.restorepitchexport = func {
 Menu = {};
 
 Menu.new = func {
-   var obj = { parents : [Menu],
+   var obj = { parents : [Menu,System],
 
                autopilot : nil,
                crew : nil,
@@ -429,6 +429,7 @@ Menu.new = func {
                ground : nil,
                navigation : nil,
                radios : nil,
+               views : nil,
                menu : nil
          };
 
@@ -438,21 +439,23 @@ Menu.new = func {
 };
 
 Menu.init = func {
-   # B747-200, because property system refuses 747-200
-   me.menu = gui.Dialog.new("/sim/gui/dialogs/B747-200/menu/dialog",
-                            "Aircraft/747-200/Dialogs/747-200-menu.xml");
-   me.autopilot = gui.Dialog.new("/sim/gui/dialogs/B747-200/autopilot/dialog",
-                                 "Aircraft/747-200/Dialogs/747-200-autopilot.xml");
-   me.crew = gui.Dialog.new("/sim/gui/dialogs/B747-200/crew/dialog",
-                            "Aircraft/747-200/Dialogs/747-200-crew.xml");
-   me.fuel = gui.Dialog.new("/sim/gui/dialogs/B747-200/fuel/dialog",
-                            "Aircraft/747-200/Dialogs/747-200-fuel.xml");
-   me.ground = gui.Dialog.new("/sim/gui/dialogs/B747-200/ground/dialog",
-                              "Aircraft/747-200/Dialogs/747-200-ground.xml");
-   me.navigation = gui.Dialog.new("/sim/gui/dialogs/B747-200/navigation/dialog",
-                                  "Aircraft/747-200/Dialogs/747-200-navigation.xml");
-   me.radios = gui.Dialog.new("/sim/gui/dialogs/B747-200/radios/dialog",
-                            "Aircraft/747-200/Dialogs/747-200-radios.xml");
+   me.inherit_system("/systems/crew");
+
+   me.menu = me.dialog( "menu" );
+   me.autopilot = me.dialog( "autopilot" );
+   me.crew = me.dialog( "crew" );
+   me.fuel = me.dialog( "fuel" );
+   me.ground = me.dialog( "ground" );
+   me.navigation = me.dialog( "navigation" );
+   me.radios = me.dialog( "radios" );
+   me.views = me.dialog( "views" );
+}
+
+Menu.dialog = func( name ) {
+   var item = gui.Dialog.new(me.itself["dialogs"].getPath() ~ "/" ~ name ~ "/dialog",
+                             "Aircraft/747-200/Dialogs/747-200-" ~ name ~ ".xml");
+
+   return item;
 }
 
 

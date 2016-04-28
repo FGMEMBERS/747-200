@@ -1,9 +1,5 @@
 <?xml version="1.0"?>
 
-<!-- WARNING : The combo must correspond to the comment field in
-               Aircraft/747-200/Nasal/747-200-fuel.xml.
--->
-
 <PropertyList>
   <name>747-200-fuel</name>
   <layout>vbox</layout>
@@ -27,9 +23,9 @@
     <combo>
       <pref-width>200</pref-width>
       <property>/systems/fuel/tanks/dialog</property>
-      <value>max landing</value>
-      <value>max takeoff</value>
-      <value>min fuel</value>
+      <value alias="/systems/fuel/tanks/filling[0]/comment"/>
+      <value alias="/systems/fuel/tanks/filling[1]/comment"/>
+      <value alias="/systems/fuel/tanks/filling[2]/comment"/>
     </combo>
   </group>
 
@@ -62,41 +58,36 @@
   <group>
     <layout>hbox</layout>
 
-    <group>
-      <layout>hbox</layout>
-      <empty><stretch>true</stretch></empty>
-
-      <button>
-        <legend>Fill</legend>
-        <key>f</key>
-        <binding>
-          <command>dialog-apply</command>
-        </binding>
-        <binding>
-          <command>nasal</command>
-          <script>globals.Boeing747.fuelsystem.menuexport();</script>
-        </binding>
-        <binding>
-          <command>dialog-close</command>
-        </binding>
-      </button>
-
-      <button>
-        <legend>Close</legend>
-        <default>true</default>
-        <key>Esc</key>
-        <binding>
-          <command>dialog-close</command>
-        </binding>
-      </button>
-    </group>
-
     <button>
-      <legend>Menu</legend>
-      <key>m</key>
+      <legend>Back</legend>
+      <key>b</key>
       <binding>
        <command>dialog-show</command>
        <dialog-name>747-200-menu</dialog-name>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <button>
+      <legend>Close</legend>
+      <default>true</default>
+      <key>Esc</key>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <button>
+      <legend>Fill</legend>
+      <key>f</key>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Boeing747.fuelsystem.menuexport();</script>
       </binding>
       <binding>
         <command>dialog-close</command>

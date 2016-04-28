@@ -1,6 +1,4 @@
-# WARNING :
-# - nasal overriding may not work on some platforms (Cygwin).
-# - put all code in comment to recover the default behaviour.
+# put all code in comment to recover the default behaviour.
 
 
 # ========================
@@ -42,4 +40,67 @@ controls.throttleAxis = func {
     }
 
     props.setAll("/controls/engines/engine", "throttle-manual", position);
+}
+
+
+# overrides keyboard for autopilot adjustment or floating view.
+
+override_incElevator = controls.incElevator;
+
+controls.incElevator = func {
+    var sign = 1.0;
+    
+    if( arg[0] < 0.0 ) {
+	sign = -1.0;
+    }
+    
+    if( globals.Boeing747.seatsystem == nil ) {
+        override_incElevator(arg[0], arg[1]);
+    }
+    elsif( !globals.Boeing747.seatsystem.movelengthexport(-0.01 * sign) ) {
+           if( !globals.Boeing747.autopilotsystem.adjustexport(1.0 * sign) ) {
+            # default
+            override_incElevator(arg[0], arg[1]);
+        }
+    }
+}
+
+override_incAileron = controls.incAileron;
+
+controls.incAileron = func {
+    var sign = 1.0;
+    
+    if( arg[0] < 0.0 ) {
+	sign = -1.0;
+    }
+    
+    if( globals.Boeing747.seatsystem == nil ) {
+        override_incAileron(arg[0], arg[1]);
+    }
+    elsif( !globals.Boeing747.seatsystem.movewidthexport(0.01 * sign) ) {
+        if( !globals.Boeing747.autopilotsystem.headingknobexport(1.0 * sign) ) {
+            # default
+            override_incAileron(arg[0], arg[1]);
+        }
+    }
+}
+
+override_incThrottle = controls.incThrottle;
+
+controls.incThrottle = func {
+    var sign = 1.0;
+    
+    if( arg[0] < 0.0 ) {
+	sign = -1.0;
+    }
+    
+    if( globals.Boeing747.seatsystem == nil ) {
+        override_incThrottle(arg[0], arg[1]);
+    }
+    elsif( !globals.Boeing747.seatsystem.moveheightexport(0.01 * sign) ) {
+        if( !globals.Boeing747.autothrottlesystem.speedknobexport(1.0 * sign) ) {
+            # default
+            override_incThrottle(arg[0], arg[1]);
+        }
+    }
 }

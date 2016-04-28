@@ -27,14 +27,15 @@ Autopilot.new = func {
                EMPTYLB : 376170.0,                            # empty weight
 
                TOUCHDEG : 3.0,                                # landing pitch
-               FLAREDEG : 0.0,                                # avoids rebound by landing pitch
+# for smooth transition, lightly above approach pitch
+               FLAREDEG : 2.0,                                # avoids rebound by landing pitch
 
                AUTOLANDFEET : 1500.0,
-# - instead of 100 ft, as catching glide makes nose down
-# (bug in glide slope, or more sophisticated autopilot is required ?);
+# instead of 100 ft, as catching glide makes nose down
+# (bug in glide slope, or more sophisticated autopilot is required ?)
                GLIDEFEET : 250.0,                             # leaves glide slope
-# - nav is supposed accurate until 0 ft.
-# - bypass possible nav errors (example : KJFK 22L, EGLL 27R).
+# nav is supposed accurate until 0 ft.
+# bypass possible nav errors (example : EGLL 27R).
                NAVFEET : 200.0,                               # leaves nav
 # a responsive vertical-speed-with-throttle reduces the rebound by ground effect
                GROUNDFEET : 20.0,                             # altimeter altitude
@@ -114,14 +115,39 @@ Autopilot.adjustexport = func( sign ) {
            if( targetfpm == nil ) {
                targetfpm = 0.0;
            }
+           
            targetfpm = targetfpm + value;
            me.itself["settings"].getChild("vertical-speed-fpm").setValue(targetfpm);
        }
        elsif( me.is_lock_altitude() ) {
-           var targetft = me.itself["settings"].getChild("target-altitude-ft").getValue();
+           var targetft = me.itself["autoflight"].getChild("dial-altitude-ft").getValue();
 
            targetft = targetft + value;
+           me.itself["autoflight"].getChild("dial-altitude-ft").setValue(targetft);
            me.itself["settings"].getChild("target-altitude-ft").setValue(targetft);
+       }
+   }
+
+   return result;
+}
+
+# manual setting of heading with knob
+Autopilot.headingknobexport = func( sign ) {
+   var result = constant.FALSE;
+
+   if( me.has_lock_heading() ) {
+       var headingdeg = 0.0;
+
+       result = constant.TRUE;
+
+       if( me.is_lock_magnetic() ) {
+           headingdeg = me.itself["autoflight"].getChild("dial-heading-deg").getValue();
+           
+           headingdeg = headingdeg + sign;
+           headingdeg = constant.truncatenorth( headingdeg );
+           
+           me.itself["autoflight"].getChild("dial-heading-deg").setValue(headingdeg);
+           me.itself["settings"].getChild("heading-bug-deg").setValue(headingdeg);
        }
    }
 
@@ -162,8 +188,7 @@ Autopilot.schedule = func {
 
    me.itself["waypoint"][0].getChild("id").setValue( id[0] );
    me.itself["waypoint"][1].getChild("id").setValue( id[1] );
-   # property is not created at startup
-   me.itself["route-manager"].getNode("wp-last").getNode("id",1).setValue( id[2] );
+   me.itself["route-manager"].getNode("wp-last").getNode("id",constant.DELAYEDNODE).setValue( id[2] );
 
 
    # user adds a waypoint
@@ -496,6 +521,18 @@ Autopilot.aphorizontalexport = func {
    me.itself["autoflight"].getChild("heading").setValue(headingmode);
 
    me.apengageexport();
+}
+
+Autopilot.has_lock_heading = func {
+   var result= constant.FALSE;
+
+   var headingmode = me.itself["locks"].getChild("heading").getValue();
+
+   if( headingmode != "" and headingmode != nil ) {
+       result = constant.TRUE;
+   }
+
+   return result;
 }
 
 
@@ -1180,6 +1217,34 @@ Autothrottle.init = func {
    me.AUTOMACHFEET = me.itself["autoflight"].getChild("automach-ft").getValue();
 }
 
+# manual setting of speed with knob
+Autothrottle.speedknobexport = func( sign ) {
+   var result = constant.FALSE;
+
+   if( me.has_lock_speed() ) {
+       result = constant.TRUE;
+
+       if( me.is_lock_speed() ) {
+           var speedkt = me.itself["autoflight"].getChild("dial-speed-kt").getValue();
+           
+           speedkt = speedkt + 10 * sign;
+           
+           me.itself["autoflight"].getChild("dial-speed-kt").setValue(speedkt);
+           me.itself["settings"].getChild("target-speed-kt").setValue(speedkt);
+       }
+       elsif( me.is_lock_mach() ) {
+           var speedmach = me.itself["autoflight"].getChild("dial-mach").getValue();
+           
+           speedmach = speedmach + 0.1 * sign;
+           
+           me.itself["autoflight"].getChild("dial-mach").setValue(speedmach);
+           me.itself["settings"].getChild("target-mach").setValue(speedmach);
+       }
+   }
+
+   return result;
+}
+
 Autothrottle.schedule = func {
    var speedmode = me.itself["locks"].getChild("speed").getValue();
 
@@ -1309,4 +1374,40 @@ Autothrottle.idle = func {
    for(var i=0; i<constantaero.NBENGINES; i=i+1) {
        me.dependency["engine"][i].getChild("throttle").setValue(0);
    }
+}
+
+Autothrottle.has_lock_speed = func {
+   var result= constant.FALSE;
+
+   var speedmode = me.itself["locks"].getChild("speed").getValue();
+
+   if( speedmode != "" and speedmode != nil ) {
+       result = constant.TRUE;
+   }
+
+   return result;
+}
+
+Autothrottle.is_lock_speed = func {
+   var result = constant.FALSE;
+
+   var speedmode = me.itself["locks"].getChild("speed").getValue();
+
+   if( speedmode == "speed-with-throttle" ) {
+       result = constant.TRUE;
+   }
+
+   return result;
+}
+
+Autothrottle.is_lock_mach = func {
+   var result = constant.FALSE;
+
+   var speedmode = me.itself["locks"].getChild("speed").getValue();
+
+   if( speedmode == "mach-with-throttle" ) {
+       result = constant.TRUE;
+   }
+
+   return result;
 }

@@ -34,6 +34,7 @@ Ceiling : 45100 ft (C).
 
 Installation
 ============
+
 Fuel load
 ---------
 - default is maximum landing weight, 630000 lb.
@@ -41,44 +42,52 @@ Fuel load
 
 Known compatibility
 -------------------
-- 3.0.0 : minimal version.
+2016.1.1 : minimal version.
 
 
 
 Keyboard
 ========
-- "q"   : quit speed up.
 
 Views
 -----
-- "ctrl-E"   : "E"ngineer view.
-- "ctrl-K"   : Observer view (floating).
-- "ctrl-Y"   : Copilot view.
+- "ctrl-E"       : "E"ngineer view.
+- "ctrl-K"       : Observer view (floating).
+- "ctrl-Y"       : Copilot view.
 - "shift-ctrl-V" : restore view pitch.
 - "shift-ctrl-X" : restore floating view.
 
 Same behaviour
 --------------
-- "F12" : radio frequencies.
-- "S"   : swaps between Captain and Center 2D panels.
-- "left / right" : autopilot heading.
+- "S"            : "S"waps between Captain and Center 2D panels.
+- "F12"          : radio frequencies.
  
 Improved behaviour
 ------------------
-- "a / A"  : speeds up BOTH speed and time. Until X 15.
-             Automatically resets to 1, when above 2000 ft/min.
-- "up / down"  : increases / decreases altitude hold, vertical speed hold.
-- "home / end" : increases / decreases (slow) altitude hold, vertical speed hold.
-- "page up / page down" : increases / decreases speed hold, Mach hold.
+- "a / A"        : speeds up BOTH speed and time (until X 15).
+                   Automatically resets to 1, when above 2000 ft/min.
+- "left / right" : autopilot heading (knob).
+- "up / down"    : increases / decreases (knob) autopilot altitude.
+                   Altitude hold, vertical speed hold.
+- "page up /     : increases / decreases (knob) autothrottle.
+   page down"      Speed hold, Mach hold.
 
 Alternate behaviour
 -------------------
-- "=" : menu.
-- "ctrl-T" : toggle altitude hold.
+- "ctrl-T"       : toggle al"T"itude hold.
+- "="            : menu.
 - "left / right" : move floating view in width.
-- "up / down"  : move floating view in length.
-- "home / end" : move floating view in length (fast).
-- "page up / page down" : move floating view in height.
+- "up / down"    : move floating view in length.
+- "page up /     : move floating view in height.
+   page down"
+
+Additional behaviour
+--------------------
+- "q"            : quit speed up.
+- "ctrl up /     : increases / decreases (knob) autopilot altitude (slow).
+   ctrl down"      Altitude hold, vertical speed hold.
+- "ctrl up /     : move floating view in length (fast).
+   ctrl down"
 
 Disabled
 --------
@@ -159,10 +168,6 @@ Known problems autoland
 - glide slope must be accurate until 250 ft AGL : real should be 100 ft,
   but nose tends to dive to catch the slope (simplistic autopilot or wrong glide slope ?).
 
-Known problems keyboard
------------------------
-- because of = overriding, TAB altimeter menu is not available with GLUT.
-
 Known problems OSG
 ------------------
 The following artefacts are supposed to be solved by OSG :
@@ -186,16 +191,16 @@ References
 (D2) http://www.airliners.net/discussions/tech_ops/read.main/72686/6/#ID72686 :
     retract V2 + 80, for maneuver V2 + 100; extend Vref + 80.
 
-(E) http://www.airlineroutemaps.com/USA/Northwest_Airlines.shtml :
-    KDTW - RJAA is 5800 NM.
+(E) http://www.airlineroutemaps.com :
+    KDTW - RJAA is 5800 NM (Northwest Airlines).
 
 (F) http://www.boeing.com/ :
     747 Classics.
 
 (G) http://elearning.ians.lu/aircraftperformance/ :
 
-(H) http://www.flight-manuals-on-cd.com/747.html :
+    http://www.flight-manuals-on-cd.com/747.html
 
 
 
-22 March 2014.
+2nd April 2016.

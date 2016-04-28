@@ -61,7 +61,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>Reserve 1 tank</name>
    <params>
     <level-select>/consumables/fuel/tank[5]/level-gal_us</level-select>
-    <tank-num>/consumables/fuel/tank[5]/tank-num</tank-num>
+    <name>/consumables/fuel/tank[5]/name</name>
    </params>
    <x>130</x>
    <y>205</y>
@@ -73,7 +73,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>Reserve 4 tank</name>
    <params>
     <level-select>/consumables/fuel/tank[6]/level-gal_us</level-select>
-    <tank-num>/consumables/fuel/tank[6]/tank-num</tank-num>
+    <name>/consumables/fuel/tank[6]/name</name>
    </params>
    <x>930</x>
    <y>205</y>
@@ -87,7 +87,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>Main 1 tank</name>
    <params>
     <level-select>/consumables/fuel/tank[1]/level-gal_us</level-select>
-    <tank-num>/consumables/fuel/tank[1]/tank-num</tank-num>
+    <name>/consumables/fuel/tank[1]/name</name>
    </params>
    <x>280</x>
    <y>60</y>
@@ -99,7 +99,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>Main 2 tank</name>
    <params>
     <level-select>/consumables/fuel/tank[2]/level-gal_us</level-select>
-    <tank-num>/consumables/fuel/tank[2]/tank-num</tank-num>
+    <name>/consumables/fuel/tank[2]/name</name>
    </params>
    <x>440</x>
    <y>60</y>
@@ -111,7 +111,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>Main 3 tank</name>
    <params>
     <level-select>/consumables/fuel/tank[3]/level-gal_us</level-select>
-    <tank-num>/consumables/fuel/tank[3]/tank-num</tank-num>
+    <name>/consumables/fuel/tank[3]/name</name>
    </params>
    <x>620</x>
    <y>60</y>
@@ -123,7 +123,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>Main 4 tank</name>
    <params>
     <level-select>/consumables/fuel/tank[4]/level-gal_us</level-select>
-    <tank-num>/consumables/fuel/tank[4]/tank-num</tank-num>
+    <name>/consumables/fuel/tank[4]/name</name>
    </params>
    <x>780</x>
    <y>60</y>

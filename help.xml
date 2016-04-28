@@ -16,7 +16,7 @@
 
     <key>
      <name>left/right</name>
-     <desc>autopilot heading</desc>
+     <desc>autopilot heading (knob)</desc>
     </key>
 
     <key>
@@ -26,7 +26,7 @@
 
     <key>
      <name>up/down</name>
-     <desc>increase/decrease altitude</desc>
+     <desc>increase/decrease (knob) autopilot altitude</desc>
     </key>
 
     <key>
@@ -35,18 +35,18 @@
     </key>
 
     <key>
-     <name>home/end</name>
-     <desc>increase/decrease altitude (slow)</desc>
+     <name>ctrl up/down</name>
+     <desc>increase/decrease (knob) autopilot altitude (slow)</desc>
     </key>
-
-    <key>
+    
+    <key> 
      <name></name>
      <desc>floating view front/aft (fast)</desc>
     </key>
 
     <key>
       <name>page up/down</name>
-      <desc>increase/decrease autothrottle</desc>
+      <desc>increase/decrease (knob) autothrottle speed</desc>
     </key>
 
     <key>
@@ -142,9 +142,7 @@
 
 <!-- FDM ops -->
 
-    <text>
- ________________________Procedures_________________________
- Takeoff :
+<text> Takeoff :
           rotation 180 kt (full load), 170 kt (landing load), flaps 20.
           trim before engaging autopilot.
  Climb :
@@ -199,7 +197,6 @@
  ceiling : 45100 ft
 
  max take off (MTOW) : 833000 lb
- max landing  (MLW)  : 630000 lb
-    </text>
+ max landing  (MLW)  : 630000 lb</text>
 
 </PropertyList>

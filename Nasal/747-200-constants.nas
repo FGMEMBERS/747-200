@@ -68,6 +68,9 @@ Constant.new = func {
                TRUE : 1.0,
                FALSE : 0.0,
 
+# property not yet created at startup (should through XML)
+               DELAYEDNODE : 1,
+
 # ---------------
 # unit conversion
 # ---------------
@@ -107,6 +110,17 @@ Constant.crossnorth = func( offsetdeg ) {
        offsetdeg = offsetdeg - me.DEG360;
    }
    elsif( offsetdeg < - me.DEG180 ) {
+       offsetdeg = offsetdeg + me.DEG360;
+   }
+
+   return offsetdeg;
+}
+
+Constant.truncatenorth = func( offsetdeg ) {
+   if( offsetdeg > me.DEG360 ) {
+       offsetdeg = offsetdeg - me.DEG360;
+   }
+   elsif( offsetdeg < 0 ) {
        offsetdeg = offsetdeg + me.DEG360;
    }
 
@@ -247,7 +261,7 @@ System.is_moving = func {
 
    # must exist in XML !
    var aglft = me.noinstrument["agl"].getValue();
-   var speedkt = me.noinstrument["airspeed"].getValue();
+   var speedkt = me.noinstrument["speed"].getValue();
 
    if( aglft >=  constantaero.AGLTOUCHFT or speedkt >= constantaero.TAXIKT ) {
        result = constant.TRUE;
