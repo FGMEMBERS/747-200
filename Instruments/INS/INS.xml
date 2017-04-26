@@ -1022,32 +1022,13 @@
  </text>
 
  <animation>
-  <type>pick</type>
+  <type>knob</type>
   <object-name>WaypointSelector</object-name>
   <action>
-   <button>0</button>
    <binding>
     <command>property-adjust</command>
     <property alias="../../../../params/ins-waypoint"/>
-    <step>1</step>
-    <min>1</min>
-    <max>9</max>
-   </binding>
-   <binding>
-    <command>nasal</command>
-    <script>globals.Boeing747.INSinstrument.computeexport();</script>
-   </binding>
-   <binding>
-    <command>property-toggle</command>
-    <property>instrumentation/generic/click</property>
-   </binding>
-  </action>
-  <action>
-   <button>1</button>
-   <binding>
-    <command>property-adjust</command>
-    <property alias="../../../../params/ins-waypoint"/>
-    <step>-1</step>
+    <factor>-1</factor>
     <min>1</min>
     <max>9</max>
    </binding>
@@ -1143,33 +1124,13 @@
  </animation>
 
  <animation>
-  <type>pick</type>
+  <type>knob</type>
   <object-name>DataSelector</object-name>
   <action>
-   <button>0</button>
    <binding>
     <command>property-adjust</command>
     <property alias="../../../../params/ins-selector"/>
-    <step>1</step>
-    <min>-3</min>
-    <max>4</max>
-    <wrap>0</wrap>
-   </binding>
-   <binding>
-    <command>nasal</command>
-    <script>globals.Boeing747.INSinstrument.computeexport();</script>
-   </binding>
-   <binding>
-    <command>property-toggle</command>
-    <property>instrumentation/generic/click</property>
-   </binding>
-  </action>
-  <action>
-   <button>1</button>
-   <binding>
-    <command>property-adjust</command>
-    <property alias="../../../../params/ins-selector"/>
-    <step>-1</step>
+    <factor>-1</factor>
     <min>-3</min>
     <max>4</max>
     <wrap>0</wrap>
@@ -1206,29 +1167,13 @@
  </animation>
 
  <animation>
-  <type>pick</type>
+  <type>knob</type>
   <object-name>DimControl</object-name>
   <action>
-   <button>0</button>
    <binding>
     <command>property-adjust</command>
     <property alias="../../../../params/ins-light"/>
-    <step>0.2</step>
-    <min>0.2</min>
-    <max>1.0</max>
-    <wrap>0</wrap>
-   </binding>
-   <binding>
-    <command>property-toggle</command>
-    <property>instrumentation/generic/click</property>
-   </binding>
-  </action>
-  <action>
-   <button>1</button>
-   <binding>
-    <command>property-adjust</command>
-    <property alias="../../../../params/ins-light"/>
-    <step>-0.2</step>
+    <factor>-0.2</factor>
     <min>0.2</min>
     <max>1.0</max>
     <wrap>0</wrap>

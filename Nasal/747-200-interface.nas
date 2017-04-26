@@ -11,7 +11,7 @@
 Seats = {};
 
 Seats.new = func {
-   var obj = { parents : [Seats,System],
+   var obj = { parents : [Seats,System.new("/systems/seat")],
 
                lookup : {},
                names : {},
@@ -34,13 +34,11 @@ Seats.init = func {
    var child = nil;
    var name = "";
 
-   me.inherit_system("/systems/seat");
-
    # retrieve the index as created by FG
    for( var i = 0; i < size(me.dependency["views"]); i=i+1 ) {
         child = me.dependency["views"][i].getChild("name");
 
-        # nasal doesn't see yet the views of preferences.xml
+        # nasal doesn't see yet the views of defaults.xml
         if( child != nil ) {
             name = child.getValue();
             if( name == "Copilot View" ) {
@@ -421,10 +419,10 @@ Seats.restorepitchexport = func {
 Menu = {};
 
 Menu.new = func {
-   var obj = { parents : [Menu,System],
+   var obj = { parents : [Menu,System.new("/systems/crew")],
 
                autopilot : nil,
-               crew : nil,
+               environment : nil,
                fuel : nil,
                ground : nil,
                navigation : nil,
@@ -439,11 +437,9 @@ Menu.new = func {
 };
 
 Menu.init = func {
-   me.inherit_system("/systems/crew");
-
    me.menu = me.dialog( "menu" );
    me.autopilot = me.dialog( "autopilot" );
-   me.crew = me.dialog( "crew" );
+   me.environment = me.dialog( "environment" );
    me.fuel = me.dialog( "fuel" );
    me.ground = me.dialog( "ground" );
    me.navigation = me.dialog( "navigation" );
@@ -466,7 +462,7 @@ Menu.dialog = func( name ) {
 Crewbox = {};
 
 Crewbox.new = func {
-   var obj = { parents : [Crewbox,System],
+   var obj = { parents : [Crewbox,System.new("/systems/crew")],
 
                MENUSEC : 3.0,
 
@@ -490,8 +486,6 @@ Crewbox.new = func {
 };
 
 Crewbox.init = func {
-    me.inherit_system("/systems/crew");
-
     me.resize();
 
     setlistener(me.noinstrument["startup"].getPath(), crewboxresizecron);
@@ -676,12 +670,12 @@ Crewbox.sendtext = func( index, green, white, text ) {
 
     # dark green
     elsif( green ) {
-        box.write( text, 0, 0.7, 0 );
+        box.write( text, 0.0, 0.7, 0.0 );
     }
 
-    # dark yellow
+    # fading green
     else {
-        box.write( text, 0.7, 0.7, 0 );
+        box.write( text, 0.1, 0.4, 0.1 );
     }
 }
 

@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 
 <PropertyList>
-  <name>747-200-autopilot</name>
+  <name>747-200-environment</name>
   <layout>vbox</layout>
+  <width>500</width>
 
   <group>
     <layout>hbox</layout>
@@ -10,7 +11,7 @@
     <empty><stretch>1</stretch></empty>
 
     <text>
-      <label>747-200 autopilot</label>
+      <label>747-200 environment</label>
     </text>
 
     <empty><stretch>1</stretch></empty>
@@ -28,49 +29,39 @@
   </group>
 
   <hrule><dummy/></hrule>
+  
+  <text>
+    <label>Visual effects  ~</label>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
 
   <group>
-    <layout>vbox</layout>
-    <halign>center</halign>
-
-    <text>
-      <label>INS</label>
-    </text>
+    <layout>hbox</layout>
 
     <group>
      <layout>vbox</layout>
-     <halign>left</halign>
 
      <checkbox>
-       <halign>left</halign>
-       <label>Route activation toggles autopilot (not real)  ~</label>
-       <property>/controls/autoflight/fg-waypoint</property>
-       <binding>
-        <command>property-toggle</command>
-        <property>/controls/autoflight/fg-waypoint</property>
-       </binding>
-     </checkbox>
-    </group>
-
-    <text>
-      <label></label>
-    </text>
-
-    <text>
-      <label>Autoland</label>
-    </text>
-
-    <checkbox>
-      <halign>left</halign>
-      <label>Nav accurate until 0 ft AGL (real)  ~</label>
-      <property>/controls/autoflight/real-nav</property>
+      <label>contrails</label>
+      <property>/controls/environment/contrails</property>
       <binding>
        <command>property-toggle</command>
-       <property>/controls/autoflight/real-nav</property>
+       <property>/controls/environment/contrails</property>
       </binding>
-    </checkbox>
-
+     </checkbox>
+    </group>
   </group>
+
+  <text>
+    <label></label>
+  </text>
 
   <text>
     <label></label>
@@ -79,9 +70,12 @@
   <group>
    <layout>hbox</layout>
 
-   <button>
+   <!--button>
     <legend>Back</legend>
     <key>b</key>
+    <binding>
+      <command>dialog-apply</command>
+    </binding>
     <binding>
      <command>dialog-show</command>
      <dialog-name>747-200-menu</dialog-name>
@@ -89,15 +83,19 @@
     <binding>
       <command>dialog-close</command>
     </binding>
-   </button>
+   </button-->
 
    <button>
     <legend>Close</legend>
     <default>true</default>
     <key>Esc</key>
     <binding>
+      <command>dialog-apply</command>
+    </binding>
+    <binding>
       <command>dialog-close</command>
     </binding>
    </button>
+
   </group>
 </PropertyList>

@@ -1,11 +1,12 @@
-     Version           GIT date                   Milestone
+     Version           SVN/GIT date               Milestone
 ================================================================================================
+     2.3               April 2017                 State support.
      2.2               March 2014                 Warning lights (gear down, engine oil
                                                   pressure).
      2.1               October 2013               VHF.
      2.0               October 2011               First version using flight manual.
                                                   Tyre smoke effect.
-                                                  Conversion of pedestal to 3D.
+                                                  Conversion to 3D : pedestal.
                                                   Looking ahead smooths autopilot heading modes.
                                                   INS.
      1.2               March 2010                 FDM 2.0 (747 coefficients),

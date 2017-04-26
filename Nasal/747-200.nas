@@ -26,6 +26,12 @@ BoeingMain.new = func {
 BoeingMain.putinrelation = func {
    autopilotsystem.set_relation( autothrottlesystem );
    warningsystem.set_relation( doorsystem, enginesystem, gearsystem );
+   
+   crewcrew.set_relation( autopilotsystem, flightsystem, fuelsystem );
+}
+
+BoeingMain.statecron = func {
+   crewcrew.startupexport();
 }
 
 # 1 s cron
@@ -76,6 +82,7 @@ BoeingMain.sec60cron = func {
 
 BoeingMain.savedata = func {
    aircraft.data.add("/controls/autoflight/fg-waypoint");
+   aircraft.data.add("/controls/environment/contrails");
    aircraft.data.add("/controls/fuel/reinit");
    aircraft.data.add("/controls/seat/recover");
    aircraft.data.add("/systems/fuel/presets");
@@ -116,6 +123,7 @@ BoeingMain.instantiate = func {
    globals.Boeing747.crewscreen = Crewbox.new();
 
    globals.Boeing747.engineercrew = Virtualengineer.new();
+   globals.Boeing747.crewcrew = Crew.new();
 
    globals.Boeing747.tractorexternal = Tractor.new();
 }
@@ -138,6 +146,9 @@ BoeingMain.init = func {
 
    # saved on exit, restored at launch
    me.savedata();
+   
+   # waits that systems are ready
+   settimer(func { me.statecron(); },2.0);
 }
 
 # state reset

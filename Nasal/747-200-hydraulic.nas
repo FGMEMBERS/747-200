@@ -11,7 +11,7 @@
 Doors = {};
 
 Doors.new = func {
-   var obj = { parents : [Doors,System],
+   var obj = { parents : [Doors,System.new("/systems/doors")],
 
                seat : SeatRail.new(),
  
@@ -28,8 +28,6 @@ Doors.new = func {
 };
 
 Doors.init = func {
-   me.inherit_system( "/systems/doors" );
-
    me.flightdeck = aircraft.door.new(me.itself["root-ctrl"].getNode("crew/flightdeck").getPath(), 8.0);
    me.exit = aircraft.door.new(me.itself["root-ctrl"].getNode("crew/exit").getPath(), 8.0);
    me.cargobulk = aircraft.door.new(me.itself["root-ctrl"].getNode("cargo/bulk").getPath(), 12.0);
@@ -81,7 +79,7 @@ Doors.cargoforwardexport = func {
 Gear = {};
 
 Gear.new = func {
-   var obj = { parents : [Gear,System],
+   var obj = { parents : [Gear,System.new("/systems/gear")],
 
                FLIGHTSEC : 2.0,
 
@@ -94,8 +92,6 @@ Gear.new = func {
 };
 
 Gear.init = func {
-   me.inherit_system( "/systems/gear" );
-
    aircraft.steering.init(me.itself["root-ctrl"].getChild("brake-steering").getPath());
 }
 
@@ -138,7 +134,7 @@ Gear.green_gear_down = func {
 Engine = {};
 
 Engine.new = func {
-   var obj = { parents : [Engine,System],
+   var obj = { parents : [Engine,System.new("/systems/engines")],
 
                OILPRESSURELOWPSI : 35
          };
@@ -149,7 +145,6 @@ Engine.new = func {
 };
 
 Engine.init = func {
-   me.inherit_system( "/systems/engines" );
 }
 
 Engine.amber_oil_pressure = func( num ) {
@@ -170,7 +165,7 @@ Engine.amber_oil_pressure = func( num ) {
 Tractor = {};
 
 Tractor.new = func {
-   var obj = { parents : [Tractor,System],
+   var obj = { parents : [Tractor,System.new("/systems/tractor")],
 
                TRACTORSEC : 10.0,
 
@@ -192,7 +187,6 @@ Tractor.new = func {
 };
 
 Tractor.init = func {
-   me.inherit_system( "/systems/tractor" );
 }
 
 Tractor.schedule = func {

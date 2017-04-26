@@ -11,7 +11,7 @@
 Autopilot = {};
 
 Autopilot.new = func {
-   var obj = { parents : [Autopilot,System],
+   var obj = { parents : [Autopilot,System.new("/systems/autopilot")],
 
                autothrottlesystem : nil,
 
@@ -26,9 +26,11 @@ Autopilot.new = func {
                LANDINGLB : 630000.0,                          # max landing weight
                EMPTYLB : 376170.0,                            # empty weight
 
-               TOUCHDEG : 3.0,                                # landing pitch
+               TOUCHFULLDEG : 3.0,                            # landing pitch
+               TOUCHEMPTYDEG : 1.75,
 # for smooth transition, lightly above approach pitch
-               FLAREDEG : 2.0,                                # avoids rebound by landing pitch
+               FLAREFULLDEG : 2.0,                            # avoids rebound by landing pitch
+               FLAREEMPTYDEG : 1.5,
 
                AUTOLANDFEET : 1500.0,
 # instead of 100 ft, as catching glide makes nose down
@@ -68,8 +70,6 @@ Autopilot.new = func {
 };
 
 Autopilot.init = func {
-   me.inherit_system("/systems/autopilot");
-
    # selectors
    me.aphorizontalexport();
 }
@@ -144,7 +144,7 @@ Autopilot.headingknobexport = func( sign ) {
            headingdeg = me.itself["autoflight"].getChild("dial-heading-deg").getValue();
            
            headingdeg = headingdeg + sign;
-           headingdeg = constant.truncatenorth( headingdeg );
+           headingdeg = geo.normdeg( headingdeg );
            
            me.itself["autoflight"].getChild("dial-heading-deg").setValue(headingdeg);
            me.itself["settings"].getChild("heading-bug-deg").setValue(headingdeg);
@@ -169,7 +169,7 @@ Autopilot.schedule = func {
        var nb_wp = size(wp);
 
        # route manager doesn't update these fields
-       if( nb_wp >= 1 ) {
+       if( nb_wp >= 1 and current_wp < nb_wp ) {
            id[0] = wp[current_wp].getChild("id").getValue();
 
            # defaut
@@ -177,7 +177,7 @@ Autopilot.schedule = func {
            id[2] = id[0];
        }
 
-       if( nb_wp >= 2 ) {
+       if( nb_wp >= 2 and (current_wp + 1) < nb_wp ) {
            id[1] = wp[current_wp + 1].getChild("id").getValue();
        }
 
@@ -845,11 +845,11 @@ Autopilot.targetwind = func {
        var vordeg = me.dependency["nav"].getNode("radials").getChild("target-radial-deg").getValue();
        var offsetdeg = vordeg - winddeg;
 
-       offsetdeg = constant.crossnorth( offsetdeg );
+       offsetdeg = geo.normdeg180( offsetdeg );
 
        # add head wind component; except tail wind (too much glide)
        if( offsetdeg > -constant.DEG90 and offsetdeg < constant.DEG90 ) {
-           var offsetrad = offsetdeg * constant.DEGTORAD;
+           var offsetrad = offsetdeg * D2R;
            var offsetkt = windkt * math.cos( offsetrad );
 
            # otherwise, VREF 154 kt + 30 kt head wind overspeeds the 180 kt of 30 deg flaps.
@@ -875,15 +875,18 @@ Autopilot.targetpitch = func( aglft ) {
 
    # counter the rebound of ground effect
    if( aglft > me.GLIDEFEET ) {
-       targetdeg = me.FLAREDEG;
+       targetdeg = me.clampweight( me.FLAREFULLDEG, me.FLAREEMPTYDEG );
    }
    elsif( aglft < me.GROUNDFEET ) {
-       targetdeg = me.TOUCHDEG;
+       targetdeg = me.clampweight( me.TOUCHFULLDEG, me.TOUCHEMPTYDEG );
    }
    else {
        var coef = ( aglft - me.GROUNDFEET ) / ( me.GLIDEFEET - me.GROUNDFEET );
 
-       targetdeg = me.TOUCHDEG + coef * ( me.FLAREDEG - me.TOUCHDEG );
+       var flareweightdeg = me.clampweight( me.FLAREFULLDEG, me.FLAREEMPTYDEG );
+       var touchweightdeg = me.clampweight( me.TOUCHFULLDEG, me.TOUCHEMPTYDEG );
+
+       targetdeg = touchweightdeg + coef * ( flareweightdeg - touchweightdeg );
    }
    
    me.holdpitch(targetdeg);
@@ -1199,7 +1202,7 @@ Autopilot.is_lock_altitude = func {
 Autothrottle = {};
 
 Autothrottle.new = func {
-   var obj = { parents : [Autothrottle,System],
+   var obj = { parents : [Autothrottle,System.new("/systems/autothrottle")],
 
                AUTOTHROTTLESEC : 2.0,
 
@@ -1212,8 +1215,6 @@ Autothrottle.new = func {
 };
 
 Autothrottle.init = func {
-   me.inherit_system("/systems/autothrottle");
-
    me.AUTOMACHFEET = me.itself["autoflight"].getChild("automach-ft").getValue();
 }
 

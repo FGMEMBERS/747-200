@@ -42,7 +42,7 @@ Fuel load
 
 Known compatibility
 -------------------
-2016.1.1 : minimal version.
+2017.1.1 : minimal version.
 
 
 
@@ -198,9 +198,9 @@ References
     747 Classics.
 
 (G) http://elearning.ians.lu/aircraftperformance/ :
-
+    
     http://www.flight-manuals-on-cd.com/747.html
 
 
 
-2nd April 2016.
+1st April 2017.

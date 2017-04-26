@@ -11,7 +11,7 @@
 Gpws = {};
 
 Gpws.new = func {
-   var obj = { parents : [Gpws,System],
+   var obj = { parents : [Gpws,System.new("/instrumentation/gpws")],
 
                FLIGHTFT : 2500,
                GEARFT : 500,
@@ -30,7 +30,6 @@ Gpws.new = func {
 };
 
 Gpws.init = func {
-   me.inherit_system("/instrumentation/gpws");
 }
 
 Gpws.red_pull_up = func {
@@ -69,7 +68,7 @@ Gpws.red_pull_up = func {
 Warning = {};
 
 Warning.new = func {
-   var obj = { parents : [Warning,System],
+   var obj = { parents : [Warning,System.new("/systems/warning")],
 
                doorsystem : nil,
                enginesystem : nil,
@@ -84,7 +83,6 @@ Warning.new = func {
 };
 
 Warning.init = func {
-   me.inherit_system("/systems/warning");
 }
 
 Warning.set_relation = func( door, engine, gear ) {

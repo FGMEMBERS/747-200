@@ -90,6 +90,10 @@
    </engine>
   </engines>
 
+  <environment>
+   <contrails type="bool">true</contrails>
+  </environment>
+
   <fuel>
    <reinit type="bool">true</reinit>                                               <!-- restore fuel on reinit -->
   </fuel>
@@ -107,7 +111,7 @@
   </seat>
 
   <tractor>
-   <distance-m type="double">-10.0</distance-m>
+   <distance-m type="double">-50.0</distance-m>
    <pushback type="bool">false</pushback>
   </tractor>
 

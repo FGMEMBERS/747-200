@@ -40,7 +40,7 @@ Virtualengineer.veryslowschedule = func {
 Navigation = {};
 
 Navigation.new = func {
-   var obj = { parents : [Navigation,System], 
+   var obj = { parents : [Navigation,System.new("/systems/engineer")], 
 
               altitudeft : 0.0,
 
@@ -68,10 +68,21 @@ Navigation.new = func {
 }
 
 Navigation.init = func {
-   me.inherit_system("/systems/engineer");
 }
 
 Navigation.schedule = func {
+   me.waypoints();
+   me.time();
+}
+
+Navigation.time = func {
+   var elapsedsec = me.dependency["time"].getValue();
+   var elapsedhours = elapsedsec / constant.HOURTOSECOND;
+   elapsedhours = math.round( elapsedhours * 10 ) / 10;
+   me.itself["root"].getNode("navigation").getChild("elapsed-hours").setValue(elapsedhours);
+}
+
+Navigation.waypoints = func {
    var groundfps = me.dependency["ins"].getNode("computed/ground-speed-fps").getValue();
    var id = "";
    var distnm = 0.0;
@@ -82,7 +93,7 @@ Navigation.schedule = func {
    var child = nil;
 
    if( groundfps != nil ) {
-       me.groundkt = groundfps * constant.FPSTOKT;
+       me.groundkt = groundfps * FPS2KT;
    }
 
    me.totalgalus = me.dependency["fuel"].getChild("total-gal_us").getValue();

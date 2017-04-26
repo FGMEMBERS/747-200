@@ -12,9 +12,28 @@
   <layout>vbox</layout>
   <width>450</width>
 
-  <text>
-    <label>747-200 navigation</label>
-  </text>
+  <group>
+    <layout>hbox</layout>
+    
+    <empty><stretch>1</stretch></empty>
+
+    <text>
+      <label>747-200 navigation</label>
+    </text>
+
+    <empty><stretch>1</stretch></empty>
+
+    <button>
+      <pref-width>16</pref-width>
+      <pref-height>16</pref-height>
+      <legend></legend>
+      <keynum>27</keynum>
+      <border>2</border>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+  </group>
 
   <hrule><dummy/></hrule>
 
@@ -102,10 +121,6 @@
     </group>
   </group>
 
-  <text>
-    <label></label>
-  </text>
-
   <group>
     <layout>vbox</layout>
     <halign>center</halign>
@@ -122,6 +137,25 @@
     <text>
      <live>true</live>
      <property>/instrumentation/fuel/fuel-flow-gal_us_ph</property>
+     <color>
+      <red>0.2</red>
+      <green>0.8</green>
+      <blue>0.2</blue>
+     </color>
+    </text>
+
+    <text>
+     <label>Elapsed (hours)</label>
+     <color>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+     </color>
+    </text>
+
+    <text>
+     <live>true</live>
+     <property>/systems/engineer/navigation/elapsed-hours</property>
      <color>
       <red>0.2</red>
       <green>0.8</green>
@@ -231,10 +265,6 @@
       <green>0.8</green>
       <blue>0.2</blue>
      </color>
-    </text>
-
-    <text>
-     <label></label>
     </text>
 
     <text>
