@@ -24,27 +24,13 @@
  </animation>
 
  <animation>
-  <type>pick</type>
+  <type>knob</type>
   <object-name>TrimLever</object-name>
   <action>
-   <button>0</button>
-   <repeatable>true</repeatable>
    <binding>
     <command>property-adjust</command>
     <property>controls/flight/elevator-trim</property>
-    <step>0.003</step>
-    <min>0</min>
-    <max>1</max>
-    <wrap>0</wrap>
-   </binding>
-  </action>
-  <action>
-   <button>1</button>
-   <repeatable>true</repeatable>
-   <binding>
-    <command>property-adjust</command>
-    <property>controls/flight/elevator-trim</property>
-    <step>-0.003</step>
+    <factor>-0.003</factor>
     <min>0</min>
     <max>1</max>
     <wrap>0</wrap>
@@ -168,27 +154,13 @@
  </animation>
 
   <animation>
-   <type>pick</type>
+   <type>knob</type>
    <object-name>Throttle1</object-name>
    <action>
-    <button>0</button>
-    <repeatable>true</repeatable>
     <binding>
      <command>property-adjust</command>
      <property>controls/engines/engine[0]/throttle-manual</property>
-     <step>0.1</step>
-     <min>0</min>
-     <max>1</max>
-     <wrap>0</wrap>
-    </binding>
-   </action>
-   <action>
-    <button>1</button>
-    <repeatable>true</repeatable>
-    <binding>
-     <command>property-adjust</command>
-     <property>controls/engines/engine[0]/throttle-manual</property>
-     <step>-0.1</step>
+     <factor>-0.1</factor>
      <min>0</min>
      <max>1</max>
      <wrap>0</wrap>
@@ -197,27 +169,13 @@
   </animation>
 
   <animation>
-   <type>pick</type>
+   <type>knob</type>
    <object-name>Throttle2</object-name>
    <action>
-    <button>0</button>
-    <repeatable>true</repeatable>
     <binding>
      <command>property-adjust</command>
      <property>controls/engines/engine[1]/throttle-manual</property>
-     <step>0.1</step>
-     <min>0</min>
-     <max>1</max>
-     <wrap>0</wrap>
-    </binding>
-   </action>
-   <action>
-    <button>1</button>
-    <repeatable>true</repeatable>
-    <binding>
-     <command>property-adjust</command>
-     <property>controls/engines/engine[1]/throttle-manual</property>
-     <step>-0.1</step>
+     <factor>-0.1</factor>
      <min>0</min>
      <max>1</max>
      <wrap>0</wrap>
@@ -226,27 +184,13 @@
   </animation>
 
   <animation>
-   <type>pick</type>
+   <type>knob</type>
    <object-name>Throttle3</object-name>
    <action>
-    <button>0</button>
-    <repeatable>true</repeatable>
     <binding>
      <command>property-adjust</command>
      <property>controls/engines/engine[2]/throttle-manual</property>
-     <step>0.1</step>
-     <min>0</min>
-     <max>1</max>
-     <wrap>0</wrap>
-    </binding>
-   </action>
-   <action>
-    <button>1</button>
-    <repeatable>true</repeatable>
-    <binding>
-     <command>property-adjust</command>
-     <property>controls/engines/engine[2]/throttle-manual</property>
-     <step>-0.1</step>
+     <factor>-0.1</factor>
      <min>0</min>
      <max>1</max>
      <wrap>0</wrap>
@@ -255,27 +199,13 @@
   </animation>
 
   <animation>
-   <type>pick</type>
+   <type>knob</type>
    <object-name>Throttle4</object-name>
    <action>
-    <button>0</button>
-    <repeatable>true</repeatable>
     <binding>
      <command>property-adjust</command>
      <property>controls/engines/engine[3]/throttle-manual</property>
-     <step>0.1</step>
-     <min>0</min>
-     <max>1</max>
-     <wrap>0</wrap>
-    </binding>
-   </action>
-   <action>
-    <button>1</button>
-    <repeatable>true</repeatable>
-    <binding>
-     <command>property-adjust</command>
-     <property>controls/engines/engine[3]/throttle-manual</property>
-     <step>-0.1</step>
+     <factor>-0.1</factor>
      <min>0</min>
      <max>1</max>
      <wrap>0</wrap>
@@ -304,24 +234,21 @@
  </animation>
 
  <animation>
-  <type>pick</type>
+  <type>knob</type>
   <object-name>FlapLever</object-name>
-  <action>
-   <button>0</button>
-   <repeatable>true</repeatable>
+  <drag-direction>horizontal</drag-direction>
+  <increase>
    <binding>
     <command>nasal</command>
     <script>controls.flapsDown(1)</script>
    </binding>
-  </action>
-  <action>
-   <button>1</button>
-   <repeatable>true</repeatable>
+  </increase>
+  <decrease>
    <binding>
     <command>nasal</command>
     <script>controls.flapsDown(-1)</script>
    </binding>
-  </action>
+  </decrease>
  </animation>
 
 <!-- parking brake -->

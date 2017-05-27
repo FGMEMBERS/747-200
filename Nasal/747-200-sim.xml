@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
 
-<!-- sim initialization :
-
-     - makes correspond the angles, because JSBSim wants normalized value.
--->
+<!-- sim initialization -->
 
 <PropertyList include="747-200-views.xml">
 
+  <!-- makes correspond the angles, because JSBSim wants normalized value. -->
+    
   <flaps>
    <setting>0.000</setting>
    <setting>0.000</setting> <!-- Flaps  1: 66% slats only at this detent -->
@@ -17,7 +16,7 @@
    <setting>1.000</setting> <!-- Flaps 30: landing -->
   </flaps>
 
-<!-- B747-200, because property system refuses 747-200 -->
+  <!-- B747-200, because property system refuses 747-200 -->
 
   <gui>
    <dialogs>

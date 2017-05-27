@@ -152,6 +152,11 @@
     <dependency>
      <engineer>/systems/engineer</engineer>
      <engineer-ctrl>/controls/engineer</engineer-ctrl>
+     <filling>
+      <component>/systems/fuel/tanks</component>
+      <subcomponent>filling</subcomponent>
+     </filling>
+     <fuel>/systems/fuel/tanks/dialog</fuel>
      <human>/systems/human</human>
     </dependency>
 
@@ -163,6 +168,7 @@
      <freeze>/sim/freeze/master</freeze>
      <speed-up>/sim/speed-up</speed-up>
      <startup>/sim/startup/ysize</startup>
+     <state>/sim/aircraft-state</state>
     </noinstrument>
    </relations>
   </crew>
@@ -181,6 +187,7 @@
    <serviceable type="bool" archive="y">true</serviceable>
 
    <navigation>
+    <elapsed-hours type="double">0.0</elapsed-hours>
     <wp n="0">
      <fuel-gal_us type="double">-999.0</fuel-gal_us>                        <!-- estimated fuel -->
      <speed-fpm type="double">0.0</speed-fpm>                               <!-- to acquired altitude -->
@@ -201,6 +208,7 @@
      <fuel>/instrumentation/fuel</fuel>
      <ins>/instrumentation/ins</ins>
      <route-manager>/autopilot/route-manager</route-manager>
+     <time>/sim/time/elapsed-sec</time>
      <waypoint>
       <component>/autopilot/route-manager</component>
       <subcomponent>wp</subcomponent>

@@ -11,7 +11,7 @@
 Fuel = {};
 
 Fuel.new = func {
-   var obj = { parents : [Fuel,System],
+   var obj = { parents : [Fuel,System.new("/systems/fuel")],
 
                totalfuelinstrument : TotalFuel.new(),
                tanksystem : Tanks.new(),
@@ -25,8 +25,6 @@ Fuel.new = func {
 };
 
 Fuel.init = func {
-   me.inherit_system("/systems/fuel");
-
    me.tanksystem.presetfuel();
    me.savestate();
 }
@@ -273,7 +271,7 @@ Pump.transfertanks = func( idest, contentdestlb, isour, pumplb ) {
 TotalFuel = {};
 
 TotalFuel.new = func {
-   var obj = { parents : [TotalFuel,System],
+   var obj = { parents : [TotalFuel,System.new("/instrumentation/fuel")],
 
                STEPSEC : 1.0,                     # 3 s would be enough, but needs 1 s for kg/h
 
@@ -286,8 +284,6 @@ TotalFuel.new = func {
 };
 
 TotalFuel.init = func {
-   me.inherit_system("/instrumentation/fuel");
-
    me.nb_tanks = size(me.dependency["tank"]);
 }
 
@@ -297,7 +293,6 @@ TotalFuel.schedule = func {
    var stepgalus = 0.0;
    var fuelgaluspmin = 0.0;
    var fuelgalusph = 0.0;
-   var speedup = me.noinstrument["speed-up"].getValue();
 
    # last total
    var tanksgalus = me.itself["root"].getChild("total-gal_us").getValue();

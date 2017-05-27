@@ -11,7 +11,7 @@
 Inertial = {};
 
 Inertial.new = func {
-   var obj = { parents : [Inertial,System],
+   var obj = { parents : [Inertial,System.new("/instrumentation","ins")],
 
                last : nil,
                route : nil,
@@ -68,8 +68,6 @@ Inertial.new = func {
 };
 
 Inertial.init = func {
-   me.inherit_system("/instrumentation","ins");
-
    me.last = me.dependency["autopilot"].getChild("wp-last");
    me.waypoints = me.dependency["autopilot"].getChildren("wp");
 }
@@ -190,7 +188,7 @@ Inertial.display = func {
 
         # present track
         if( selector == me.SELECTORGROUND ) {
-            me.right = me.itself["root"][i].getNode("computed/ground-speed-fps").getValue() * constant.FPSTOKT;
+            me.right = me.itself["root"][i].getNode("computed/ground-speed-fps").getValue() * FPS2KT;
 
             if( me.right < me.GROUNDKT ) {
                 me.left = me.noinstrument["true"].getValue();
@@ -355,10 +353,10 @@ Inertial.track = func {
        if( me.waypoint != "" ) {
            me.trackdeg = me.noinstrument["track"].getValue();
            offsetdeg = me.trackdeg - me.bearingdeg;
-           offsetdeg = constant.crossnorth( offsetdeg );
+           offsetdeg = geo.normdeg180( offsetdeg );
 
            distancenm = me.waypoints[0].getChild("dist").getValue();
-           offsetrad = offsetdeg * constant.DEGTORAD;
+           offsetrad = offsetdeg * D2R;
            offsetnm = math.sin( offsetrad ) * distancenm;
 
            if( offsetnm > me.MAXXTKNM ) {

@@ -77,18 +77,11 @@ Constant.new = func {
 # length
                FEETTONM : 0.0001645788,
 
-# angle
-               DEGTORAD : 0.0174532925199,
-
 # time
                HOURTOMINUTE : 60,
                HOURTOSECOND : 3600.0,
                MINUTETOSECOND : 60.0,
                MINUTETODECIMAL : 0.01,
-
-# velocity
-               FPSTOKT : 0.592483801296,
-               MPSTOKT : 1.943844,
 
 # weight
                GALUSTOLB : 6.6,                        # 1 US gallon = 6.6 pound
@@ -102,29 +95,6 @@ Constant.new = func {
 
 Constant.init = func {
    me.LBTOGALUS = 1 / me.GALUSTOLB;
-}
-
-# north crossing
-Constant.crossnorth = func( offsetdeg ) {
-   if( offsetdeg > me.DEG180 ) {
-       offsetdeg = offsetdeg - me.DEG360;
-   }
-   elsif( offsetdeg < - me.DEG180 ) {
-       offsetdeg = offsetdeg + me.DEG360;
-   }
-
-   return offsetdeg;
-}
-
-Constant.truncatenorth = func( offsetdeg ) {
-   if( offsetdeg > me.DEG360 ) {
-       offsetdeg = offsetdeg - me.DEG360;
-   }
-   elsif( offsetdeg < 0 ) {
-       offsetdeg = offsetdeg + me.DEG360;
-   }
-
-   return offsetdeg;
 }
 
 Constant.nonil = func ( value ) {
@@ -144,7 +114,7 @@ Constant.nonil = func ( value ) {
 System = {};
 
 # not called by child classes !!!
-System.new = func {
+System.new = func( path, subpath = "" ) {
    var obj = { parents : [System],
 
                SYSSEC : 0.0,                               # to be defined !
@@ -160,22 +130,14 @@ System.new = func {
                noinstrument : {}
          };
 
+   obj.init( path, subpath );
+   
    return obj;
 };
 
-System.inherit_system = func( path, subpath = "" ) {
+System.init = func( path, subpath ) {
    var fullpath = path;
    var ctrlpath = "";
-
-   var obj = System.new();
-
-   me.SYSSEC = obj.SYSSEC;
-   me.ready = obj.ready;
-   me.RELOCATIONFT = obj.RELOCATIONFT;
-   me.altseaft = obj.altseaft;
-   me.dependency = obj.dependency;
-   me.itself = obj.itself;
-   me.noinstrument = obj.noinstrument;
 
 
    ctrlpath = string.replace(path,"systems","controls");

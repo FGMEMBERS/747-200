@@ -66,6 +66,40 @@
      <tank n="6"></tank>
     </filling>
 
+ <!-- Cruise FL 300 (51200 gal US)  -->
+
+    <filling n="3">
+     <comment>cruise</comment>
+     <tank n="0">
+      <level-gal_us>14000.0</level-gal_us>
+     </tank>
+     <tank n="1"></tank>
+     <tank n="2"></tank>
+     <tank n="3"></tank>
+     <tank n="4"></tank>
+     <tank n="5"></tank>
+     <tank n="6"></tank>
+    </filling>
+
+ <!-- Descent FL 380 (12100 gal US)  -->
+
+    <filling n="4">
+     <comment>descent</comment>
+     <tank n="0">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="1"></tank>
+     <tank n="2">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="3">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="4"></tank>
+     <tank n="5"></tank>
+     <tank n="6"></tank>
+    </filling>
+
 <!-- other -->
 
 </PropertyList>

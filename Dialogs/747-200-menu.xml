@@ -5,9 +5,28 @@
   <modal>false</modal>
   <layout>vbox</layout>
 
-  <text>
-    <label>747-200 menu</label>
-  </text>
+  <group>
+    <layout>hbox</layout>
+    
+    <empty><stretch>1</stretch></empty>
+
+    <text>
+      <label>747-200 menu</label>
+    </text>
+
+    <empty><stretch>1</stretch></empty>
+
+    <button>
+      <pref-width>16</pref-width>
+      <pref-height>16</pref-height>
+      <legend></legend>
+      <keynum>27</keynum>
+      <border>2</border>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+  </group>
 
   <hrule><dummy/></hrule>
 
@@ -140,7 +159,16 @@
   </text>
 
   <text>
-    <label>~  fields are saved on exit in aircraft-data</label>
+    <label>~  fields are saved on exit</label>
+    <color>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+    </color>
+  </text>
+
+  <text>
+    <label>(to reset, remove .fgfs/aircraft-data/747-200.xml)</label>
     <color>
       <red>0.5</red>
       <green>0.5</green>

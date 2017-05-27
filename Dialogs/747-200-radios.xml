@@ -16,6 +16,19 @@
   <label>747-200 Frequencies</label>
  </text>
 
+ <button>
+  <x>575</x>
+  <y>305</y>
+  <width>16</width>
+  <height>16</height>
+  <legend></legend>
+  <keynum>27</keynum>
+  <border>2</border>
+  <binding>
+   <command>dialog-close</command>
+  </binding>
+ </button>
+
  <!-- headers -->
  <group>
   <x>0</x>
@@ -436,7 +449,7 @@
 
  <group>
   <button>
-   <x>75</x>
+   <x>50</x>
    <y>10</y>
    <legend>Back</legend>
    <equal>true</equal>
@@ -451,22 +464,18 @@
   </button>
 
   <button>
-   <x>175</x>
+   <x>200</x>
    <y>10</y>
-   <legend>Close</legend>
-   <default>true</default>
+   <legend>Reset</legend>
    <equal>true</equal>
-   <key>Esc</key>
+   <key>r</key>
    <binding>
-    <command>dialog-apply</command>
-   </binding>
-   <binding>
-    <command>dialog-close</command>
+    <command>dialog-update</command>
    </binding>
   </button>
 
   <button>
-   <x>375</x>
+   <x>350</x>
    <y>10</y>
    <legend>Apply</legend>
    <equal>true</equal>
@@ -477,13 +486,17 @@
   </button>
 
   <button>
-   <x>475</x>
+   <x>500</x>
    <y>10</y>
-   <legend>Reset</legend>
+   <legend>Close</legend>
+   <default>true</default>
    <equal>true</equal>
-   <key>r</key>
+   <key>Esc</key>
    <binding>
-    <command>dialog-update</command>
+    <command>dialog-apply</command>
+   </binding>
+   <binding>
+    <command>dialog-close</command>
    </binding>
   </button>
 

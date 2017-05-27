@@ -2,7 +2,7 @@
 
 <!-- Initialize instrumentation  :
 
-     - WARNING : this file inherits from preferences.xml.
+     - WARNING : this file inherits from defaults.xml.
      - avoids nasal nil values or non-member error.
      - nasal instruments are also serviceable.
 

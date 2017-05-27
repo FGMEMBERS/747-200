@@ -5,7 +5,15 @@
  <sim include="Nasal/747-200-sim.xml">
   <description>Boeing 747-200</description>
   <status>early-production</status>
-  <aircraft-version>2.2</aircraft-version>
+  <aircraft-version>2.3</aircraft-version>
+  
+  <tags>
+   <tag>1970s</tag>
+   <tag>boeing</tag>
+   <tag>jet</tag>
+   <tag>retractable-gear</tag>
+   <tag>transport</tag>
+  </tags>
 
   <flight-model>jsb</flight-model>
   <aero>747-200</aero>
@@ -73,7 +81,18 @@
   <menubar include="Dialogs/747-200-menubar.xml"/>
 
   <help include="help.xml"/>
-
+  
+<!-- State options at command line.
+  
+     Must also call autopilot procedures.
+-->
+  
+  <state include="States/747-200-takeoff.xml" n="0"/>
+  <state include="States/747-200-cruise.xml" n="1"/>
+  <state include="States/747-200-descent.xml" n="2"/>
+  <state include="States/747-200-approach.xml" n="3"/>
+  <state include="States/747-200-landing.xml" n="4"/>
+  <state include="States/747-200-parking.xml" n="5"/>
  </sim>
 
  <aircraft>
@@ -93,6 +112,16 @@
  <consumables>
   <fuel include="Systems/747-200-init-fuel.xml"/>                  <!-- required by nasal -->
  </consumables>
+
+ <payload>
+  <weight>
+   <name type="string">Payload</name>
+   <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
+   <arm-in alias="/fdm/jsbsim/inertia/pointmass-location-X-inches[0]"/>
+   <min-lb type="double">0.0</min-lb>
+   <max-lb type="double">92270.0</max-lb>
+  </weight>
+ </payload>
 
  <limits include="Nasal/747-200-limits.xml"/>
 

@@ -11,7 +11,7 @@
 Flight = {};
 
 Flight.new = func {
-   var obj = { parents : [Flight,System],
+   var obj = { parents : [Flight,System.new("/systems/flight")],
 
                FLIGHTSEC : 1.0,              # refresh rate
 
@@ -28,7 +28,6 @@ Flight.new = func {
 };
 
 Flight.init = func {
-   me.inherit_system("/systems/flight");
 }
 
 Flight.schedule = func {
@@ -79,7 +78,7 @@ Flight.spoilersexport = func( step ) {
 DayTime = {};
 
 DayTime.new = func {
-   var obj = { parents : [DayTime,System],
+   var obj = { parents : [DayTime,System.new("/instrumentation/clock")],
 
                SPEEDUPSEC : 1.0,
 
@@ -95,8 +94,6 @@ DayTime.new = func {
 }
 
 DayTime.init = func {
-    me.inherit_system("/instrumentation/clock");
-
     var climbftpsec = me.CLIMBFTPMIN / constant.MINUTETOSECOND;
 
     me.MAXSTEPFT = climbftpsec * me.SPEEDUPSEC;
