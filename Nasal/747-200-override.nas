@@ -24,10 +24,25 @@ controls.flapsDown = func( step ) {
    override_flapsDown( step );
 }
 
+# 2018.2 introduces new "all" properties for throttle, mixture and prop pitch.
+# this is the correct way to interface with the axis based controls - use a listener
+# on the *-all property
 
+_setlistener("/controls/engines/throttle-all", func{
+    var position = (1 - getprop("/controls/engines/throttle-all")) / 2;
+
+    # throttle doesn't disturb autothrottle
+    if( getprop("/autopilot/locks/speed") == "" ) {
+        props.setAll("/controls/engines/engine", "throttle", position);
+    }
+
+    props.setAll("/controls/engines/engine", "throttle-manual", position);
+},0,0);
 # overrides the joystick axis handler to make inert the throttle animation with autothrottle
 override_throttleAxis = controls.throttleAxis;
 
+# backwards compatibility only - the controls.throttleAxis should not be overridden like this. The joystick binding Throttle (all) has 
+# been replaced and controls.throttleAxis will not be called from the controls binding
 controls.throttleAxis = func {
     var val = cmdarg().getNode("setting").getValue();
     if(size(arg) > 0) { val = -val; }
